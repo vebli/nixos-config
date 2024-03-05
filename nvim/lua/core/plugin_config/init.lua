@@ -4,7 +4,7 @@ local function fullPath(moduleName)
 end
 
 require(fullPath("treesitter"))
-require(fullPath("mason-lsp"))
+-- require(fullPath("mason-lsp"))
 require(fullPath("lsp"))
 require(fullPath("nvim-tree"))
 require(fullPath("telescope"))

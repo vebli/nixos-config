@@ -2,8 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
-
+{ config, pkgs, pkgs-unstable, ... }:
 {
     imports =
         [ # Include the results of the hardware scan.
@@ -109,8 +108,8 @@ services = {
 
 # List packages installed in system profile. To search, run:
 # $ nix search wget
-    environment.systemPackages = with pkgs; [
-#  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    environment.systemPackages =  
+    (with pkgs; [
     # HYPRLAND
         waybar 
         libnotify
@@ -119,6 +118,23 @@ services = {
         wofi
         rofi-wayland #like dmenu
         wl-clipboard
+        pavucontrol
+        mpc-cli
+    
+    # LSPS 
+        biome
+        cmake-language-server
+        nodePackages_latest.typescript-language-server
+        tailwindcss-language-server
+        nodePackages_latest.vls
+        lua-language-server
+        rnix-lsp
+        sqls
+
+
+
+
+
     # Terminal Tools
         wget
         git
@@ -127,11 +143,16 @@ services = {
         unzip
         cmake
         python3
+        libgcc
         gcc
         nodejs_21
         neofetch
         vim	
-        neovim
+        killall
+        clang-tools_9
+        sqlite
+    # Desktop applications
+
     # Browsers
         librewolf
 
@@ -142,7 +163,15 @@ services = {
         gnome3.gnome-shell-extensions
         #Fonts
         font-awesome
-    ];
+    ])
+    
+    ++
+
+    (with pkgs-unstable; [
+        neovim
+        dbeaver
+    ]);
+
     users.defaultUserShell = pkgs.zsh;
 
     programs = {

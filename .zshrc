@@ -29,6 +29,9 @@ alias cpwd='pwd | tr -d "\n" | xargs echo -n | xclip -selection clipboard'
 alias cmake_ecc='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..'
 alias nvimconf='nvim ~/.config/nvim/lua/core/init.lua'
 alias nvimbinds='nvim ~/.config/nvim/lua/core/keymaps.lua'
+alias nrs='sudo nixos-rebuild switch --flake /home/vebly/.dotfiles'
+alias hrs='home-manager switch --flake /home/vebly/.dotfiles'
+alias nconf='nvim /home/vebly/.dotfiles/configuration.nix'
 
 # Zoxide, also creates alias
 eval "$(zoxide init --cmd cd zsh)"
