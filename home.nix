@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{config, pkgs, pkgs-unstable, ... }:
 
 {
 # Home Manager needs a bit of information about you and the paths it should
@@ -63,22 +63,35 @@
 #  /etc/profiles/per-user/vebly/etc/profile.d/hm-session-vars.sh
 #
     home.sessionVariables = {
-# EDITOR = "emacs";
+        EDITOR = "nvim";
     };
-
-    # home.file."nvim".source = "git+https://github.com/SegfaultSorcery/nvim-config.git";
-    home.file.".zshrc".source = ./.zshrc;
-    home.file."nvim" = {
-        source = ./nvim;
-        target = ".config/nvim";
-    };
-    home.file."alacritty" = {
-        source = ./alacritty;
-        target = ".config/alacritty";
-    };
-    home.file."hypr" = {
-        source = ./hypr;
-        target = ".config/hypr";
+    home.file = {
+        ".zshrc".source = ./.zshrc;
+        "nvim" = {
+            source = ./nvim;
+            target = ".config/nvim";
+            recursive = true;
+        };
+        "alacritty" = {
+            source = ./alacritty;
+            target = ".config/alacritty";
+            recursive = true;
+        };
+        "hypr" = {
+            source = ./hypr;
+            target = ".config/hypr";
+            recursive = true;
+        };
+        "awesome" = {
+            source = /home/vebly/.dotfiles/awesome;
+            target = ".config/awesome";
+            recursive = true;
+        };
+        "tmux" = {
+            source = /home/vebly/.dotfiles/tmux;
+            target = ".config/.tmux";
+            recursive = true;
+        };
     };
 
 # Let Home Manager install and manage itself.

@@ -9,24 +9,26 @@
         ./hardware-configuration.nix
         ];
 
-  # Bootloader.
-  boot.loader.grub = {
-	enable = true; 
-	efiSupport = true;
-	devices = ["nodev"];
-	useOSProber = true;
-};
-  boot.loader.efi = {
-	canTouchEfiVariables = true;
-	efiSysMountPoint = "/boot/efi";
-};
+# Bootloader.
+    boot.loader.grub = {
+        enable = true; 
+        efiSupport = true;
+        devices = ["nodev"];
+        useOSProber = true;
+        theme = /boot/grub/themes/minegrub-world-selection;
+    };
+    boot.loader.efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi";
+    };
 
     networking.hostName = "nixos"; # Define your hostname.
-# networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
+    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
 # Configure network proxy if necessary
 # networking.proxy.default = "http://user:password@proxy:port/";
 # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
+# networking.interfaces.enp0s3.useDHCP = true;
 
 # Enable networking
     networking.networkmanager.enable = true;
@@ -38,38 +40,45 @@
     i18n.defaultLocale = "en_US.UTF-8";
 
     environment.sessionVariables = {
-        # If cursors become invisible
+# If cursors become invisible
         WLR_NO_HARDWARE_CURSORS = "1";
         NIXOS_OZONE_WL = "1";
     };
     hardware = {
-        # Opengl
+# Opengl
         opengl.enable = true;
-        # Most wayland compositors need this 
+# Most wayland compositors need this 
         nvidia.modesetting.enable = true;
     };
 # Desktop Portals
     xdg.portal.enable = true;
 
-services = {
-    xserver = {
-        enable = true;
-        displayManager = {
-            gdm = {
-                enable = true;
-                wayland = true;
+    services = {
+        xserver = {
+            enable = true;
+            displayManager = {
+            # gdm = {
+            #     enable = true;
+            #     wayland = true;
+            # };
+                sddm.enable = true;
+                sddm.wayland.enable = true;
+                defaultSession = "plasmawayland";
             };
-        };
+            windowManager.awesome = {
+                enable = true;
+                luaModules = with pkgs.luaPackages; [
+                    luarocks # is the package manager for Lua modules
+                    luadbi-mysql # Database abstraction layer
+                ];
+
+            };
+            desktopManager.plasma5.enable = true;
+            layout = "us";
+            xkbVariant = "";
 # Enable Gnome 
-        desktopManager.gnome.enable = true;
-    };
-};
-
-
-# Configure keymap in X11
-    services.xserver = {
-        layout = "us";
-        xkbVariant = "";
+            # desktopManager.gnome.enable = true;
+        };
     };
 
 # Enable CUPS to print documents.
@@ -106,71 +115,73 @@ services = {
         ];
     };
 
-# List packages installed in system profile. To search, run:
-# $ nix search wget
     environment.systemPackages =  
-    (with pkgs; [
-    # HYPRLAND
-        waybar 
-        libnotify
-        dunst
-        swww
-        wofi
-        rofi-wayland #like dmenu
-        wl-clipboard
-        pavucontrol
-        mpc-cli
-    
-    # LSPS 
-        biome
-        cmake-language-server
-        nodePackages_latest.typescript-language-server
-        tailwindcss-language-server
-        nodePackages_latest.vls
-        lua-language-server
-        rnix-lsp
-        sqls
+        (with pkgs; [
+        awesome
+# HYPRLAND
+         waybar 
+         libnotify
+         dunst
+         swww
+         wofi
+         rofi-wayland #like dmenu
+         wl-clipboard
+         pavucontrol
+         mpc-cli
+# X 
+         nitrogen
+         picom
+         dmenu
+# LSPS 
+         biome
+         cmake-language-server
+         nodePackages_latest.typescript-language-server
+         tailwindcss-language-server
+         nodePackages_latest.vls
+         lua-language-server
+         rnix-lsp
+         nodePackages_latest.volar
+         sqls
+         texlab
 
+# Terminal Tools
+         wget
+         git
+         zoxide
+         fzf
+         unzip
+         cmake
+         python3
+         libgcc
+         gcc
+         nodejs_21
+         neofetch
+         vim	
+         killall
+         clang-tools_9
+         sqlite
+# Desktop applications
+         zathura
+         librewolf
+         alacritty
+         gtk3
+         texliveTeTeX
+         texliveFull
+# gnome3.gnome-control-center
+# gnome3.gnome-tweaks
+# gnome3.gnome-shell-extensions
+#Fonts
+         font-awesome
+         ])
 
+         ++
 
-
-
-    # Terminal Tools
-        wget
-        git
-        zoxide
-        fzf
-        unzip
-        cmake
-        python3
-        libgcc
-        gcc
-        nodejs_21
-        neofetch
-        vim	
-        killall
-        clang-tools_9
-        sqlite
-    # Desktop applications
-
-    # Browsers
-        librewolf
-
-        alacritty
-        gtk3
-        gnome3.gnome-control-center
-        gnome3.gnome-tweaks
-        gnome3.gnome-shell-extensions
-        #Fonts
-        font-awesome
-    ])
-    
-    ++
-
-    (with pkgs-unstable; [
-        neovim
-        dbeaver
-    ]);
+         (with pkgs-unstable; [
+          neovim
+          dbeaver
+          tmux 
+# obsidian
+         ]);
 
     users.defaultUserShell = pkgs.zsh;
 
@@ -200,7 +211,7 @@ services = {
 # List services that you want to enable:
 
 # Enable the OpenSSH daemon.
-services.openssh.enable = true;
+    services.openssh.enable = true;
 
 # Open ports in the firewall.
 # networking.firewall.allowedTCPPorts = [ ... ];
