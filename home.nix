@@ -88,8 +88,18 @@
             recursive = true;
         };
         "tmux" = {
+            source = /home/vebly/.dotfiles/tmux.conf;
+            target = ".tmux.conf";
+            recursive = true;
+        };
+        "tmux-package-manager" = {
             source = /home/vebly/.dotfiles/tmux;
-            target = ".config/.tmux";
+            target = ".tmux";
+            recursive = true;
+        };
+        "polybar" = {
+            source = /home/vebly/.dotfiles/polybar;
+            target = ".config/polybar";
             recursive = true;
         };
     };

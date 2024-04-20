@@ -128,10 +128,12 @@
          wl-clipboard
          pavucontrol
          mpc-cli
-# X 
+# Xorg
          nitrogen
          picom
          dmenu
+         xclip
+         polybar
 # LSPS 
          biome
          cmake-language-server
@@ -160,6 +162,7 @@
          killall
          clang-tools_9
          sqlite
+         gnupg
 # Desktop applications
          zathura
          librewolf
