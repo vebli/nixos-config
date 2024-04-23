@@ -16,6 +16,11 @@ require'nvim-treesitter.configs'.setup {
         enable = true,
         additional_vim_regex_highlighting = false,
     },
+    font = {
+        enable = true, -- Enable setting the font
+        face = "FiraCode Nerd Font", -- Set the font face
+        -- Additional options for setting the font (see `:help nvim-treesitter`)
+    },
     textobjects = {
         select = {
             enable = true,

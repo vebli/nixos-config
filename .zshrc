@@ -20,7 +20,8 @@ autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-PS1="%n@ %~ %# "
+PS1="%F{#00ffff}%n@ %~ %F{#00ffff}%f "
+
 
 # Aliases
 alias zshconf="nvim ~/.zshrc"

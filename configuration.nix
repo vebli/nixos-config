@@ -7,6 +7,7 @@
     imports =
         [ # Include the results of the hardware scan.
         ./hardware-configuration.nix
+        ./hyprland.nix
         ];
 
 # Bootloader.
@@ -109,25 +110,11 @@
         isNormalUser = true;
         description = "vebly";
         extraGroups = [ "networkmanager" "wheel" ];
-        packages = with pkgs; [
-            firefox
-#  thunderbird
-        ];
     };
 
     environment.systemPackages =  
         (with pkgs; [
         awesome
-# HYPRLAND
-         waybar 
-         libnotify
-         dunst
-         swww
-         wofi
-         rofi-wayland #like dmenu
-         wl-clipboard
-         pavucontrol
-         mpc-cli
 # Xorg
          nitrogen
          picom
@@ -167,14 +154,18 @@
          zathura
          librewolf
          alacritty
+         kitty
          gtk3
          texliveTeTeX
          texliveFull
+         acpi
 # gnome3.gnome-control-center
 # gnome3.gnome-tweaks
 # gnome3.gnome-shell-extensions
 #Fonts
          font-awesome
+         siji
+         nerdfonts
          ])
 
          ++
@@ -189,11 +180,6 @@
     users.defaultUserShell = pkgs.zsh;
 
     programs = {
-        hyprland = {
-            enable = true;
-            enableNvidiaPatches = true;
-            xwayland.enable = true;
-        };
         zsh = {
             enable = true;
             autosuggestions.enable = true;

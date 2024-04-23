@@ -102,6 +102,11 @@
             target = ".config/polybar";
             recursive = true;
         };
+        "kitty" = {
+            source = /home/vebly/.dotfiles/kitty;
+            target = ".config/kitty";
+            recursive = true;
+        };
     };
 
 # Let Home Manager install and manage itself.
