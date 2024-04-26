@@ -119,7 +119,6 @@ lspconfig.jsonls.setup {
 }
 lspconfig.cmake.setup {
     capabilities = capabilities,
-    cmd = { "/home/vebly/.local/share/nvim/mason/packages/cmake-language-server/venv/bin/cmake-language-server" },
 }
 lspconfig.docker_compose_language_service.setup{
     capabilities = capabilities

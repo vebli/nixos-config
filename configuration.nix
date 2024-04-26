@@ -128,7 +128,6 @@
          tailwindcss-language-server
          nodePackages_latest.vls
          lua-language-server
-         rnix-lsp
          nodePackages_latest.volar
          sqls
          texlab
@@ -139,15 +138,15 @@
          zoxide
          fzf
          unzip
+         gnumake
          cmake
          python3
          libgcc
          gcc
          nodejs_21
-         neofetch
          vim	
          killall
-         clang-tools_9
+         clang-tools_17
          sqlite
          gnupg
 # Desktop applications
@@ -172,6 +171,7 @@
 
          (with pkgs-unstable; [
           neovim
+          rnix-lsp
           dbeaver
           tmux 
 # obsidian
