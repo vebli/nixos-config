@@ -20,8 +20,6 @@
     home.stateVersion = "23.11"; # Please read the comment before changing.
 
         home.packages = with pkgs-unstable; [
-        # kitty
-        
         ];
 
     home.sessionVariables = {
@@ -31,11 +29,6 @@
     #     "zshrc" = {
     #         source = ./zshrc;
     #         target = "./.zshrc";
-    #         recursive = true;
-    #     };
-    #     "nvim" = {
-    #         source = ./nvim;
-    #         target = ".config/nvim";
     #         recursive = true;
     #     };
     #     "alacritty" = {

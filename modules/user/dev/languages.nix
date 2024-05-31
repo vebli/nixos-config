@@ -7,6 +7,8 @@
         gcc
         clang-tools_17
         cmake-language-server
+        #Arduino
+        arduino-language-server
 
         # Javascript
         nodejs_21
@@ -26,6 +28,7 @@
 
         #Rust
         rustup
+        vscode-extensions.rust-lang.rust-analyzer
 
         #python
         python3

@@ -8,7 +8,6 @@
         fzf
         zoxide
         unzip
-        neovim
         tmux
         tmuxifier
     ];

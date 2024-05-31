@@ -114,9 +114,6 @@ lspconfig.tailwindcss.setup{
 lspconfig.volar.setup{
     capabilities = capabilities
 }
-lspconfig.jsonls.setup {
-    capabilities = capabilities
-}
 lspconfig.cmake.setup {
     capabilities = capabilities,
 }
@@ -131,4 +128,5 @@ lspconfig.rust_analyzer.setup{
 }
 lspconfig.arduino_language_server.setup{
     capabilities = capabilities,
-    root_dir = function() return vim.fn.getcwd() end, }
+    -- root_dir = function() return vim.fn.getcwd() end, 
+}

@@ -22,7 +22,6 @@ opt.smartcase = true
 opt.mouse = "a"
 
 -- Spell Correction
--- guten Tag
 
 vim.o.spell = true
 vim.o.spelllang = "en,de"

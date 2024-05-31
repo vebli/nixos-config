@@ -16,28 +16,29 @@
         ../../user/wm/awesome/awesome.nix 
     ];
 
-# want to update the value, then make sure to first check the Home Manager release notes.
-    home.stateVersion = "23.11"; # Please read the comment before changing.
+    home.stateVersion = "23.11"; 
 
-        home.packages = with pkgs-unstable; [
-        # kitty
-        
-        ];
+    home.packages = with pkgs; [
+        librewolf
+        obsidian
+        dbeaver
+        octaveFull
+        emacs
+        emacs-all-the-icons-fonts
+        emacsPackages.fontawesome
+        emacsPackages.unicode-fonts
+    ];
+
+    programs.git = {
+        enable = true;
+        userName = "vebly";
+        userEmail = "";
+    };
+
 
     home.sessionVariables = {
         EDITOR = "nvim";
     };
-    # home.file = {
-    #     "zshrc" = {
-    #         source = ./zshrc;
-    #         target = "./.zshrc";
-    #         recursive = true;
-    #     };
-    #     "nvim" = {
-    #         source = ./nvim;
-    #         target = ".config/nvim";
-    #         recursive = true;
-    #     };
     #     "alacritty" = {
     #         source = ./alacritty;
     #         target = ".config/alacritty";
@@ -48,34 +49,9 @@
     #         target = ".config/hypr";
     #         recursive = true;
     #     };
-    #     "awesome" = {
-    #         source = /home/vebly/.dotfiles/awesomeWM;
-    #         target = ".config/awesome";
-    #         recursive = true;
-    #     };
-    #     "tmux" = {
-    #         source = /home/vebly/.dotfiles/tmux.conf;
-    #         target = ".tmux.conf";
-    #         recursive = true;
-    #     };
-    #     "tmux-package-manager" = {
-    #         source = /home/vebly/.dotfiles/tmux;
-    #         target = ".tmux";
-    #         recursive = true;
-    #     };
     #     "polybar" = {
     #         source = /home/vebly/.dotfiles/polybar;
     #         target = ".config/polybar";
-    #         recursive = true;
-    #     };
-    #     "kitty" = {
-    #         source = /home/vebly/.dotfiles/kitty;
-    #         target = ".config/kitty";
-    #         recursive = true;
-    #     };
-    #     "rofi" = {
-    #         source = /home/vebly/.dotfiles/rofi;
-    #         target = ".config/rofi";
     #         recursive = true;
     #     };
     # };
