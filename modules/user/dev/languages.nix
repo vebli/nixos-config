@@ -11,7 +11,7 @@
         arduino-language-server
 
         # Javascript
-        nodejs_21
+        nodejs_22
         via
         biome
         nodePackages_latest.typescript-language-server
@@ -24,7 +24,7 @@
         sqls
 
         #Nix
-        rnix-lsp
+        nil
 
         #Rust
         rustup
@@ -34,6 +34,7 @@
         python3
 
         #Lua
+        lua
         lua-language-server
 
     ];

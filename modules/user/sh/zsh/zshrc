@@ -24,13 +24,8 @@ alias cpwd='pwd | tr -d "\n" | xargs echo -n | xclip -selection clipboard'
 alias cmake_ecc='cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ..'
 alias nvimconf='nvim ~/.config/nvim/lua/core/init.lua'
 alias nvimbinds='nvim ~/.config/nvim/lua/core/keymaps.lua'
-alias nrs='sudo nixos-rebuild switch --flake /home/vebly/.dotfiles'
-alias hrs='home-manager switch --flake /home/vebly/.dotfiles'
+alias hrs='home-manager switch --flake /home/vebly/nixconf'
 alias nconf='nvim /home/vebly/.dotfiles/configuration.nix'
 #tmuxifier
 eval "$(tmuxifier init -)"
 eval "$(zoxide init --cmd cd zsh)" #ZOXIDE alias
-# Completions
-fpath+=/home/vebly/.dotfiles/zsh/completions
-#PATH
-path+=('/home/vebly/.dotfiles/bin')

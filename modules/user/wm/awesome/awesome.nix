@@ -16,5 +16,6 @@
         picom
         xclip
         acpi
+        brightnessctl
     ];
 }

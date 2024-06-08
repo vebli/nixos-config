@@ -16,12 +16,13 @@
         ../../user/wm/awesome/awesome.nix 
     ];
 
-    home.stateVersion = "23.11"; 
+    home.stateVersion = "24.05"; 
 
     home.packages = with pkgs; [
         librewolf
+        freetube
         obsidian
-        dbeaver
+        dbeaver-bin
         octaveFull
         emacs
         emacs-all-the-icons-fonts

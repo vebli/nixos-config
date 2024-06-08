@@ -37,3 +37,5 @@ nmap('<leader>db', ':lua require("dap").toggle_breakpoint()<CR>')
 nmap('<leader>dc', ':lua require("dap").continue()<CR>')
 nmap('<leader>ds', ':lua require("dap").step_over()<CR>')
 
+-- Oil
+nmap('-', '<CMD>Oil<CR>')
