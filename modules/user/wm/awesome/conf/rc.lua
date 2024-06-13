@@ -531,6 +531,12 @@ globalkeys = mytable.join(
         end,
         {description = "rofi launcher", group = "launcher"}),
 
+    awful.key({ modkey }, "p", function ()
+            os.execute("/home/vebly/.config/rofi/scripts/powermenu_t1")
+        end,
+        {description = "rofi powermenu", group = "launcher"}),
+
+
     -- Default
     --[[ Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,

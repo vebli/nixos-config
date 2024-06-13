@@ -3,6 +3,7 @@
     home.packages = with pkgs; [
         # C/C++
         libgcc  
+        gnumake
         cmake 
         gcc
         clang-tools_17

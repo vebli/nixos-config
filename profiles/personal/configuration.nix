@@ -3,9 +3,9 @@
     imports =
         [ 
         ./hardware-configuration.nix
-        ../../system/desktop_env/plasma5.nix
-        ../../system/hardware/grub.nix
-        ../../system/hardware/pipewire.nix
+        ../../modules/system/desktop_env/plasma5.nix
+        ../../modules/system/hardware/grub.nix
+        ../../modules/system/hardware/pipewire.nix
         ];
 
     networking.hostName = "nixos"; # Define your hostname.
@@ -54,25 +54,20 @@
         extraGroups = [ "networkmanager" "wheel" ];
     };
 
-    environment.systemPackages =  
-        (with pkgs; [
+    environment.systemPackages =  with pkgs; [
         awesome
         git
         wget
         acpi
         gtk3
         alacritty
+    ];
 
-    #Fonts
+    fonts.packages = with pkgs;[
         font-awesome
         siji
         nerdfonts
-         ])
-         ++
-         (with pkgs-unstable; [
-
-         ]);
-
+    ];
     users.defaultUserShell = pkgs.zsh;
 
     programs = {

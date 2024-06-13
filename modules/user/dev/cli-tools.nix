@@ -10,5 +10,6 @@
         unzip
         tmux
         tmuxifier
+        tree
     ];
 }

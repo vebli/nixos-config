@@ -1,5 +1,5 @@
 {
-	description = "My first flake!";
+	description = "Nix Configuration";
 
 	inputs = {
 		nixpkgs.url = "nixpkgs/nixos-24.05";
@@ -24,40 +24,27 @@
         system = "x86_64-linux";
         pkgs = mkPkgs nixpkgs system;
         pkgs-unstable = mkPkgs nixpkgs-unstable system;
+        fn = import ./modules/flake/utils {inherit lib;};
 
 	in {
 		nixosConfigurations = {
 			nixos = lib.nixosSystem {
                 inherit system;
-				modules = [./modules/profiles/personal/configuration.nix];
+				modules = [./profiles/personal/configuration.nix];
                 specialArgs = {
                     inherit pkgs-unstable;
                     inherit pkgs;
+                    inherit fn;
                 };
 			};
-		#
-		# 	development = lib.nixosSystem {
-  #               inherit system;
-		# 		modules = [./modules/profiles/development/configuration.nix];
-  #               specialArgs = {
-  #                   inherit pkgs-unstable;
-  #               };
-		# 	};
-		#
-		# 	rpi-server = lib.nixosSystem {
-  #               inherit system;
-		# 		modules = [./modules/profiles/rpi-server/configuration.nix];
-  #               specialArgs = {
-  #                   inherit pkgs-unstable;
-  #               };
-		# 	};
 		};
         homeConfigurations = {
 			vebly = home-manager.lib.homeManagerConfiguration {
                 inherit pkgs;
-				modules = [./modules/profiles/personal/home.nix];
+				modules = [./profiles/personal/home.nix];
                 extraSpecialArgs = {
                     inherit pkgs-unstable;
+                    inherit fn;
                 };
 			};
         };
