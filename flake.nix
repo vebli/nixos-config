@@ -6,9 +6,15 @@
         nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
         home-manager.url = "github:nix-community/home-manager/release-24.05";
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+        nvim = { 
+            url = "github:SegfaultSorcery/nvim-flake"; 
+            inputs.home-manager.follows = "home-manager";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
 	};
 
-	outputs = {self, nixpkgs, home-manager, nixpkgs-unstable, ...}: 
+	outputs = {self, nixpkgs, home-manager, nixpkgs-unstable, nvim, ...}: 
 	let
         mkPkgs = pkgs: system: import pkgs{
                 inherit system;
@@ -45,6 +51,7 @@
                 extraSpecialArgs = {
                     inherit pkgs-unstable;
                     inherit fn;
+                    inherit nvim;
                 };
 			};
         };

@@ -51,11 +51,32 @@
         "type": "indirect"
       }
     },
+    "nvim": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1718391697,
+        "narHash": "sha256-W9iS1BZz+qfQzsXGj71iIFVer+9W7nurf0kNmOStch8=",
+        "owner": "SegfaultSorcery",
+        "repo": "nvim-flake",
+        "rev": "fda4c36b4104217f7b786e4e39e81dd660ececa4",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SegfaultSorcery",
+        "repo": "nvim-flake",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-unstable": "nixpkgs-unstable"
+        "nixpkgs-unstable": "nixpkgs-unstable",
+        "nvim": "nvim"
       }
     }
   },

@@ -7,6 +7,7 @@
         cmake 
         gcc
         clang-tools_17
+        gdb
         cmake-language-server
         #Arduino
         arduino-language-server
