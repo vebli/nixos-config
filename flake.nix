@@ -9,7 +9,6 @@
 
         nvim = { 
             url = "github:SegfaultSorcery/nvim-flake"; 
-            inputs.home-manager.follows = "home-manager";
             inputs.nixpkgs.follows = "nixpkgs";
         };
 	};
@@ -18,11 +17,10 @@
 	let
         mkPkgs = pkgs: system: import pkgs{
                 inherit system;
-                config = {allowUnfree = true; permittedInsecurePackages = 
-                [ 
-                "nix-2.15.3" 
-                "electron-25.9.0"
-                ];};
+                config = {
+                    allowUnfree = true; 
+                    permittedInsecurePackages = [ ];
+                };
                 overlays = [];
             };
 
@@ -47,7 +45,10 @@
         homeConfigurations = {
 			vebly = home-manager.lib.homeManagerConfiguration {
                 inherit pkgs;
-				modules = [./profiles/personal/home.nix];
+				modules = [
+                    ./profiles/personal/home.nix
+                    nvim.homeManagerModule
+				];
                 extraSpecialArgs = {
                     inherit pkgs-unstable;
                     inherit fn;
