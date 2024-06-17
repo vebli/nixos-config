@@ -6,11 +6,10 @@
         killall
         gnupg
         unzip
-        tmux
-        tmuxifier
         tree
         nix-index
         ripgrep
+        trashy
     ];
     programs = {
         eza.enable = true;
