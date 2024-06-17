@@ -13,7 +13,7 @@
         };
 	};
 
-	outputs = {self, nixpkgs, home-manager, nixpkgs-unstable, nvim, ...}: 
+	outputs = inputs @ {self, nixpkgs, home-manager, nixpkgs-unstable, ...}: 
 	let
         mkPkgs = pkgs: system: import pkgs{
                 inherit system;
@@ -29,6 +29,7 @@
         pkgs = mkPkgs nixpkgs system;
         pkgs-unstable = mkPkgs nixpkgs-unstable system;
         fn = import ./modules/flake/utils {inherit lib;};
+        
 
 	in {
 		nixosConfigurations = {
@@ -36,9 +37,7 @@
                 inherit system;
 				modules = [./profiles/personal/configuration.nix];
                 specialArgs = {
-                    inherit pkgs-unstable;
-                    inherit pkgs;
-                    inherit fn;
+                    inherit pkgs-unstable pkgs fn;
                 };
 			};
 		};
@@ -47,12 +46,10 @@
                 inherit pkgs;
 				modules = [
                     ./profiles/personal/home.nix
-                    nvim.homeManagerModule
+                    inputs.nvim.homeManagerModule
 				];
                 extraSpecialArgs = {
-                    inherit pkgs-unstable;
-                    inherit fn;
-                    inherit nvim;
+                    inherit pkgs-unstable pkgs fn;
                 };
 			};
         };

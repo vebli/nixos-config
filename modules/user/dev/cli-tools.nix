@@ -5,11 +5,17 @@
         wget
         killall
         gnupg
-        fzf
-        zoxide
         unzip
         tmux
         tmuxifier
         tree
+        nix-index
+        ripgrep
     ];
+    programs = {
+        eza.enable = true;
+        fzf. enable = true;
+        zoxide.enable = true;
+    };
+
 }

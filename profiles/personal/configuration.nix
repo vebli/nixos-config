@@ -55,6 +55,7 @@
     };
 
     environment.systemPackages =  with pkgs; [
+        pkg-config
         awesome
         git
         wget

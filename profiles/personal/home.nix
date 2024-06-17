@@ -18,6 +18,7 @@ in
     home.stateVersion = "24.05"; 
 
     home.packages = with pkgs; [
+        discord
         arandr
         librewolf
         freetube
