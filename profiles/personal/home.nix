@@ -2,7 +2,7 @@
 let 
     imports = fn.imports[ 
         ../../modules/user/dev
-        ../../modules/user/apps/tmux/tmux.nix 
+        ../../modules/user/apps/tmux.nix 
         ../../modules/user/apps/kitty.nix 
         ../../modules/user/sh/zsh/zsh.nix
         ../../modules/user/apps/latex.nix 
