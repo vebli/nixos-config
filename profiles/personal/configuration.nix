@@ -3,7 +3,7 @@
     imports =
         [ 
         ./hardware-configuration.nix
-        ../../modules/system/desktop_env/plasma5.nix
+        ../../modules/system/desktop_env/plasma.nix
         ../../modules/system/hardware/grub.nix
         ../../modules/system/hardware/pipewire.nix
         ];
