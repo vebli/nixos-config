@@ -11,9 +11,13 @@
             url = "github:SegfaultSorcery/nvim-flake"; 
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        minimal-tmux = {
+            url = "github:niksingh710/minimal-tmux-status";
+            inputs.nixpkgs.follows = "nixpkgs";
+        };
 	};
 
-	outputs = inputs @ {self, nixpkgs, home-manager, nixpkgs-unstable, ...}: 
+	outputs = inputs @ {self, nixpkgs, home-manager, nixpkgs-unstable,minimal-tmux, ...}: 
 	let
         mkPkgs = pkgs: system: import pkgs{
                 inherit system;
@@ -49,7 +53,7 @@
                     inputs.nvim.homeManagerModule
 				];
                 extraSpecialArgs = {
-                    inherit pkgs-unstable pkgs fn;
+                    inherit pkgs-unstable pkgs fn minimal-tmux;
                 };
 			};
         };
