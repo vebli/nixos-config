@@ -6,7 +6,7 @@ let
         ../../modules/user/apps/kitty.nix 
         ../../modules/user/sh/zsh/zsh.nix
         ../../modules/user/apps/latex.nix 
-        ../../modules/user/wm/awesome/awesome.nix 
+        ../../modules/user/wm/awesome.nix 
     ];
 in 
 {
