@@ -2,11 +2,10 @@
 	description = "Nix Configuration";
 
 	inputs = {
-		nixpkgs.url = "nixpkgs/nixos-24.05";
+	nixpkgs.url = "nixpkgs/nixos-24.05";
         nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
         home-manager.url = "github:nix-community/home-manager/release-24.05";
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
         nvim = { 
             url = "github:SegfaultSorcery/nvim-flake"; 
             inputs.nixpkgs.follows = "nixpkgs";
@@ -33,23 +32,31 @@
         pkgs = mkPkgs nixpkgs system;
         pkgs-unstable = mkPkgs nixpkgs-unstable system;
         fn = import ./modules/flake/utils {inherit lib;};
-        
+        specialArgs = {inherit pkgs pkgs-unstable fn;};
 
 	in {
 		nixosConfigurations = {
-			nixos = lib.nixosSystem {
+			thinkpad = lib.nixosSystem {
                 inherit system;
-				modules = [./profiles/personal/configuration.nix];
-                specialArgs = {
-                    inherit pkgs-unstable pkgs fn;
-                };
+				modules = [./systems/thinkpad];
+                inherit specialArgs;
+			};
+			hp = lib.nixosSystem {
+                inherit system;
+				modules = [./systems/hp];
+                inherit specialArgs;
+			};
+			wsl = lib.nixosSystem {
+                inherit system;
+				modules = [./systems/thinkpad];
+                inherit specialArgs;
 			};
 		};
         homeConfigurations = {
 			vebly = home-manager.lib.homeManagerConfiguration {
                 inherit pkgs;
 				modules = [
-                    ./profiles/personal/home.nix
+                    ./users/vebly
                     inputs.nvim.homeManagerModule
 				];
                 extraSpecialArgs = {

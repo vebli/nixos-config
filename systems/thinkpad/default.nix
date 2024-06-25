@@ -3,8 +3,9 @@
     imports =
         [ 
         ./hardware-configuration.nix
-        ../../system/hardware/grub.nix
-        ../../system/hardware/pipewire.nix
+        ../../modules/system/desktop_env/plasma.nix
+        ../../modules/system/hardware/grub.nix
+        ../../modules/system/hardware/pipewire.nix
         ];
 
     networking.hostName = "nixos"; # Define your hostname.
@@ -15,13 +16,8 @@
 # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 # networking.interfaces.enp0s3.useDHCP = true;
 
-# Enable networking
     networking.networkmanager.enable = true;
-
-# Set your time zone.
     time.timeZone = "Europe/Zurich";
-
-# Select internationalisation properties.
     i18n.defaultLocale = "en_US.UTF-8";
 
     environment.sessionVariables = {
@@ -30,48 +26,26 @@
         NIXOS_OZONE_WL = "1";
     };
     hardware = {
-# Opengl
         opengl.enable = true;
-# Most wayland compositors need this 
-        nvidia.modesetting.enable = true;
+        nvidia.modesetting.enable = true; # Most wayland compositors need this 
     };
-# Desktop Portals
+
     xdg.portal.enable = true;
-
-    services = {
-        xserver = {
-            enable = true;
-            displayManager = {
-            # gdm = {
-            #     enable = true;
-            #     wayland = true;
-            # };
-                sddm.enable = true;
-                sddm.wayland.enable = true;
-                defaultSession = "plasmawayland";
-            };
-            windowManager.awesome = {
-                enable = true;
-                luaModules = with pkgs.luaPackages; [
-                    luarocks # is the package manager for Lua modules
-                    luadbi-mysql # Database abstraction layer
-                ];
-
-            };
-            desktopManager.plasma5.enable = true;
+    services.xserver = {
             layout = "us";
             xkbVariant = "";
-# Enable Gnome 
-            # desktopManager.gnome.enable = true;
-        };
+    };
+
+    services.xserver.windowManager.awesome = {
+        enable = true;
+        luaModules = with pkgs.luaPackages; [
+            luarocks # is the package manager for Lua modules
+                luadbi-mysql # Database abstraction layer
+        ];
     };
 
 # Enable CUPS to print documents.
     services.printing.enable = true;
-
-
-# Enable touchpad support (enabled default in most desktopManager).
-# services.xserver.libinput.enable = true;
 
 # Define a user account. Don't forget to set a password with ‘passwd’.
     users.users.vebly = {
@@ -80,40 +54,21 @@
         extraGroups = [ "networkmanager" "wheel" ];
     };
 
-    environment.systemPackages =  
-        (with pkgs; [
+    environment.systemPackages =  with pkgs; [
+        pkg-config
         awesome
+        git
+        wget
+        acpi
+        gtk3
+        alacritty
+    ];
 
-# Terminal Tools
-# Desktop applications
-         librewolf
-         alacritty
-         gtk3
-         acpi
-         octaveFull
-# gnome3.gnome-control-center
-# gnome3.gnome-tweaks
-# gnome3.gnome-shell-extensions
-#Fonts
-         font-awesome
-         siji
-         nerdfonts
-         ])
-
-         ++
-
-         (with pkgs-unstable; [
-         emacs
-         emacs-all-the-icons-fonts
-         emacsPackages.fontawesome
-         emacsPackages.unicode-fonts
-         neovim
-         dbeaver-bin
-         tmux 
-         tmuxifier
-         obsidian
-         ]);
-
+    fonts.packages = with pkgs;[
+        font-awesome
+        siji
+        nerdfonts
+    ];
     users.defaultUserShell = pkgs.zsh;
 
     programs = {
@@ -145,7 +100,7 @@
 # Or disable the firewall altogether.
 # networking.firewall.enable = false;
 
-    system.stateVersion = "23.11"; 
+    system.stateVersion = "24.05"; 
         nix.settings.experimental-features = ["nix-command" "flakes"];
 
 }

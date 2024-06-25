@@ -12,7 +12,7 @@
             prezto.tmux.autoStartLocal = true;
             shellAliases = {
                 "cpwd" = "pwd | tr -d \"\n\" | xargs echo -n | xclip -selection clipboard";
-                "hrs" = "home-manager switch --flake /home/vebly/nixconf";
+                "hrs" = "home-manager switch --flake /home/vebly/nixos-config";
                 "ls" = "exa --icons";
             };
             initExtra = ''

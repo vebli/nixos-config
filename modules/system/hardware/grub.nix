@@ -6,7 +6,7 @@
         efiSupport = true;
         devices = ["nodev"];
         useOSProber = true;
-        theme = /boot/grub/themes/minegrub-world-selection;
+        #theme = /boot/grub/themes/minegrub-world-selection;
     };
     boot.loader.efi = {
         canTouchEfiVariables = true;
