@@ -48,11 +48,20 @@
     services.printing.enable = true;
 
 # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users.vebly = {
-        isNormalUser = true;
-        description = "vebly";
-        extraGroups = [ "networkmanager" "wheel" ];
+    users.users = {
+        vebly = {
+            isNormalUser = true;
+            description = "vebly";
+            extraGroups = [ "networkmanager" "wheel" ];
+            initialPassword = "123";
+        };
+        klee = {
+            isNormalUser = true;
+            extraGroups = [];
+            initialPassword = "123";
+        };
     };
+
 
     environment.systemPackages =  with pkgs; [
         pkg-config
@@ -62,6 +71,7 @@
         acpi
         gtk3
         alacritty
+        home-manager
     ];
 
     fonts.packages = with pkgs;[

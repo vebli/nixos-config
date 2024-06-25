@@ -78,11 +78,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1719301171,
-        "narHash": "sha256-uXoSPhOxaoVqLVbYABkcaxB33zelEgjN9IYc63yE/Gg=",
+        "lastModified": 1719324190,
+        "narHash": "sha256-PpkRAJcRxn9229AUFmxQ3TPW/8aBNpgbWX90wJhjTTs=",
         "owner": "SegfaultSorcery",
         "repo": "nvim-flake",
-        "rev": "0de02306626fa798ae35c386b80d1abb61aa23cc",
+        "rev": "cbafa39d13501d1498a5fe45a724f09b010c1d6b",
         "type": "github"
       },
       "original": {
