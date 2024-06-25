@@ -63,6 +63,17 @@
                     inherit pkgs-unstable pkgs fn minimal-tmux;
                 };
 			};
+			klee = home-manager.lib.homeManagerConfiguration {
+                inherit pkgs;
+				modules = [
+                    ./users/klee
+                    inputs.nvim.homeManagerModule
+				];
+                extraSpecialArgs = {
+                    inherit pkgs-unstable pkgs fn minimal-tmux;
+                };
+			};
+            
         };
 	};
 }

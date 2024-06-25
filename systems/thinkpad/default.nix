@@ -52,12 +52,12 @@
         vebly = {
             isNormalUser = true;
             description = "vebly";
-            extraGroups = [ "networkmanager" "wheel" ];
+            extraGroups = [ "networkmanager" "wheel" "users"];
             initialPassword = "123";
         };
         klee = {
             isNormalUser = true;
-            extraGroups = [];
+            extraGroups = ["users"];
             initialPassword = "123";
         };
     };
