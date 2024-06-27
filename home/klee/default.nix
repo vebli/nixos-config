@@ -5,30 +5,29 @@
         extraGroups = ["networkmanager"];
         initialPassword = "123";
     };
-    home-manager = let 
-        imports = fn.imports[ 
-        nvim.homeManagerModule
-        ../../modules/user/apps/librewolf.nix
-        ../../modules/user/sh/zsh/zsh.nix
-        ];
-    in 
+    home-manager = 
     {
-        inherit imports;
-        home.username = "klee";
-        home.homeDirectory = "/home/klee";
+        users.klee = {
+            imports = [
+                ../../modules/user/sh/zsh/zsh.nix
+                ../../modules/user/apps/librewolf.nix
+            ];
+            home.username = "klee";
+            home.homeDirectory = "/home/klee";
 
 
-        home.stateVersion = "24.05"; 
+            home.stateVersion = "24.05"; 
 
-        home.packages = with pkgs; [
-            freetube
-            obsidian
-        ];
+            home.packages = with pkgs; [
+                freetube
+                obsidian
+            ];
 
-        home.sessionVariables = {
-            EDITOR = "nvim";
-        };
+            home.sessionVariables = {
+                EDITOR = "nvim";
+            };
 # Let Home Manager install and manage itself.
-        programs.home-manager.enable = true;
+            programs.home-manager.enable = true;
+        };
     };
 }

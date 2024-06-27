@@ -5,7 +5,7 @@
         ./hardware-configuration.nix
         nixos-hardware.nixosModules.lenovo-thinkpad-t480
         ../../home/vebly
-        # ../../home/klee
+        ../../home/klee
         ../../modules/system/desktop_env/plasma.nix
         ../../modules/system/hardware/grub.nix
         ../../modules/system/hardware/pipewire.nix
