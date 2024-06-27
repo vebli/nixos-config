@@ -33,9 +33,9 @@
     };
 
     xdg.portal.enable = true;
-    services.xserver = {
+    services.xserver.xkb = {
             layout = "us, ch";
-            xkbVariant = "";
+            variant = "";
     };
 
     services.xserver.windowManager.awesome = {
