@@ -6,6 +6,7 @@
         nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
         home-manager.url = "github:nix-community/home-manager/release-24.05";
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
+        nixos-hardware.url = "github:NixOS/nixos-hardware/master";
         nvim = { 
             url = "github:SegfaultSorcery/nvim-flake"; 
             inputs.nixpkgs.follows = "nixpkgs";
@@ -16,7 +17,7 @@
         };
 	};
 
-	outputs = {self, nixpkgs, home-manager, nixpkgs-unstable, minimal-tmux, nvim, ...}: 
+	outputs = inputs @ {self, nixpkgs, home-manager, nixpkgs-unstable, nixos-hardware, minimal-tmux, nvim, ...}: 
 	let
         mkPkgs = pkgs: system: import pkgs{
                 inherit system;
@@ -35,7 +36,7 @@
         pkgs = mkPkgs nixpkgs system;
         pkgs-unstable = mkPkgs nixpkgs-unstable system;
         fn = import ./modules/flake/utils {inherit lib;};
-        specialArgs = {inherit pkgs pkgs-unstable var fn nvim;};
+        specialArgs = {inherit pkgs pkgs-unstable var fn nvim nixos-hardware;};
         sharedModules = [
             home-manager.nixosModules.home-manager
             {
