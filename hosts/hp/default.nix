@@ -3,6 +3,8 @@
     imports =
         [ 
         ./hardware-configuration.nix
+	../../home/vebly
+	../../home/klee
         ../../modules/system/desktop_env/plasma.nix
         ../../modules/system/hardware/grub.nix
         ../../modules/system/hardware/pipewire.nix
@@ -31,9 +33,9 @@
     };
 
     xdg.portal.enable = true;
-    services.xserver = {
-            layout = "us";
-            xkbVariant = "";
+    services.xserver.xkb = {
+            layout = "us, ch";
+            variant = "";
     };
 
     services.xserver.windowManager.awesome = {
