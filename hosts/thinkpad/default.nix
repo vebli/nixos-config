@@ -3,6 +3,8 @@
     imports =
         [ 
         ./hardware-configuration.nix
+        ../../home/vebly
+        # ../../home/klee
         ../../modules/system/desktop_env/plasma.nix
         ../../modules/system/hardware/grub.nix
         ../../modules/system/hardware/pipewire.nix
@@ -48,20 +50,6 @@
     services.printing.enable = true;
 
 # Define a user account. Don't forget to set a password with ‘passwd’.
-    users.users = {
-        vebly = {
-            isNormalUser = true;
-            description = "vebly";
-            extraGroups = [ "networkmanager" "wheel" "users"];
-            initialPassword = "123";
-        };
-        klee = {
-            isNormalUser = true;
-            extraGroups = ["users"];
-            initialPassword = "123";
-        };
-    };
-
 
     environment.systemPackages =  with pkgs; [
         pkg-config

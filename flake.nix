@@ -16,7 +16,7 @@
         };
 	};
 
-	outputs = inputs @ {self, nixpkgs, home-manager, nixpkgs-unstable, minimal-tmux, ...}: 
+	outputs = {self, nixpkgs, home-manager, nixpkgs-unstable, minimal-tmux, nvim, ...}: 
 	let
         mkPkgs = pkgs: system: import pkgs{
                 inherit system;
@@ -30,50 +30,38 @@
             path.root = "/home/nixos/nixos-config";
         };
 
-		lib = nixpkgs.lib;
+	lib = nixpkgs.lib;
         system = "x86_64-linux";
         pkgs = mkPkgs nixpkgs system;
         pkgs-unstable = mkPkgs nixpkgs-unstable system;
         fn = import ./modules/flake/utils {inherit lib;};
-        specialArgs = {inherit pkgs pkgs-unstable var fn;};
-        extraSpecialArgs = specialArgs // {inherit minimal-tmux;};
-
+        specialArgs = {inherit pkgs pkgs-unstable var fn nvim;};
+        sharedModules = [
+            home-manager.nixosModules.home-manager
+            {
+                home-manager = {
+                    useUserPackages = true;
+                    extraSpecialArgs = specialArgs // {inherit minimal-tmux;};
+                };
+            }
+        ];
 	in {
 		nixosConfigurations = {
 			thinkpad = lib.nixosSystem {
                 inherit system;
-				modules = [./systems/thinkpad];
+				modules = sharedModules ++ [./hosts/thinkpad];
                 inherit specialArgs;
 			};
 			hp = lib.nixosSystem {
                 inherit system;
-				modules = [./systems/hp];
+				modules = sharedModules ++ [./hosts/hp];
                 inherit specialArgs;
 			};
 			wsl = lib.nixosSystem {
                 inherit system;
-				modules = [./systems/thinkpad];
+				modules = sharedModules ++ [./hosts/wsl];
                 inherit specialArgs;
 			};
 		};
-        homeConfigurations = {
-			vebly = home-manager.lib.homeManagerConfiguration {
-                inherit pkgs;
-				modules = [
-                    ./users/vebly
-                    inputs.nvim.homeManagerModule
-				];
-                inherit extraSpecialArgs;
-			};
-			klee = home-manager.lib.homeManagerConfiguration {
-                inherit pkgs;
-				modules = [
-                    ./users/klee
-                    inputs.nvim.homeManagerModule
-				];
-                inherit extraSpecialArgs;
-			};
-            
-        };
 	};
 }
