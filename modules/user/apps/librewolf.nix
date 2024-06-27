@@ -5,6 +5,7 @@
         package = pkgs.librewolf;
         settings = {
             "privacy.clearOnShutdown.history" = false;
+            "privacy.clearOnShutdown.cache" = false;
             "privacy.clearOnShutdown.downloads" = false;
             "privacy.clearOnShutdown.cookies" = false;
             "network.cookie.lifetimePolicy" = 0;
