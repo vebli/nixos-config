@@ -1,4 +1,4 @@
-{ pkgs, lib, ... }:
+{ pkgs, lib, var, ... }:
 {
     home.packages = with pkgs; [
         zsh
@@ -12,7 +12,7 @@
             prezto.tmux.autoStartLocal = true;
             shellAliases = {
                 "cpwd" = "pwd | tr -d \"\n\" | xargs echo -n | xclip -selection clipboard";
-                "hrs" = "home-manager switch --flake /home/vebly/nixos-config";
+                "hrs" = "home-manager switch --flake ${var.path.root}";
                 "ls" = "exa --icons";
             };
             initExtra = ''
@@ -21,8 +21,18 @@
                 PS1="%F{#00ffff}%n@ %~ %F{#00ffff}%f "
                 '';
         };
-        eza.enableZshIntegration = true;
-        fzf.enableZshIntegration = true;
-        zoxide.enableZshIntegration = true;
+        eza = {
+            enable = true;
+            enableZshIntegration = true;
+        };
+
+        fzf = {
+            enable = true;
+            enableZshIntegration = true;
+        };
+        zoxide = {
+            enable = true;
+            enableZshIntegration = true;
+        };
     };
 }

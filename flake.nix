@@ -16,7 +16,7 @@
         };
 	};
 
-	outputs = inputs @ {self, nixpkgs, home-manager, nixpkgs-unstable,minimal-tmux, ...}: 
+	outputs = inputs @ {self, nixpkgs, home-manager, nixpkgs-unstable, minimal-tmux, ...}: 
 	let
         mkPkgs = pkgs: system: import pkgs{
                 inherit system;
@@ -25,14 +25,18 @@
                     permittedInsecurePackages = [ ];
                 };
                 overlays = [];
-            };
+        };
+        var = {
+            path.root = "/home/nixos/nixos-config";
+        };
 
 		lib = nixpkgs.lib;
         system = "x86_64-linux";
         pkgs = mkPkgs nixpkgs system;
         pkgs-unstable = mkPkgs nixpkgs-unstable system;
         fn = import ./modules/flake/utils {inherit lib;};
-        specialArgs = {inherit pkgs pkgs-unstable fn;};
+        specialArgs = {inherit pkgs pkgs-unstable var fn;};
+        extraSpecialArgs = specialArgs // {inherit minimal-tmux;};
 
 	in {
 		nixosConfigurations = {
@@ -59,9 +63,7 @@
                     ./users/vebly
                     inputs.nvim.homeManagerModule
 				];
-                extraSpecialArgs = {
-                    inherit pkgs-unstable pkgs fn minimal-tmux;
-                };
+                inherit extraSpecialArgs;
 			};
 			klee = home-manager.lib.homeManagerConfiguration {
                 inherit pkgs;
@@ -69,9 +71,7 @@
                     ./users/klee
                     inputs.nvim.homeManagerModule
 				];
-                extraSpecialArgs = {
-                    inherit pkgs-unstable pkgs fn minimal-tmux;
-                };
+                inherit extraSpecialArgs;
 			};
             
         };
