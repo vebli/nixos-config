@@ -14,6 +14,8 @@
             nvim.homeManagerModule
             ../../modules/user/sh/zsh/zsh.nix
             ../../modules/user/wm/awesome.nix 
+            ../../modules/user/dev/languages.nix
+            ../../modules/user/dev/cli-tools.nix
             ../../modules/user/apps/kitty.nix
             ../../modules/user/apps/tmux.nix
             ../../modules/user/apps/latex.nix

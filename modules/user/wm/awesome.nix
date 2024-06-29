@@ -4,7 +4,7 @@ let
         owner = "SegfaultSorcery";
         repo = "awesome-config";
         rev = "master";  # or a specific commit hash
-            sha256 = "sha256-ugNX371NwAXpbPG21w31C0xKZBW/09gknhLTrUeXGK8=";  # Update this with the actual sha256 hash
+            sha256 = "sha256-nwotzGcORI3L0LioLiJebwwbLdHEt4FrXI7AsWdVvEM=";  
     };
 in
 {
