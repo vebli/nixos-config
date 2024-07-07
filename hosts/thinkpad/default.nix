@@ -9,7 +9,6 @@
         ../../modules/system/desktop_env/plasma.nix
         ../../modules/system/hardware/grub.nix
         ../../modules/system/hardware/pipewire.nix
-        ../../modules/system/file_managers/nemo.nix
         ../../modules/system/network
         ];
 
