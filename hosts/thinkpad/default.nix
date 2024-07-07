@@ -9,11 +9,12 @@
         ../../modules/system/desktop_env/plasma.nix
         ../../modules/system/hardware/grub.nix
         ../../modules/system/hardware/pipewire.nix
+        ../../modules/system/file_managers/nemo.nix
+        ../../modules/system/network
         ];
 
     networking.hostName = "nixos"; # Define your hostname.
     # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
-
 # Configure network proxy if necessary
 # networking.proxy.default = "http://user:password@proxy:port/";
 # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -61,6 +62,7 @@
         acpi
         gtk3
         alacritty
+        cinnamon.nemo-with-extensions
         home-manager
     ];
 
@@ -78,7 +80,6 @@
             zsh-autoenv.enable = true;
             syntaxHighlighting.enable = true;
         };
-        thunar.enable = true;
     };
 
 # Some programs need SUID wrappers, can be configured further or are
@@ -92,7 +93,7 @@
 # List services that you want to enable:
 
 # Enable the OpenSSH daemon.
-    services.openssh.enable = true;
+    # services.openssh.enable = true;
 
 # Open ports in the firewall.
 # networking.firewall.allowedTCPPorts = [ ... ];

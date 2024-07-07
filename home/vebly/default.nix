@@ -26,11 +26,12 @@
             home.packages = with pkgs; [
                 discord
                     arandr
-                    freetube
                     obsidian
                     dbeaver-bin
                     octaveFull
-            ];
+            ] ++ (with pkgs-unstable;[
+                    freetube
+            ]);
 
             programs.git = {
                 enable = true;
