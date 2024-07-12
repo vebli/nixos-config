@@ -4,6 +4,5 @@
         texlab
         texliveFull
         # texliveTeTeX
-        zathura
     ];
 }

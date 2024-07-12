@@ -15,6 +15,10 @@
             url = "github:niksingh710/minimal-tmux-status";
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        gdb-peda = {
+            url = "github:longld/peda";
+            flake = false;
+        };
 	};
 
 	outputs = inputs @ {self, nixpkgs, home-manager, nixpkgs-unstable, nixos-hardware, minimal-tmux, nvim, ...}: 
@@ -36,13 +40,13 @@
         pkgs = mkPkgs nixpkgs system;
         pkgs-unstable = mkPkgs nixpkgs-unstable system;
         fn = import ./modules/flake/utils {inherit lib;};
-        specialArgs = {inherit pkgs pkgs-unstable var fn nvim nixos-hardware;};
+        specialArgs = {inherit pkgs pkgs-unstable var fn inputs;};
         sharedModules = [
             home-manager.nixosModules.home-manager
             {
                 home-manager = {
                     useUserPackages = true;
-                    extraSpecialArgs = specialArgs // {inherit minimal-tmux;};
+                    extraSpecialArgs = specialArgs;
                 };
             }
         ];

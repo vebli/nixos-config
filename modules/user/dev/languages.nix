@@ -1,4 +1,4 @@
-{config, pkgs, pkgs-unstable, ...}:
+{config, pkgs, inputs, ...}:
 {
     home.packages = with pkgs; [
         # C/C++
@@ -40,9 +40,19 @@
         lua-language-server
 
     ];
+
+    home.file."gdb-peda" = {
+        source = inputs.gdb-peda.outPath;
+        target = ".config/peda";
+        recursive = true;
+    };
+
     home.file."gdb-conf" = {
         target = ".gdbinit";
-        text = "set disassembly-flavor intel";
+        text = ''
+        set disassembly-flavor intel
+        source  ~/.config/peda/peda.py
+        '';
     };
 
 }

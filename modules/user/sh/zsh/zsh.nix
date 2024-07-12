@@ -14,6 +14,7 @@
                 "cpwd" = "pwd | tr -d \"\n\" | xargs echo -n | xclip -selection clipboard";
                 "hrs" = "home-manager switch --flake ${var.path.root}";
                 "ls" = "exa --icons";
+                "gdb" = "gdb -q";
             };
             initExtra = ''
                 # eval "$(tmuxifier init -)"

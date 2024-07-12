@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "gdb-peda": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1609640273,
+        "narHash": "sha256-vtNJ9WHCUtZmIn/IXwwtKrZx1i/az+gMmW6fLd67QYQ=",
+        "owner": "longld",
+        "repo": "peda",
+        "rev": "84d38bda505941ba823db7f6c1bcca1e485a2d43",
+        "type": "github"
+      },
+      "original": {
+        "owner": "longld",
+        "repo": "peda",
+        "type": "github"
+      }
+    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -109,6 +125,7 @@
     },
     "root": {
       "inputs": {
+        "gdb-peda": "gdb-peda",
         "home-manager": "home-manager",
         "minimal-tmux": "minimal-tmux",
         "nixos-hardware": "nixos-hardware",

@@ -1,4 +1,4 @@
-{config, pkgs, pkgs-unstable, lib, fn, nvim, ... }:
+{config, pkgs, pkgs-unstable, lib, fn, inputs, ... }:
 {
     users.users.vebly = {
             isNormalUser = true;
@@ -11,7 +11,7 @@
         users.vebly = {
             #inherit imports;
 	    imports = [
-            nvim.homeManagerModule
+            inputs.nvim.homeManagerModule
             ../../modules/user/sh/zsh/zsh.nix
             ../../modules/user/wm/awesome.nix 
             ../../modules/user/dev/languages.nix
@@ -24,11 +24,20 @@
             home.stateVersion = "24.05"; 
 
             home.packages = with pkgs; [
-                discord
+                    discord
                     arandr
                     obsidian
                     dbeaver-bin
                     octaveFull
+                    ani-cli
+                    manga-cli
+                    mpv
+
+                # Office
+                    libreoffice                    
+                    okular
+                    zathura
+
             ] ++ (with pkgs-unstable;[
                     freetube
             ]);
@@ -40,7 +49,7 @@
             };
 
             home.sessionVariables = {
-                EDITOR = "nvim";
+                EDITOR = "invim";
             };
 # Let Home Manager install and manage itself.
             programs.home-manager.enable = true;

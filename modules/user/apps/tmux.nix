@@ -1,4 +1,4 @@
-{pkgs, minimal-tmux, ... }:
+{pkgs, inputs, ... }:
 {
     programs = {
         tmux = {
@@ -13,7 +13,7 @@
                 tmux-thumbs
                 fzf-tmux-url
                 { 
-                    plugin = minimal-tmux.packages.${pkgs.system}.default; 
+                    plugin = inputs.minimal-tmux.packages.${pkgs.system}.default; 
                     extraConfig = ''
                         set -g @minimal-tmux-status "top"
                     '';

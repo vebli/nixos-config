@@ -10,6 +10,10 @@
         nix-index
         ripgrep
         trashy
+
+    # Hacking
+        pwntools
+        file
     ];
     programs = {
         eza.enable = true;

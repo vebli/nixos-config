@@ -1,9 +1,9 @@
-{ config, pkgs, pkgs-unstable, nixos-hardware, ... }:
+{ config, pkgs, pkgs-unstable, inputs, ... }:
 {
     imports =
         [ 
         ./hardware-configuration.nix
-        nixos-hardware.nixosModules.lenovo-thinkpad-t480
+        inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
         ../../home/vebly
         ../../home/klee
         ../../modules/system/desktop_env/plasma.nix
