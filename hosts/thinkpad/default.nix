@@ -4,6 +4,7 @@
         [ 
         ./hardware-configuration.nix
         inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
+        ../common/gaming.nix
         ../../home/vebly
         ../../home/klee
         ../../modules/system/desktop_env/plasma.nix
@@ -28,9 +29,25 @@
         WLR_NO_HARDWARE_CURSORS = "1";
         NIXOS_OZONE_WL = "1";
     };
-    hardware = {
-        opengl.enable = true;
-        nvidia.modesetting.enable = true; # Most wayland compositors need this 
+    # Opengl
+    hardware.opengl = {
+        enable = true;
+        driSupport = true;
+        driSupport32Bit = true;
+    };
+    # Nvidia 
+    services.xserver.videoDrivers = ["nvidia"];
+    hardware.nvidia = {
+        modesetting.enable = true; # Most wayland compositors need this 
+        prime = {
+
+            offload = { # Only uses GPU when it thinks is needed to safe battery. Use sync.enable to always use GPU
+                enable = true;
+                enableOffloadCmd = true;
+            };
+            nvidiaBusId = "PCI:01:00:0";
+            intelBusId = "PCI:02:00:0";
+        };
     };
 
     xdg.portal.enable = true;
@@ -39,7 +56,6 @@
             layout = "us";
             variant = "";
     };
-
     services.xserver.windowManager.awesome = {
         enable = true;
         luaModules = with pkgs.luaPackages; [

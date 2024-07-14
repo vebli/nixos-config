@@ -10,14 +10,10 @@
         nix-index
         ripgrep
         trashy
-
-    # Hacking
-        pwntools
-        file
     ];
     programs = {
         eza.enable = true;
-        fzf. enable = true;
+        fzf.enable = true;
         zoxide.enable = true;
     };
 

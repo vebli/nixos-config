@@ -15,6 +15,8 @@
                 "hrs" = "home-manager switch --flake ${var.path.root}";
                 "ls" = "exa --icons";
                 "gdb" = "gdb -q";
+                "ndwl" = "nmcli device wifi list";
+                "ncs" = "nmcli connection show";
             };
             initExtra = ''
                 # eval "$(tmuxifier init -)"
