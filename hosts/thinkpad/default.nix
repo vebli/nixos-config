@@ -4,43 +4,52 @@
         [ 
         ./hardware-configuration.nix
         inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
-        ../common/gaming.nix
+
         ../../home/vebly
         ../../home/klee
-        ../../modules/system/desktop_env/plasma.nix
+
+        ../../modules/system/desktop_env/awesome.nix
+
+        ../../modules/system/profiles/shared.nix
+        ../../modules/system/profiles/gaming.nix
+
         ../../modules/system/hardware/grub.nix
         ../../modules/system/hardware/pipewire.nix
+
         ../../modules/system/network
         ];
 
-    networking.hostName = "nixos"; # Define your hostname.
-    # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 # Configure network proxy if necessary
 # networking.proxy.default = "http://user:password@proxy:port/";
 # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 # networking.interfaces.enp0s3.useDHCP = true;
 
-    networking.networkmanager.enable = true;
-    time.timeZone = "Europe/Zurich";
+    services.displayManager = {
+            sddm = {
+                enable = true;
+                theme = "catppuccin-mocha";
+                package = pkgs.kdePackages.sddm;
+            };
+            defaultSession = "none+awesome";
+    };
+    services.xserver.xkb = {
+            layout = "us";
+            variant = "";
+    };
+
     i18n.defaultLocale = "en_US.UTF-8";
 
-    environment.sessionVariables = {
-# If cursors become invisible
-        WLR_NO_HARDWARE_CURSORS = "1";
-        NIXOS_OZONE_WL = "1";
-    };
     # Opengl
     hardware.opengl = {
         enable = true;
         driSupport = true;
         driSupport32Bit = true;
     };
+
     # Nvidia 
-    services.xserver.videoDrivers = ["nvidia"];
     hardware.nvidia = {
         modesetting.enable = true; # Most wayland compositors need this 
         prime = {
-
             offload = { # Only uses GPU when it thinks is needed to safe battery. Use sync.enable to always use GPU
                 enable = true;
                 enableOffloadCmd = true;
@@ -50,52 +59,19 @@
         };
     };
 
-    xdg.portal.enable = true;
-    services.xserver.enable = true;
-    services.xserver.xkb = {
-            layout = "us";
-            variant = "";
-    };
-    services.xserver.windowManager.awesome = {
-        enable = true;
-        luaModules = with pkgs.luaPackages; [
-            luarocks # is the package manager for Lua modules
-                luadbi-mysql # Database abstraction layer
-        ];
-    };
-
 # Enable CUPS to print documents.
     services.printing.enable = true;
 
 # Define a user account. Don't forget to set a password with ‘passwd’.
 
     environment.systemPackages =  with pkgs; [
-        pkg-config
         awesome
-        git
-        wget
-        acpi
-        gtk3
-        alacritty
-        cinnamon.nemo-with-extensions
-        home-manager
+        (catppuccin-sddm.override{
+            flavor = "mocha";
+        })
     ];
 
-    fonts.packages = with pkgs;[
-        font-awesome
-        siji
-        nerdfonts
-    ];
-    users.defaultUserShell = pkgs.zsh;
 
-    programs = {
-        zsh = {
-            enable = true;
-            autosuggestions.enable = true;
-            zsh-autoenv.enable = true;
-            syntaxHighlighting.enable = true;
-        };
-    };
 
 # Some programs need SUID wrappers, can be configured further or are
 # started in user sessions.
@@ -120,3 +96,4 @@
         nix.settings.experimental-features = ["nix-command" "flakes"];
 
 }
+

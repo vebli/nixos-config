@@ -3,8 +3,9 @@
     imports =
         [ 
         ./hardware-configuration.nix
-	../../home/vebly
-	../../home/klee
+        ../../home/vebly
+        ../../home/klee
+        ../../modules/profiles/shared.nix
         ../../modules/system/desktop_env/plasma.nix
         ../../modules/system/hardware/grub.nix
         ../../modules/system/hardware/pipewire.nix
@@ -18,7 +19,6 @@
 # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 # networking.interfaces.enp0s3.useDHCP = true;
 
-    networking.networkmanager.enable = true;
     time.timeZone = "Europe/Zurich";
     i18n.defaultLocale = "en_US.UTF-8";
 
