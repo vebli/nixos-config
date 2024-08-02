@@ -11,7 +11,6 @@
         users.vebly = {
             #inherit imports;
 	    imports = [
-            inputs.nvim.homeManagerModule
             ../../modules/user/sh/zsh/zsh.nix
             ../../modules/user/wm/awesome.nix 
             ../../modules/user/dev
@@ -39,6 +38,7 @@
 
             ] ++ (with pkgs-unstable;[
                     freetube
+                    ytmdl
             ]);
 
             programs.git = {

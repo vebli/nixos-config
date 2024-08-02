@@ -7,7 +7,7 @@
         home-manager.url = "github:nix-community/home-manager/release-24.05";
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-        nvim = { 
+        nvim-custom = { 
             url = "github:SegfaultSorcery/nvim-flake"; 
             inputs.nixpkgs.follows = "nixpkgs";
         };
@@ -21,7 +21,7 @@
         };
 	};
 
-	outputs = inputs @ {self, nixpkgs, home-manager, nixpkgs-unstable, nixos-hardware, minimal-tmux, nvim, ...}: 
+	outputs = inputs @ {self, nixpkgs, home-manager, nixpkgs-unstable, nixos-hardware, minimal-tmux, nvim-custom, ...}: 
 	let
         mkPkgs = pkgs: system: import pkgs{
                 inherit system;
@@ -29,7 +29,7 @@
                     allowUnfree = true; 
                     permittedInsecurePackages = [ ];
                 };
-                overlays = [];
+                overlays = [nvim-custom.overlays.default];
         };
         var = {
             path.root = "/home/nixos/nixos-config";
@@ -61,6 +61,11 @@
                 inherit system;
 				modules = sharedModules ++ [./hosts/hp];
                 inherit specialArgs;
+			};
+			desktop = lib.nixosSystem { 
+		inherit system;
+			modules = sharedModules ++ [./hosts/desktop];
+		inherit specialArgs;
 			};
 			wsl = lib.nixosSystem {
                 inherit system;

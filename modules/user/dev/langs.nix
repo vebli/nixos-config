@@ -21,6 +21,7 @@
 
         #python
         python3
+        virtualenv
 
         #Lua
         lua

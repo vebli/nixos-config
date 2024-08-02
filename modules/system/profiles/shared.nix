@@ -12,6 +12,7 @@
 
     environment.systemPackages =  with pkgs; [
         git
+        pavucontrol
         wget
         kitty
         gtk3
