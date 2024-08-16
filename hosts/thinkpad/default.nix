@@ -69,7 +69,7 @@
         (catppuccin-sddm.override{
             flavor = "mocha";
         })
-    ];
+    ] ++ (with pkgs-unstable; [nvim-custom]);
 
 
 
