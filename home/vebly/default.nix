@@ -27,6 +27,7 @@
                     path = "~/SecondBrain"; # Tilde is shortcut for /var/lib/syncthing
                     devices = [
                         "desktop"
+                        "thinkpad"
                     ];
                 }; 
             };
