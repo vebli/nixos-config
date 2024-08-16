@@ -3,8 +3,33 @@
     users.users.vebly = {
             isNormalUser = true;
             description = "vebly";
-            extraGroups = [ "networkmanager" "wheel"];
+            extraGroups = [ "networkmanager" "wheel" "syncthing"];
             initialPassword = "123";
+    };
+    services.syncthing = {
+        enable = true;
+        systemService = true;
+        settings = {
+            devices = {
+                "desktop" = {
+                    name = "desktop";
+                    id = "OFWTVXT-BMDHJVS-YLUXQPJ-34BFIXX-RW2FQZ4-4LCI3TF-FHJIZ5C-4IT5CAV";
+                    autoAcceptFolders = true;
+                };
+            };
+            folders = {
+                "SecondBrain" = { #Obsidian Vault
+                    enable = true;
+                    path = "~/SecondBrain"; # Tilde is shortcut for /var/lib/syncthing
+                    devices = [
+                        "desktop"
+                    ];
+                }; 
+            };
+            options = {
+                relaysEnabled = false;
+            };
+        };
     };
 
     home-manager = {
@@ -22,7 +47,6 @@
             home.homeDirectory = "/home/vebly";
 
             home.stateVersion = "24.05"; 
-
             home.packages = with pkgs; [
                     discord
                     arandr
@@ -39,6 +63,7 @@
 
             ] ++ (with pkgs-unstable;[
                     freetube
+                    youtube-dl
                     ytmdl
             ]);
 
