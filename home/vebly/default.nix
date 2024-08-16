@@ -20,14 +20,20 @@
                     name = "thinkpad";
                     id = "R57OWQ4-ZCSYSQ7-EBIBLUU-U2ZBR4S-KE25GAB-S73M6KE-7EFIWBC-XTQY5AU";
                 };
+                "tablet" = {
+                    name = "tablet";
+                    id = "M4UDVX7-KNCMYZD-TO5QDK5-5ZGZ6QZ-S24SV6U-WK27L7S-THACG2R-6VU6JAE";
+                };
             };
             folders = {
                 "SecondBrain" = { #Obsidian Vault
                     enable = true;
+                    label = "SecondBrain";
                     path = "~/SecondBrain"; # Tilde is shortcut for /var/lib/syncthing
                     devices = [
                         "desktop"
                         "thinkpad"
+                        "tablet"
                     ];
                 }; 
             };
