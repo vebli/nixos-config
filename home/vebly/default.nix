@@ -16,6 +16,10 @@
                     id = "OFWTVXT-BMDHJVS-YLUXQPJ-34BFIXX-RW2FQZ4-4LCI3TF-FHJIZ5C-4IT5CAV";
                     autoAcceptFolders = true;
                 };
+                "thinkpad" = {
+                    name = "thinkpad";
+                    id = "R57OWQ4-ZCSYSQ7-EBIBLUU-U2ZBR4S-KE25GAB-S73M6KE-7EFIWBC-XTQY5AU";
+                };
             };
             folders = {
                 "SecondBrain" = { #Obsidian Vault
