@@ -9,6 +9,9 @@
     services.syncthing = {
         enable = true;
         systemService = true;
+        package = pkgs-unstable.syncthing.overrideAttrs {
+            version = "1.27.9";
+        };
         settings = {
             devices = {
                 "desktop" = {
@@ -22,7 +25,7 @@
                 };
                 "tablet" = {
                     name = "tablet";
-                    id = "M4UDVX7-KNCMYZD-TO5QDK5-5ZGZ6QZ-S24SV6U-WK27L7S-THACG2R-6VU6JAE";
+                    id = "SSM3B6K-LYOAIUQ-BDHONJ3-2WCUJWR-GJFTYXA-R3GZVN2-5JB3WOV-PKOOTAZ";
                 };
             };
             folders = {
@@ -37,9 +40,9 @@
                     ];
                 }; 
             };
-            options = {
-                relaysEnabled = false;
-            };
+            # options = {
+            #     relaysEnabled = false;
+            # };
         };
     };
 
