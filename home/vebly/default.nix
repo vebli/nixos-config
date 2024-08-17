@@ -29,7 +29,7 @@
                 };
                 "thinkpad" = {
                     name = "thinkpad";
-                    id = "R57OWQ4-ZCSYSQ7-EBIBLUU-U2ZBR4S-KE25GAB-S73M6KE-7EFIWBC-XTQY5AU";
+                    id = "KN2XFMV-H6IDARR-SRTXGQU-TTDVC4Z-DARFWTN-NFZLLJ4-KUX66YP-PB4A2Q6";
                     addresses = [
                         "tcp://192.168.1.196:22000"
                     ];
