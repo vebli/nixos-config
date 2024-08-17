@@ -23,17 +23,22 @@
                 "desktop" = {
                     name = "desktop";
                     id = "OFWTVXT-BMDHJVS-YLUXQPJ-34BFIXX-RW2FQZ4-4LCI3TF-FHJIZ5C-4IT5CAV";
-                    autoAcceptFolders = true;
+                    addresses = [
+                        "tcp://192.168.1.171:22000"
+                    ];
                 };
                 "thinkpad" = {
                     name = "thinkpad";
                     id = "R57OWQ4-ZCSYSQ7-EBIBLUU-U2ZBR4S-KE25GAB-S73M6KE-7EFIWBC-XTQY5AU";
+                    addresses = [
+                        "tcp://192.168.1.196:22000"
+                    ];
                 };
                 "tablet" = {
                     name = "tablet";
                     id = "KKUXA3Y-Q3JFJLA-J5UFQ7W-HY6TSYG-YEKUL27-BM3JLCI-IOXBIUY-I4FLNA7";
                     addresses = [
-                        "tcp://192.168.1.196:22000"
+                        "tcp://192.168.1.49:22000"
                     ];
                 };
             };
