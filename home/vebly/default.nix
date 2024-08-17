@@ -8,7 +8,11 @@
     };
     services.syncthing = {
         enable = true;
+        user = "vebly";
+        dataDir = "/home/vebly/Sync";
+        configDir = "/home/vebly/.config/syncthing";
         systemService = true;
+        openDefaultPorts = true; #TCP/UDP 22000 for transfer
         package = pkgs-unstable.syncthing.overrideAttrs {
             version = "1.27.9";
         };
@@ -25,14 +29,18 @@
                 };
                 "tablet" = {
                     name = "tablet";
-                    id = "SSM3B6K-LYOAIUQ-BDHONJ3-2WCUJWR-GJFTYXA-R3GZVN2-5JB3WOV-PKOOTAZ";
+                    id = "KKUXA3Y-Q3JFJLA-J5UFQ7W-HY6TSYG-YEKUL27-BM3JLCI-IOXBIUY-I4FLNA7";
+                    addresses = [
+                        "tcp://192.168.1.196:22000"
+                    ];
                 };
             };
             folders = {
                 "SecondBrain" = { #Obsidian Vault
                     enable = true;
                     label = "SecondBrain";
-                    path = "~/SecondBrain"; # Tilde is shortcut for /var/lib/syncthing
+                    path = "/home/vebly/Sync/SecondBrain"; # Tilde is shortcut for /var/lib/syncthing
+                    copyOwndershipFromParent = true;
                     devices = [
                         "desktop"
                         "thinkpad"
@@ -40,9 +48,9 @@
                     ];
                 }; 
             };
-            # options = {
-            #     relaysEnabled = false;
-            # };
+            options = {
+                relaysEnabled = false;
+            };
         };
     };
 
