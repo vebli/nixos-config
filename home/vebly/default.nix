@@ -9,10 +9,12 @@
     services.syncthing = {
         enable = true;
         user = "vebly";
-        dataDir = "/home/vebly/Sync";
+        dataDir = "/home/vebly";
         configDir = "/home/vebly/.config/syncthing";
         systemService = true;
         openDefaultPorts = true; #TCP/UDP 22000 for transfer
+        overrideDevices = true;
+        overrideFolders = true;
         package = pkgs-unstable.syncthing.overrideAttrs {
             version = "1.27.9";
         };
@@ -39,7 +41,7 @@
                 "SecondBrain" = { #Obsidian Vault
                     enable = true;
                     label = "SecondBrain";
-                    path = "/home/vebly/Sync/SecondBrain"; # Tilde is shortcut for /var/lib/syncthing
+                    path = "~/SecondBrain"; # Tilde is shortcut for /var/lib/syncthing
                     copyOwndershipFromParent = true;
                     devices = [
                         "desktop"
