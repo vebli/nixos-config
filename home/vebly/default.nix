@@ -22,7 +22,7 @@
             devices = {
                 "desktop" = {
                     name = "desktop";
-                    id = "OFWTVXT-BMDHJVS-YLUXQPJ-34BFIXX-RW2FQZ4-4LCI3TF-FHJIZ5C-4IT5CAV";
+                    id = "3Z2OLVQ-YHFQE66-OCH6UDN-C2ANJAG-CP4W5CY-2G2YOZB-BJOI4QT-W42AOQV";
                     addresses = [
                         "tcp://192.168.1.171:22000"
                     ];
