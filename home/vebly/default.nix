@@ -41,6 +41,13 @@
                         "tcp://192.168.1.49:22000"
                     ];
                 };
+                "server" = {
+                    name = "server";
+                    id = "JQCBFFW-66RZCJJ-4KOYY7B-6JKNI6E-QOCTRZO-L5XLESS-ZI3BQ3X-O47Y4QE";
+                    addresses = [
+                        "vrpi-server.ddns.net:22000"
+                    ];
+                };
             };
             folders = {
                 "SecondBrain" = { #Obsidian Vault
@@ -52,6 +59,7 @@
                         "desktop"
                         "thinkpad"
                         "tablet"
+                        "server"
                     ];
                 }; 
             };
