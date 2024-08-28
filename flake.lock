@@ -142,11 +142,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_2"
       },
       "locked": {
-        "lastModified": 1723655693,
-        "narHash": "sha256-oWGke+SQVNYou8DJW36JFsAz5isFx51yjVbl2+2d1L8=",
+        "lastModified": 1724772988,
+        "narHash": "sha256-bB96O7qwQTY4dsuFD+fnXvjZ28DKop3bRieSxQycNq0=",
         "owner": "SegfaultSorcery",
         "repo": "nvim-flake",
-        "rev": "a01af04f473e55efbac815d86e343a0bf9a113cc",
+        "rev": "54dd5018cac06b045405251f6adaa2587e7d9e4a",
         "type": "github"
       },
       "original": {
