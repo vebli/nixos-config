@@ -100,7 +100,6 @@
 
             ] ++ (with pkgs-unstable;[
                     freetube
-                    youtube-dl
                     ytmdl
             ]);
 
