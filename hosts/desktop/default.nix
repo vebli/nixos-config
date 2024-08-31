@@ -22,6 +22,8 @@
 # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 # networking.interfaces.enp0s3.useDHCP = true;
 
+    services.udev.packages = with pkgs; [platformio-core.udev];
+
     services.displayManager = {
             sddm = {
                 enable = true;

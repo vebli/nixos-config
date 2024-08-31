@@ -3,7 +3,7 @@
     users.users.vebly = {
             isNormalUser = true;
             description = "vebly";
-            extraGroups = [ "networkmanager" "wheel" "syncthing"];
+            extraGroups = [ "networkmanager" "wheel" "dialout" "syncthing"];
             initialPassword = "123";
     };
     services.syncthing = {
@@ -43,7 +43,7 @@
                 };
                 "server" = {
                     name = "server";
-                    id = "JQCBFFW-66RZCJJ-4KOYY7B-6JKNI6E-QOCTRZO-L5XLESS-ZI3BQ3X-O47Y4QE";
+                    id = "L6OJ7CQ-A4NXDX3-GLZIHL4-EB5UHIU-KNIITPF-DZOXNNV-PQAOBRP-HFTMKAH";
                     addresses = [
                         "vrpi-server.ddns.net:22000"
                     ];

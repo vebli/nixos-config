@@ -10,6 +10,7 @@
         nix-index
         ripgrep
         trashy
+        usbutils
     ];
     programs = {
         eza.enable = true;

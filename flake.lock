@@ -142,11 +142,19 @@
         "nixpkgs-unstable": "nixpkgs-unstable_2"
       },
       "locked": {
+<<<<<<< HEAD
         "lastModified": 1724772988,
         "narHash": "sha256-bB96O7qwQTY4dsuFD+fnXvjZ28DKop3bRieSxQycNq0=",
         "owner": "SegfaultSorcery",
         "repo": "nvim-flake",
         "rev": "54dd5018cac06b045405251f6adaa2587e7d9e4a",
+=======
+        "lastModified": 1724877172,
+        "narHash": "sha256-G9cMMun0h4TEGlIFU8hbvntc2XhpMhaVjpGSTovYnFY=",
+        "owner": "SegfaultSorcery",
+        "repo": "nvim-flake",
+        "rev": "86f11f70f16d5f7759b3552f5da5361ffc30e4aa",
+>>>>>>> 93035b5 (added platformio)
         "type": "github"
       },
       "original": {

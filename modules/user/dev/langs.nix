@@ -1,5 +1,6 @@
 {config, pkgs, inputs, ...}:
 {
+
     home.packages = with pkgs; [
         # C/C++
         libgcc  
@@ -8,6 +9,10 @@
         gcc
         clang-tools_17
         gdb
+
+        #Embedded
+        arduino-cli
+        platformio
 
         # Javascript
         nodejs_22
