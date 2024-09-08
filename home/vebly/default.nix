@@ -53,12 +53,23 @@
                 "SecondBrain" = { #Obsidian Vault
                     enable = true;
                     label = "SecondBrain";
-                    path = "~/SecondBrain"; # Tilde is shortcut for /var/lib/syncthing
+                    path = "~/SecondBrain";
                     copyOwndershipFromParent = true;
                     devices = [
                         "desktop"
                         "thinkpad"
                         "tablet"
+                        "server"
+                    ];
+                }; 
+                "FreeTube" = { #Obsidian Vault
+                    enable = true;
+                    label = "FreeTube";
+                    path = "~/.config/FreeTube";
+                    copyOwndershipFromParent = true;
+                    devices = [
+                        "desktop"
+                        "thinkpad"
                         "server"
                     ];
                 }; 

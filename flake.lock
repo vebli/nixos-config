@@ -3,11 +3,11 @@
     "awesome-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1725730460,
-        "narHash": "sha256-pwIM8a6IRMZFsjljki3dCJ/6F+L6C5cy98co8y5gRdY=",
+        "lastModified": 1725815085,
+        "narHash": "sha256-/YyMfku4dILg76P2xqeTcalS1ShxUgxYsN79pVF0yxI=",
         "owner": "SegfaultSorcery",
         "repo": "awesome-config",
-        "rev": "9614f76f41deeacec2daa370a8d1ba2a225758e9",
+        "rev": "4c8d910633282806057f6011f89fdba82505f311",
         "type": "github"
       },
       "original": {
