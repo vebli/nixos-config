@@ -11,6 +11,10 @@
         ripgrep
         trashy
         usbutils
+
+        tcpdump
+        aircrack-ng
+        wirelesstools
     ];
     programs = {
         eza.enable = true;
