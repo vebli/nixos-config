@@ -2,7 +2,7 @@
 	description = "Nix Configuration";
 
 	inputs = {
-	nixpkgs.url = "nixpkgs/nixos-24.05";
+        nixpkgs.url = "nixpkgs/nixos-24.05";
         nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
         home-manager.url = "github:nix-community/home-manager/release-24.05";
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -11,12 +11,20 @@
             url = "github:SegfaultSorcery/nvim-flake"; 
             inputs.nixpkgs.follows = "nixpkgs";
         };
+        awesome-config = {
+            url = "github:SegfaultSorcery/awesome-config";
+            flake = false;
+        };
         minimal-tmux = {
             url = "github:niksingh710/minimal-tmux-status";
             inputs.nixpkgs.follows = "nixpkgs";
         };
         gdb-peda = {
             url = "github:longld/peda";
+            flake = false;
+        };
+        wallpapers = {
+            url = "github:SegfaultSorcery/wallpapers";
             flake = false;
         };
 	};
@@ -33,6 +41,7 @@
         };
         var = {
             path.root = "/home/nixos/nixos-config";
+            wallpaperPath = "~/Pictures/Wallpapers";
         };
 
 	lib = nixpkgs.lib;

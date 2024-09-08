@@ -1,4 +1,4 @@
-{config, pkgs, pkgs-unstable, ...}:
+{config, pkgs, var, ...}:
 {
     time.timeZone = "Europe/Zurich";
     fonts.packages = with pkgs;[
@@ -10,7 +10,11 @@
         icomoon-feather
     ];
 
-    environment.systemPackages =  with pkgs; [
+    environment.systemPackages =  [
+        (import ../../scripts/hellow.nix {inherit pkgs;})
+        (import ../../scripts/wallpaper/random-wallpaper.nix {pkgs=pkgs; wallpaperPath=var.wallpaperPath;})
+        (import ../../scripts/wallpaper/current-wallpaper.nix {pkgs=pkgs; wallpaperPath=var.wallpaperPath;})
+    ] ++ (with pkgs; [
         git
         pavucontrol
         wget
@@ -20,8 +24,7 @@
         pkg-config
         acpi
         home-manager
-    ];
-
+    ]);
 
 
     #ZSH

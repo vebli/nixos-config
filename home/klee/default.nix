@@ -1,4 +1,4 @@
-{config, pkgs, pkgs-unstable, lib, fn, nvim, ... }:
+{config, pkgs, pkgs-unstable, lib, fn, wallpapers, ... }:
 {
     users.users.klee = {
         isNormalUser = true;
@@ -22,6 +22,13 @@
                 freetube
                 obsidian
             ];
+
+            home.file."wallpapers" = {
+                source = wallpapers.outPath;
+                target = "Pictures/Wallpapers";
+                recursive = true;
+            };
+
 
             home.sessionVariables = {
                 EDITOR = "nvim";

@@ -22,6 +22,25 @@
                 # eval "$(tmuxifier init -)"
                 eval "$(zoxide init --cmd cd zsh)" #ZOXIDE alias
                 PS1="%F{#00ffff}%n@ %~ %F{#00ffff}%f "
+
+                up() {
+                    if [[ $# -ne 1 ]] || ! [[ $1 =~ ^[0-9]+$ ]]; then
+                        echo "Invalid argument"
+                        return 1
+                    fi
+
+                    local current_depth=$(pwd | grep -o "/" | wc -l)
+
+                    if [[ $1 -ge $current_depth ]]; then
+                        # If so, go to the root directory
+                        cd /
+                    else
+                        # Otherwise, go up the specified number of directories
+                        for ((i=0; i<$1; i++)); do
+                            cd ..
+                        done
+                    fi
+                }
                 '';
         };
         eza = {

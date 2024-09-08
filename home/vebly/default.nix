@@ -1,4 +1,4 @@
-{config, pkgs, pkgs-unstable, lib, fn, inputs, ... }:
+{config, pkgs, pkgs-unstable, lib, var, inputs, ... }:
 {
     users.users.vebly = {
             isNormalUser = true;
@@ -110,7 +110,12 @@
             };
 
             home.sessionVariables = {
-                EDITOR = "invim";
+                EDITOR = "nvim";
+            };
+            home.file."wallpapers" = {
+                source = inputs.wallpapers.outPath;
+                target = lib.strings.removePrefix "~/" var.wallpaperPath; 
+                recursive = true;
             };
 # Let Home Manager install and manage itself.
             programs.home-manager.enable = true;

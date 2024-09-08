@@ -1,5 +1,21 @@
 {
   "nodes": {
+    "awesome-config": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1725730460,
+        "narHash": "sha256-pwIM8a6IRMZFsjljki3dCJ/6F+L6C5cy98co8y5gRdY=",
+        "owner": "SegfaultSorcery",
+        "repo": "awesome-config",
+        "rev": "9614f76f41deeacec2daa370a8d1ba2a225758e9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SegfaultSorcery",
+        "repo": "awesome-config",
+        "type": "github"
+      }
+    },
     "gdb-peda": {
       "flake": false,
       "locked": {
@@ -157,13 +173,31 @@
     },
     "root": {
       "inputs": {
+        "awesome-config": "awesome-config",
         "gdb-peda": "gdb-peda",
         "home-manager": "home-manager",
         "minimal-tmux": "minimal-tmux",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
-        "nvim-custom": "nvim-custom"
+        "nvim-custom": "nvim-custom",
+        "wallpapers": "wallpapers"
+      }
+    },
+    "wallpapers": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1725707184,
+        "narHash": "sha256-zXaorz1cFMBOeM9UCd2liFQatlasphIOTBzGO2yLVrU=",
+        "owner": "SegfaultSorcery",
+        "repo": "wallpapers",
+        "rev": "8886936f84e0fadfd6ec3f942b263a1ef219992c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SegfaultSorcery",
+        "repo": "wallpapers",
+        "type": "github"
       }
     }
   },
