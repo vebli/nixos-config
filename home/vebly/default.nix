@@ -90,24 +90,27 @@
             ../../modules/user/apps/tmux.nix
             ../../modules/user/apps/latex.nix
             ../../modules/user/apps/librewolf.nix
+            ../../modules/user/apps/matlab.nix
         ];
             home.username = "vebly";
             home.homeDirectory = "/home/vebly";
 
             home.stateVersion = "24.05"; 
             home.packages = with pkgs; [
-                    discord
-                    arandr
-                    obsidian
-                    dbeaver-bin
-                    octaveFull
-                    ani-cli
-                    manga-cli
-                    mpv
+                discord
+                arandr
+                obsidian
+                dbeaver-bin
+                octaveFull
+
+                ani-cli
+                manga-cli
+                mpv
 
                 # Office
-                    okular
-                    zathura
+                okular
+                zathura
+
 
             ] ++ (with pkgs-unstable;[
                     freetube

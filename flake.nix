@@ -27,6 +27,10 @@
             url = "github:SegfaultSorcery/wallpapers";
             flake = false;
         };
+        nix-matlab = {
+            inputs.nixpkgs.follows = "nixpkgs";
+            url = "gitlab:doronbehar/nix-matlab";
+        };
 	};
 
 	outputs = inputs @ {self, nixpkgs, home-manager, nixpkgs-unstable, nixos-hardware, minimal-tmux, nvim-custom, ...}: 
@@ -37,7 +41,7 @@
                     allowUnfree = true; 
                     permittedInsecurePackages = [ ];
                 };
-                overlays = [nvim-custom.overlays.default];
+                overlays = [nvim-custom.overlays.default inputs.nix-matlab.overlay];
         };
         var = {
             path.root = "/home/nixos/nixos-config";
