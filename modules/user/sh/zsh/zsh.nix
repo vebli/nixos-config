@@ -4,14 +4,16 @@ let
     dracula_yellow = "#F1FA8C";
     dracula_blue = "#8BE9FD";
     dracula_orange = "#FFB86C";
+    dracula_pink = "#FF79C6";
     dracula_purple = "#BD93F9";
     dracula_red = "#FF5555";
 
     command_color = "fg=${dracula_green}";
     error_color = "fg=${dracula_red}";
-    reserved_color = "fg=${dracula_yellow}"; 
+    string_color = "fg=${dracula_yellow}"; 
     globbing_color = "fg=${dracula_blue}"; 
     precommand_color = "fg=${dracula_orange}";
+    substitution_color = "fg=${dracula_pink}"; 
 in
 {
     home.packages = with pkgs; [
@@ -28,15 +30,26 @@ in
                     # Options: https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters/main.md
                     builtin = command_color;
                     command = command_color;
+                    precommand = precommand_color; 
+                    function = command_color;
+                    path = command_color;
+
                     alias = command_color;
                     suffix-alias = command_color;
                     global-alias = command_color;
-                    precommand = precommand_color; 
-                    paths = command_color;
-                    function = command_color;
+
                     unknown-token = error_color;  
-                    reserved-word = reserved_color; 
                     globbing = globbing_color;
+                    reserved-word = string_color; 
+
+                    double-quoted-argument = string_color;
+                    single-quoted-argument = string_color;
+
+                    command-substitution-delimiter = substitution_color;
+
+                    single-hyphen-option = substitution_color;
+                    double-hyphen-option = substitution_color;
+
                 };
             };
             prezto.tmux.autoStartLocal = true;
