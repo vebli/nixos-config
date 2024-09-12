@@ -6,6 +6,7 @@
         inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
 
         ../../home/vebly
+        ../../home/vebly/syncthing.nix
         ../../home/klee
 
         ../../modules/system/desktop_env/awesome.nix
