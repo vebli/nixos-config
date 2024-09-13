@@ -37,6 +37,13 @@
                 };
                 "server" = {
                     name = "server";
+                    id = "2YP7ZT6-ZIZQTUQ-AX3XSYI-R5X47W4-XDTOB6S-JZU7KEZ-YYSH4D2-3YMTEQJ";
+                    addresses = [
+                        "tcp://192.168.1.122:22000"
+                    ];
+                };
+                "rpi-server" = {
+                    name = "rpi-server";
                     id = "L6OJ7CQ-A4NXDX3-GLZIHL4-EB5UHIU-KNIITPF-DZOXNNV-PQAOBRP-HFTMKAH";
                     addresses = [
                         "vrpi-server.ddns.net:22000"
@@ -54,6 +61,7 @@
                         "thinkpad"
                         "tablet"
                         "server"
+                        "rpi-server"
                     ];
                 }; 
                 "FreeTube" = { #Obsidian Vault
@@ -65,6 +73,7 @@
                         "desktop"
                         "thinkpad"
                         "server"
+                        "rpi-server"
                     ];
                 }; 
             };
