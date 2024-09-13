@@ -25,14 +25,14 @@
                     name = "thinkpad";
                     id = "KN2XFMV-H6IDARR-SRTXGQU-TTDVC4Z-DARFWTN-NFZLLJ4-KUX66YP-PB4A2Q6";
                     addresses = [
-                        "tcp://192.168.1.196:22000"
+                        "tcp://192.168.1.49:22000"
                     ];
                 };
                 "tablet" = {
                     name = "tablet";
                     id = "KKUXA3Y-Q3JFJLA-J5UFQ7W-HY6TSYG-YEKUL27-BM3JLCI-IOXBIUY-I4FLNA7";
                     addresses = [
-                        "tcp://192.168.1.49:22000"
+                        "tcp://192.168.1.196:22000"
                     ];
                 };
                 "server" = {
