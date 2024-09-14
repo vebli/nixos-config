@@ -52,6 +52,7 @@
 
     services.samba = {
        enable = true;
+       package = pkgs.sambaFull;
        enableNmbd = true;
        enableWinbindd = true;
        securityType = "user";
