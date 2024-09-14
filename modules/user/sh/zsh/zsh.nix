@@ -64,7 +64,7 @@ in
             initExtra = ''
                 # eval "$(tmuxifier init -)"
                 eval "$(zoxide init --cmd cd zsh)" #ZOXIDE alias
-                PS1="%F{${dracula_purple}}%n@ %~ %F{${dracula_purple}}%f "
+                PS1="%F{${dracula_purple}}%n@%m %~ %F{${dracula_purple}}%f "
 
                 up() {
                     if [[ $# -ne 1 ]] || ! [[ $1 =~ ^[0-9]+$ ]]; then

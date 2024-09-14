@@ -28,6 +28,7 @@
 
     i18n.defaultLocale = "en_US.UTF-8";
 
+    networking.hostName = "server";
     networking.firewall = {
         enable = true;
         allowedTCPPorts = [
