@@ -13,6 +13,7 @@
         ../../modules/system/network
 
         ];
+    opt.vebly.desktopCfg= false;
 
     services.xserver.xkb = {
             layout = "us";
