@@ -40,13 +40,18 @@
     fileSystems = {
         "/mnt/sdb".device = "/dev/sdb1";
     };
-
+ 
     services.avahi.openFirewall = true;
     users.groups.smbgroup = {}; 
     users.users = {
+        klee = {
+            isNormalUser = true;   
+            group = "smbgroup";
+            initialPassword = "123";
+        };
         vebly.extraGroups = ["smbgroup"];
         smbuser = {
-            isSystemUser= true;
+            isNormalUser = true;
             group = "smbgroup";
             initialPassword = "123";
         };
@@ -68,7 +73,7 @@
 
        [Media]
        path = /mnt/sdb/public/media
-       valid users = vebly
+       valid users = klee vebly
        force user = smbuser
        force group = smbgroup
        force create mode = 0664
@@ -79,20 +84,8 @@
        writable = yes
 
        [Honigklee]
-       path = /mnt/sda/private/honigklee
-       valid users = honigklee vebly
-       force user = smbuser
-       force group = smbgroup
-       create mask = 0664
-       force create mode = 0664
-       directory mask = 0775
-       force directory mode = 0775
-       writable = yes
-
-
-       [Vebly]
-       path = /mnt/sdb/private/vebly
-       valid users = vebly
+       path = /mnt/sdb/private/honigklee
+       valid users = klee vebly
        force user = smbuser
        force group = smbgroup
        create mask = 0664
@@ -113,6 +106,7 @@
        writable = yes
        '';
     };
+
     services.samba-wsdd = {
         enable = true;
         openFirewall = true;

@@ -85,6 +85,11 @@
 				modules = sharedModules ++ [./hosts/wsl];
                 inherit specialArgs;
 			};
+			server = lib.nixosSystem { 
+		inherit system;
+			modules = sharedModules ++ [./hosts/server];
+		inherit specialArgs;
+			};
 		};
 	};
 }
