@@ -3,6 +3,7 @@
     home.packages = with pkgs; [
         git
         wget
+        sops
         killall
         gnupg
         unzip

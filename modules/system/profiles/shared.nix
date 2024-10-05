@@ -23,6 +23,7 @@
         cinnamon.nemo-with-extensions
         pkg-config
         acpi
+        networkmanagerapplet
         home-manager
     ]);
 

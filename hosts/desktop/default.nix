@@ -5,7 +5,6 @@
         ./hardware-configuration.nix
 
         ../../home/vebly
-        ../../home/vebly/syncthing.nix
 
         ../../modules/system/desktop_env/awesome.nix
 

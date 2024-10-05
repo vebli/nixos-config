@@ -7,6 +7,7 @@
         home-manager.url = "github:nix-community/home-manager/release-24.05";
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+        sops-nix.url = "github:Mic92/sops-nix";
         nvim-custom = { 
             url = "github:SegfaultSorcery/nvim-flake"; 
             inputs.nixpkgs.follows = "nixpkgs";
@@ -33,7 +34,7 @@
         };
 	};
 
-	outputs = inputs @ {self, nixpkgs, home-manager, nixpkgs-unstable, nixos-hardware, minimal-tmux, nvim-custom, ...}: 
+	outputs = inputs @ {self, nixpkgs, nixpkgs-unstable, nixos-hardware, minimal-tmux, nvim-custom, ...}: 
 	let
         mkPkgs = pkgs: system: import pkgs{
                 inherit system;
@@ -55,11 +56,18 @@
         fn = import ./modules/flake/utils {inherit lib;};
         specialArgs = {inherit pkgs pkgs-unstable var fn inputs;};
         sharedModules = [
-            home-manager.nixosModules.home-manager
+            inputs.home-manager.nixosModules.home-manager
             {
                 home-manager = {
                     useUserPackages = true;
                     extraSpecialArgs = specialArgs;
+                };
+            }
+            inputs.sops-nix.nixosModules.sops {
+                sops = {
+                    defaultSopsFile = ./secrets/secrets.yaml;
+                    defaultSopsFormat= "yaml";
+                    age.keyFile = "/home/user/.config/sops/age/keys.txt";
                 };
             }
         ];

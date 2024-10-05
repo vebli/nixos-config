@@ -5,7 +5,6 @@
         ./hardware-configuration.nix
 
         ../../home/vebly
-        ../../home/vebly/syncthing.nix
 
         ../../modules/system/profiles/shared.nix
 
@@ -33,7 +32,7 @@
     networking.firewall = {
         enable = true;
         allowedTCPPorts = [
-        8384 #Syncthing gui
+            8384 #Syncthing gui
         ]; 
     };
 

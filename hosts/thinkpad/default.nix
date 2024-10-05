@@ -6,7 +6,6 @@
         inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
 
         ../../home/vebly
-        ../../home/vebly/syncthing.nix
         ../../home/klee
 
         ../../modules/system/desktop_env/awesome.nix
@@ -20,6 +19,7 @@
         ../../modules/system/network
         ];
 
+    opt.vebly.syncthing = true;
 # Configure network proxy if necessary
 # networking.proxy.default = "http://user:password@proxy:port/";
 # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -63,7 +63,7 @@
 # Enable CUPS to print documents.
     services.printing.enable = true;
 
-# Define a user account. Don't forget to set a password with ‘passwd’.
+    services.udev.packages = with pkgs; [platformio-core.udev];
 
     environment.systemPackages =  with pkgs; [
         awesome
