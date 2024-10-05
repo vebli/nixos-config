@@ -114,7 +114,7 @@
     };
 
     networking.wlanInterfaces."wlan-monitor" = {
-        device = "wlp2s0";
+        device = "wlp0s20u3u2";
         type = "monitor";
     };
 
