@@ -16,6 +16,7 @@
         (import ../../scripts/wallpaper/current-wallpaper.nix {pkgs=pkgs; wallpaperPath=var.wallpaperPath;})
     ] ++ (with pkgs; [
         git
+        shutter
         pavucontrol
         wget
         kitty

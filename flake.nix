@@ -9,11 +9,11 @@
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
         sops-nix.url = "github:Mic92/sops-nix";
         nvim-custom = { 
-            url = "github:SegfaultSorcery/nvim-flake"; 
+            url = "github:vebli/nvim-flake"; 
             inputs.nixpkgs.follows = "nixpkgs";
         };
         awesome-config = {
-            url = "github:SegfaultSorcery/awesome-config";
+            url = "github:vebli/awesome-config";
             flake = false;
         };
         minimal-tmux = {
@@ -25,7 +25,7 @@
             flake = false;
         };
         wallpapers = {
-            url = "github:SegfaultSorcery/wallpapers";
+            url = "github:vebli/wallpapers";
             flake = false;
         };
         nix-matlab = {

@@ -5,13 +5,13 @@
       "locked": {
         "lastModified": 1725815085,
         "narHash": "sha256-/YyMfku4dILg76P2xqeTcalS1ShxUgxYsN79pVF0yxI=",
-        "owner": "SegfaultSorcery",
+        "owner": "vebli",
         "repo": "awesome-config",
         "rev": "4c8d910633282806057f6011f89fdba82505f311",
         "type": "github"
       },
       "original": {
-        "owner": "SegfaultSorcery",
+        "owner": "vebli",
         "repo": "awesome-config",
         "type": "github"
       }
@@ -227,15 +227,15 @@
         "nixpkgs-unstable": "nixpkgs-unstable_2"
       },
       "locked": {
-        "lastModified": 1724877172,
-        "narHash": "sha256-G9cMMun0h4TEGlIFU8hbvntc2XhpMhaVjpGSTovYnFY=",
-        "owner": "SegfaultSorcery",
+        "lastModified": 1728496119,
+        "narHash": "sha256-lJv/J+SP3A3ggHtJxc30XyXQNho/x6E4w75lIabTk1Q=",
+        "owner": "vebli",
         "repo": "nvim-flake",
-        "rev": "86f11f70f16d5f7759b3552f5da5361ffc30e4aa",
+        "rev": "bba4f93a01908fad16bd2f7efbd923077c521916",
         "type": "github"
       },
       "original": {
-        "owner": "SegfaultSorcery",
+        "owner": "vebli",
         "repo": "nvim-flake",
         "type": "github"
       }
@@ -279,13 +279,13 @@
       "locked": {
         "lastModified": 1725905723,
         "narHash": "sha256-bvJAjqs3J2v5G3oCjdGpFQ8A047yzJKXpWav+kOStDY=",
-        "owner": "SegfaultSorcery",
+        "owner": "vebli",
         "repo": "wallpapers",
         "rev": "7e0c2fbd571b986f1667b16380455826a103899f",
         "type": "github"
       },
       "original": {
-        "owner": "SegfaultSorcery",
+        "owner": "vebli",
         "repo": "wallpapers",
         "type": "github"
       }
