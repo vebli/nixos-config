@@ -34,8 +34,7 @@
 
     services.printing.enable = true;
 
-    environment.systemPackages =  with pkgs; [
-        libreoffice
+    environment.systemPackages = with pkgs;[
     ] ++ (with pkgs-unstable; [nvim-custom]);
 
     system.stateVersion = "24.05"; 

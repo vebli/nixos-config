@@ -15,21 +15,27 @@
         (import ../../scripts/wallpaper/random-wallpaper.nix {pkgs=pkgs; wallpaperPath=var.wallpaperPath;})
         (import ../../scripts/wallpaper/current-wallpaper.nix {pkgs=pkgs; wallpaperPath=var.wallpaperPath;})
     ] ++ (with pkgs; [
+        # Essentials
         git
-        shutter
-        pavucontrol
+        home-manager
         wget
         kitty
-        gtk3
-        cinnamon.nemo-with-extensions
         pkg-config
+        gtk3
+        
+        # Default Apps/Tools 
+        shutter
+        pavucontrol
+        cinnamon.nemo-with-extensions
         acpi
         networkmanagerapplet
-        home-manager
+        mpv
+        okular
+        zathura
+        libreoffice
     ]);
 
 
-    #ZSH
     users.defaultUserShell = pkgs.zsh;
     programs = {
         zsh = {

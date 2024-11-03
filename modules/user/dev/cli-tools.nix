@@ -8,7 +8,6 @@
         gnupg
         unzip
         tree
-        nix-index
         ripgrep
         trashy
         usbutils
@@ -16,6 +15,8 @@
         tcpdump
         aircrack-ng
         wirelesstools
+
+        nix-search-cli
     ];
     programs = {
         eza.enable = true;

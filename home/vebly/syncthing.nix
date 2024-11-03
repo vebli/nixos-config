@@ -43,7 +43,7 @@
                         id = "2YP7ZT6-ZIZQTUQ-AX3XSYI-R5X47W4-XDTOB6S-JZU7KEZ-YYSH4D2-3YMTEQJ";
                         addresses = [
                             "tcp://192.168.1.122:22000"
-                            "vrpi-server.ddns.net:22000"
+                            "tcp://vrpi-server.ddns.net:22000"
                         ];
                     };
                     "rpi-server" = {
@@ -53,9 +53,13 @@
                             "vrpi-server.ddns.net:22000"
                         ];
                     };
+                    "phone" = {
+                        name = "phone";
+                        id = "6YYFPNG-KQZ6VC6-QTRNCQP-QGKYDCR-XAZMGA2-6ALI2UU-MD2CSUV-BRMOEA7";
+                    };
                 };
                 folders = {
-                    "SecondBrain" = { #Obsidian Vault
+                    "SecondBrain" = { 
                         enable = true;
                         label = "SecondBrain";
                         path = "~/SecondBrain";
@@ -68,18 +72,40 @@
                                 "rpi-server"
                         ];
                     }; 
-                    "FreeTube" = { #Obsidian Vault
+                    "FreeTube" = { 
                         enable = true;
                         label = "FreeTube";
                         path = "~/.config/FreeTube";
                         copyOwndershipFromParent = true;
                         devices = [
                             "desktop"
-                                "thinkpad"
-                                "server"
-                                "rpi-server"
+                            "thinkpad"
+                            "server"
+                            "rpi-server"
                         ];
                     }; 
+                    "Music" = {
+                        enable = true;
+                        label = "Music";
+                        path = "~/Sync/Music";
+                        copyOwndershipFromParent = true;
+                        devices = [
+                            "phone"
+                            "thinkpad"
+                            "tablet"
+                        ];
+                    };
+                    "Books" = {
+                        enable = true;
+                        label = "Books";
+                        path = "~/Sync/Books";
+                        copyOwndershipFromParent = true;
+                        devices = [
+                            "phone"
+                            "thinkpad"
+                            "tablet"
+                        ];
+                    };
                 };
                 options = {
                     relaysEnabled = false;

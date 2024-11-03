@@ -19,23 +19,20 @@ in
                     ../../modules/user/apps/kitty.nix
                 ];
                 home.packages = with pkgs; [
+
+
+                ] ++ (with pkgs-unstable;[
                     discord
                     arandr
                     dbeaver-bin
-
                     octaveFull
+                    sage
                     obsidian
-
                     ani-cli
                     manga-cli
-                    mpv
-# Office
-                    okular
-                    zathura
-                    digital
-                ] ++ (with pkgs-unstable;[
-                        freetube
-                        ytmdl
+                    freetube
+                    ytmdl
+                    ytdownloader
                 ]);
 
                 home.file."wallpapers" = {

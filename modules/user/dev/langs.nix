@@ -12,6 +12,7 @@
         #Embedded
         arduino-cli
         platformio
+        quartus-prime-lite
 
         # Javascript
         nodejs_22
