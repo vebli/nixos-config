@@ -39,6 +39,7 @@
 
     i18n.defaultLocale = "en_US.UTF-8";
 
+
     # Opengl
     hardware.opengl = {
         enable = true;

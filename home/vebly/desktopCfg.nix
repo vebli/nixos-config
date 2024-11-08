@@ -40,6 +40,12 @@ in
                     target = lib.strings.removePrefix "~/" var.wallpaperPath; 
                     recursive = true;
                 };
+                xdg.mimeApps = {
+                    enable = true;
+                    defaultApplications = {
+                        "application/pdf" = "okularApplication_pdf.desktop";
+                    };
+                };
             };
         };
     };
