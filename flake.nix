@@ -45,7 +45,7 @@
                 overlays = [nvim-custom.overlays.default inputs.nix-matlab.overlay];
         };
         var = {
-            path.root = "/home/nixos/nixos-config";
+            path.root = "/etc/nixos";
             wallpaperPath = "~/Pictures/Wallpapers";
         };
 
@@ -63,13 +63,14 @@
                     extraSpecialArgs = specialArgs;
                 };
             }
-            inputs.sops-nix.nixosModules.sops {
-                sops = {
-                    defaultSopsFile = ./secrets/secrets.yaml;
-                    defaultSopsFormat= "yaml";
-                    age.keyFile = "/home/user/.config/sops/age/keys.txt";
-                };
-            }
+            # inputs.sops-nix.nixosModules.sops
+           # inputs.sops-nix.nixosModules.sops {
+            #     sops = {
+            #         defaultSopsFile = ./secrets/secrets.yaml;
+            #         defaultSopsFormat= "yaml";
+            #         age.keyFile = "/home/user/.config/sops/age/keys.txt";
+            #     };
+            # }
         ];
 	in {
 		nixosConfigurations = {

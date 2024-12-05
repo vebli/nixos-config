@@ -1,9 +1,9 @@
 { config, pkgs, pkgs-unstable, inputs, ... }:
 {
-    imports =
-        [ 
+    imports = [ 
         ./hardware-configuration.nix
         inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
+        inputs.sops-nix.nixosModules.sops
 
         ../../home/vebly
 
@@ -18,7 +18,15 @@
         ../../modules/system/network
         ];
 
-    opt.vebly.syncthing = true;
+    sops = {
+        defaultSopsFile = ../../secrets/secrets.yaml;
+        defaultSopsFormat= "yaml";
+        age.keyFile = "/home/vebly/.config/sops/age/keys.txt";
+        secrets."vpn/script" = {
+            owner = "vebly";
+        };
+    };
+
 # Configure network proxy if necessary
 # networking.proxy.default = "http://user:password@proxy:port/";
 # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
@@ -32,12 +40,16 @@
             };
             defaultSession = "none+awesome";
     };
+
+
     services.xserver.xkb = {
             layout = "us";
             variant = "";
     };
 
     i18n.defaultLocale = "en_US.UTF-8";
+
+    opt.vebly.syncthing = true;
 
 
     # Opengl
@@ -62,12 +74,15 @@
 
 # Enable CUPS to print documents.
     services.printing.enable = true;
-
     services.udev.packages = with pkgs; [platformio-core.udev];
 
-    environment.systemPackages =  with pkgs; [
-        awesome
-        (catppuccin-sddm.override{
+    environment.systemPackages = [
+        (pkgs.writeShellScriptBin "vpn" /*bash*/ ''
+            ${pkgs.openconnect.outPath + "/bin/openconnect"} $(cat ${config.sops.secrets."vpn/script".path})
+        '')
+        pkgs.openconnect
+        pkgs.awesome
+        (pkgs.catppuccin-sddm.override{
             flavor = "mocha";
         })
     ] ++ (with pkgs-unstable; [nvim-custom]);
@@ -88,13 +103,12 @@
     # services.openssh.enable = true;
 
 # Open ports in the firewall.
-# networking.firewall.allowedTCPPorts = [ ... ];
+networking.firewall.allowedTCPPorts = [ 8000 ];
 # networking.firewall.allowedUDPPorts = [ ... ];
 # Or disable the firewall altogether.
 # networking.firewall.enable = false;
 
     system.stateVersion = "24.05"; 
-        nix.settings.experimental-features = ["nix-command" "flakes"];
 
 }
 

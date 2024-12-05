@@ -134,7 +134,7 @@
     services.syncthing.guiAddress = "0.0.0.0:8384";
 
     system.stateVersion = "24.05"; 
-        nix.settings.experimental-features = ["nix-command" "flakes"];
+    nix.settings.experimental-features = ["nix-command" "flakes"]; 
 
 }
 

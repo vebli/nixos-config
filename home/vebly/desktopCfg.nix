@@ -27,6 +27,7 @@ in
                     dbeaver-bin
                     octaveFull
                     sage
+                    digital
                     obsidian
                     ani-cli
                     manga-cli

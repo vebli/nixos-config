@@ -1,5 +1,6 @@
 {config, pkgs, var, ...}:
 {
+    nix.settings.experimental-features = ["nix-command" "flakes"]; 
     time.timeZone = "Europe/Zurich";
     fonts.packages = with pkgs;[
         font-awesome
