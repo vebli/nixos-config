@@ -8,6 +8,7 @@
         gcc
         clang-tools_17
         gdb
+        nasm
 
         #Embedded
         arduino-cli
