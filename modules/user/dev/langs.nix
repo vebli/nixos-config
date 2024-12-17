@@ -7,13 +7,15 @@
         cmake 
         gcc
         clang-tools_17
-        gdb
         nasm
 
+        gdb
+        gef
+        pwndbg
+        
         #Embedded
         arduino-cli
         platformio
-        quartus-prime-lite
 
         # Javascript
         nodejs_22
@@ -33,17 +35,10 @@
         lua
     ];
 
-    home.file."gdb-peda" = {
-        source = inputs.gdb-peda.outPath;
-        target = ".config/peda";
-        recursive = true;
-    };
-
     home.file."gdb-conf" = {
         target = ".gdbinit";
         text = ''
-        set disassembly-flavor intel
-        source  ~/.config/peda/peda.py
+            set disassembly-flavor intel
         '';
     };
 }

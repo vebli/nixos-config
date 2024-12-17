@@ -27,7 +27,7 @@
         # Default Apps/Tools 
         shutter
         pavucontrol
-        cinnamon.nemo-with-extensions
+        nemo-with-extensions
         acpi
         networkmanagerapplet
         mpv

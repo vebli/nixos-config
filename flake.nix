@@ -2,9 +2,9 @@
 	description = "Nix Configuration";
 
 	inputs = {
-        nixpkgs.url = "nixpkgs/nixos-24.05";
+        nixpkgs.url = "nixpkgs/nixos-24.11";
         nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
-        home-manager.url = "github:nix-community/home-manager/release-24.05";
+        home-manager.url = "github:nix-community/home-manager/release-24.11";
         home-manager.inputs.nixpkgs.follows = "nixpkgs";
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
         sops-nix.url = "github:Mic92/sops-nix";
@@ -19,10 +19,6 @@
         minimal-tmux = {
             url = "github:niksingh710/minimal-tmux-status";
             inputs.nixpkgs.follows = "nixpkgs";
-        };
-        gdb-peda = {
-            url = "github:longld/peda";
-            flake = false;
         };
         wallpapers = {
             url = "github:vebli/wallpapers";

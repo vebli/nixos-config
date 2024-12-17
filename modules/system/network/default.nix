@@ -4,7 +4,7 @@
     networking.networkmanager.enable = true;
     services.gvfs = {
         enable = true; # Creates virtual file system necessary to access network stuff like samba shares. 
-        package = lib.mkForce pkgs.gnome3.gvfs;
+        package = lib.mkForce pkgs.gnome.gvfs;
     };
     services.avahi = { #Allows file manager to find shares
         enable = true;

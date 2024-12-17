@@ -3,11 +3,11 @@
     "awesome-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1725815085,
-        "narHash": "sha256-/YyMfku4dILg76P2xqeTcalS1ShxUgxYsN79pVF0yxI=",
+        "lastModified": 1734096161,
+        "narHash": "sha256-/z2Dx2JLLpuB44hWIdJwpuoVpJ7pRYY1/fshgQHYU9A=",
         "owner": "vebli",
         "repo": "awesome-config",
-        "rev": "4c8d910633282806057f6011f89fdba82505f311",
+        "rev": "66a0103cb75db6c3dbd9263fab48e6e43d74a539",
         "type": "github"
       },
       "original": {
@@ -32,22 +32,6 @@
         "type": "github"
       }
     },
-    "gdb-peda": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1609640273,
-        "narHash": "sha256-vtNJ9WHCUtZmIn/IXwwtKrZx1i/az+gMmW6fLd67QYQ=",
-        "owner": "longld",
-        "repo": "peda",
-        "rev": "84d38bda505941ba823db7f6c1bcca1e485a2d43",
-        "type": "github"
-      },
-      "original": {
-        "owner": "longld",
-        "repo": "peda",
-        "type": "github"
-      }
-    },
     "home-manager": {
       "inputs": {
         "nixpkgs": [
@@ -55,16 +39,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1720042825,
-        "narHash": "sha256-A0vrUB6x82/jvf17qPCpxaM+ulJnD8YZwH9Ci0BsAzE=",
+        "lastModified": 1733951536,
+        "narHash": "sha256-Zb5ZCa7Xj+0gy5XVXINTSr71fCfAv+IKtmIXNrykT54=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "e1391fb22e18a36f57e6999c7a9f966dc80ac073",
+        "rev": "1318c3f3b068cdcea922fa7c1a0a1f0c96c22f5f",
         "type": "github"
       },
       "original": {
         "owner": "nix-community",
-        "ref": "release-24.05",
+        "ref": "release-24.11",
         "repo": "home-manager",
         "type": "github"
       }
@@ -143,16 +127,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1725001927,
-        "narHash": "sha256-eV+63gK0Mp7ygCR0Oy4yIYSNcum2VQwnZamHxYTNi+M=",
+        "lastModified": 1733808091,
+        "narHash": "sha256-KWwINTQelKOoQgrXftxoqxmKFZb9pLVfnRvK270nkVk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "6e99f2a27d600612004fbd2c3282d614bfee6421",
+        "rev": "a0f3e10d94359665dba45b71b4227b0aeb851f8e",
         "type": "github"
       },
       "original": {
         "id": "nixpkgs",
-        "ref": "nixos-24.05",
+        "ref": "nixos-24.11",
         "type": "indirect"
       }
     },
@@ -227,11 +211,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_2"
       },
       "locked": {
-        "lastModified": 1733739437,
-        "narHash": "sha256-gbPvRHUnvO8ELTk/9YZNVfKsP8X0wr88N19OnVeXKqc=",
+        "lastModified": 1734078970,
+        "narHash": "sha256-42JRPws6l19c+M5CEb1YBZIzY3wVnaeekzstgFBvMGU=",
         "owner": "vebli",
         "repo": "nvim-flake",
-        "rev": "7af4295805e3e66c5b75f6ce1aad87a0c34dadce",
+        "rev": "5592b9c64d2ba8590c7979fb34c2e44c2ce81ee1",
         "type": "github"
       },
       "original": {
@@ -243,7 +227,6 @@
     "root": {
       "inputs": {
         "awesome-config": "awesome-config",
-        "gdb-peda": "gdb-peda",
         "home-manager": "home-manager",
         "minimal-tmux": "minimal-tmux",
         "nix-matlab": "nix-matlab",
