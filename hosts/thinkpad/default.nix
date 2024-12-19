@@ -1,5 +1,4 @@
-{ config, pkgs, pkgs-unstable, inputs, ... }:
-{
+{ config, pkgs, pkgs-unstable, inputs, ... }: {
     imports = [ 
         ./hardware-configuration.nix
         inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
@@ -71,7 +70,10 @@
     };
 
 # Enable CUPS to print documents.
-    services.printing.enable = true;
+    services.printing = {
+        enable = true;
+        drivers = with pkgs; [cnijfilter2];
+    };
     services.udev.packages = with pkgs; [platformio-core.udev];
 
     environment.systemPackages = [

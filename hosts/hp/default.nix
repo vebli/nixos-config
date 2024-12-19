@@ -32,7 +32,10 @@
         driSupport32Bit = true;
     };
 
-    services.printing.enable = true;
+    services.printing = {
+        enable = true;
+        drivers = with pkgs; [cnijfilter2];
+    };
 
     environment.systemPackages = with pkgs;[
     ] ++ (with pkgs-unstable; [nvim-custom]);
