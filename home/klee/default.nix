@@ -21,6 +21,9 @@
             home.packages = with pkgs; [
                 freetube
                 obsidian
+		ytdownloader
+		mpv
+		okular
             ];
 
             home.sessionVariables = {
