@@ -69,6 +69,11 @@
         };
     };
 
+    hardware.opentabletdriver = {
+        enable = true;
+        package = pkgs-unstable.opentabletdriver;
+        daemon.enable = true;
+    };
 # Enable CUPS to print documents.
     services.printing = {
         enable = true;
@@ -80,8 +85,9 @@
         (pkgs.writeShellScriptBin "vpn" /*bash*/ ''
             ${pkgs.openconnect.outPath + "/bin/openconnect"} $(cat ${config.sops.secrets."vpn/script".path})
         '')
-        pkgs.openconnect
+        pkgs.openconnect # for vpn
         pkgs.awesome
+        pkgs.xournalpp
         (pkgs.catppuccin-sddm.override{
             flavor = "mocha";
         })
