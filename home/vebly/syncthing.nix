@@ -1,8 +1,11 @@
 {config, pkgs, pkgs-unstable, lib, fn,...}: 
+    let
+	cfg = config.opt.vebly.syncthing;
+    in
 {
-    options.opt.vebly.syncthing = lib.mkEnableOption "Enable Syncthing"; 
+    options.opt.vebly.syncthing.enable = lib.mkEnableOption "Enable Syncthing"; 
 
-    config = lib.mkIf config.opt.vebly.syncthing {
+    config = lib.mkIf cfg.enable {
 
         sops = {
             defaultSopsFile = ../../secrets/secrets.yaml;

@@ -16,6 +16,8 @@
 
         ../../modules/system/network
         ];
+	
+    opt.vebly.syncthing.enable= false;
 
     boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
@@ -25,12 +27,7 @@
             layout = "us, ch";
             variant = "";
     };
-
-    hardware.opengl = {
-        enable = true;
-        driSupport = true;
-        driSupport32Bit = true;
-    };
+    hardware.graphics.enable = true;
 
     services.printing = {
         enable = true;
@@ -38,6 +35,9 @@
     };
 
     environment.systemPackages = with pkgs;[
+	vim
+	wl-clipboard
+	
     ] ++ (with pkgs-unstable; [nvim-custom]);
 
     system.stateVersion = "24.05"; 

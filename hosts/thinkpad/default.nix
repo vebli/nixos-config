@@ -48,7 +48,7 @@
 
     i18n.defaultLocale = "en_US.UTF-8";
 
-    opt.vebly.syncthing = true;
+    opt.vebly.syncthing.enable = true;
 
 
     # Opengl

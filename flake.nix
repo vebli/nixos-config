@@ -60,14 +60,13 @@
                     extraSpecialArgs = specialArgs;
                 };
             }
-            # inputs.sops-nix.nixosModules.sops
-           # inputs.sops-nix.nixosModules.sops {
-            #     sops = {
-            #         defaultSopsFile = ./secrets/secrets.yaml;
-            #         defaultSopsFormat= "yaml";
-            #         age.keyFile = "/home/user/.config/sops/age/keys.txt";
-            #     };
-            # }
+            inputs.sops-nix.nixosModules.sops {
+                 sops = {
+                     defaultSopsFile = ./secrets/secrets.yaml;
+                     defaultSopsFormat= "yaml";
+                     age.keyFile = "/home/user/.config/sops/age/keys.txt";
+                 };
+             }
         ];
 	in {
 		nixosConfigurations = {
