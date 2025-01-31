@@ -16,10 +16,16 @@
         #Embedded
         arduino-cli
         platformio
+        ngspice
 
+        #zig
+        zig
+        #odin 
+        odin
         # Javascript
         nodejs_22
         biome
+        postman
 
         #Databases
         sqlite

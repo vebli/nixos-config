@@ -1,4 +1,4 @@
-{lib, ... }: with builtins; rec
+{pkgs, lib, ... }: with builtins; rec
 {
 
     #Takes list of files and removes default.nix and keeps nix files
@@ -20,6 +20,8 @@
         (file: import (toPath "${path}/${file}")) 
         (findSiblings path);
     };
+
+    syncthingGenId = import ./syncthingGenId {inherit pkgs lib;};
 
     # Takes a list of directory paths and returns list with direct children of given paths.
     imports = paths: concatMap findSiblings paths;

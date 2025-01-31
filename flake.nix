@@ -41,15 +41,16 @@
                 overlays = [nvim-custom.overlays.default inputs.nix-matlab.overlay];
         };
         var = {
-            path.root = "/etc/nixos";
-            wallpaperPath = "~/Pictures/Wallpapers";
+            system = "x86_64-linux";
+            path.root = "/etc/nixos/";
+            path.wallpapers= "~/Pictures/Wallpapers/";
         };
 
 	lib = nixpkgs.lib;
-        system = "x86_64-linux";
+        system = var.system;
         pkgs = mkPkgs nixpkgs system;
         pkgs-unstable = mkPkgs nixpkgs-unstable system;
-        fn = import ./modules/flake/utils {inherit lib;};
+        fn = import ./modules/flake/utils {inherit pkgs lib;};
         specialArgs = {inherit pkgs pkgs-unstable var fn inputs;};
         sharedModules = [
             inputs.home-manager.nixosModules.home-manager

@@ -88,6 +88,7 @@
         pkgs.openconnect # for vpn
         pkgs.awesome
         pkgs.xournalpp
+        pkgs.signal-desktop
         (pkgs.catppuccin-sddm.override{
             flavor = "mocha";
         })

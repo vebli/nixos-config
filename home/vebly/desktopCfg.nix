@@ -34,11 +34,13 @@ in
                     freetube
                     ytmdl
                     ytdownloader
+                    kicad
+                    qucs-s
                 ]);
 
                 home.file."wallpapers" = {
                     source = inputs.wallpapers.outPath;
-                    target = lib.strings.removePrefix "~/" var.wallpaperPath; 
+                    target = lib.strings.removePrefix "~/" var.path.wallpapers; 
                     recursive = true;
                 };
                 xdg.mimeApps = {

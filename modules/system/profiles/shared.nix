@@ -1,6 +1,18 @@
 {config, pkgs, var, ...}:
 {
-    nix.settings.experimental-features = ["nix-command" "flakes"]; 
+    imports = [
+        ../devshells
+    ];
+
+    nix= {
+        extraOptions = ''
+            experimental-features = nix-command flakes pipe-operators
+        '';
+        settings.experimental-features = ["nix-command" "flakes" "pipe-operators"]; 
+    };
+        
+
+    
     time.timeZone = "Europe/Zurich";
     fonts.packages = with pkgs;[
         font-awesome
@@ -13,8 +25,8 @@
 
     environment.systemPackages =  [
         (import ../../scripts/hellow.nix {inherit pkgs;})
-        (import ../../scripts/wallpaper/random-wallpaper.nix {pkgs=pkgs; wallpaperPath=var.wallpaperPath;})
-        (import ../../scripts/wallpaper/current-wallpaper.nix {pkgs=pkgs; wallpaperPath=var.wallpaperPath;})
+        (import ../../scripts/wallpaper/random-wallpaper.nix {pkgs=pkgs; wallpaperPath=var.path.wallpapers;})
+        (import ../../scripts/wallpaper/current-wallpaper.nix {pkgs=pkgs; wallpaperPath=var.path.wallpapers;})
     ] ++ (with pkgs; [
         # Essentials
         git

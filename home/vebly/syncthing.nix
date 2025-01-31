@@ -1,8 +1,44 @@
-{config, pkgs, pkgs-unstable, lib, ...}: 
+{config, pkgs, pkgs-unstable, lib, fn,...}: 
 {
     options.opt.vebly.syncthing = lib.mkEnableOption "Enable Syncthing"; 
 
     config = lib.mkIf config.opt.vebly.syncthing {
+
+        sops = {
+            defaultSopsFile = ../../secrets/secrets.yaml;
+            defaultSopsFormat= "yaml";
+            age.keyFile = "/home/vebly/.config/sops/age/keys.txt";
+            secrets = {
+                "syncthing/devices/desktop/id" = {
+                    owner = "vebly";
+                };
+                "syncthing/devices/desktop/addresses" = {
+                    owner = "vebly";
+                };
+                "syncthing/devices/thinkpad/id" = {
+                    owner = "vebly";
+                };
+                "syncthing/devices/thinkpad/addresses" = {
+                    owner = "vebly";
+                };
+                "syncthing/devices/tablet/id" = {
+                    owner = "vebly";
+                };
+                "syncthing/devices/tablet/addresses" = {
+                    owner = "vebly";
+                };
+                "syncthing/devices/server/id" = {
+                    owner = "vebly";
+                };
+                "syncthing/devices/server/addresses" = {
+                    owner = "vebly";
+                };
+                "syncthing/devices/phone/id" = {
+                    owner = "vebly";
+                };
+            };
+        };
+
         services.syncthing = {
             enable = true;
             user = "vebly";
@@ -19,14 +55,14 @@
                 devices = {
                     "desktop" = {
                         name = "desktop";
-                        id = "CTIMFRP-FHF54DM-2W6KLTQ-QAXL3Z2-3ZOZULV-7AVEKGK-2ZPAUCQ-PJWJMQX";
+                        # id = "CTIMFRP-FHF54DM-2W6KLTQ-QAXL3Z2-3ZOZULV-7AVEKGK-2ZPAUCQ-PJWJMQX";
                         addresses = [
                             "tcp://192.168.1.171:22000"
                         ];
                     };
                     "thinkpad" = {
                         name = "thinkpad";
-                        id = "KN2XFMV-H6IDARR-SRTXGQU-TTDVC4Z-DARFWTN-NFZLLJ4-KUX66YP-PB4A2Q6";
+                        # id = "KN2XFMV-H6IDARR-SRTXGQU-TTDVC4Z-DARFWTN-NFZLLJ4-KUX66YP-PB4A2Q6";
                         addresses = [
                             "tcp://192.168.1.49:22000"
                         ];
@@ -57,7 +93,7 @@
                         name = "phone";
                         id = "6YYFPNG-KQZ6VC6-QTRNCQP-QGKYDCR-XAZMGA2-6ALI2UU-MD2CSUV-BRMOEA7";
                     };
-                };
+                } // fn.syncthingGenId ["desktop" "thinkpad"];
                 folders = {
                     "SecondBrain" = { 
                         enable = true;
@@ -102,6 +138,16 @@
                         copyOwndershipFromParent = true;
                         devices = [
                             "phone"
+                            "thinkpad"
+                            "tablet"
+                        ];
+                    };
+                    "Studies" = {
+                        enable = true;
+                        label = "Studies";
+                        path = "~/Sync/Studies";
+                        copyOwndershipFromParent = true;
+                        devices = [
                             "thinkpad"
                             "tablet"
                         ];
