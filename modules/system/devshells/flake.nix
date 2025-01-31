@@ -49,7 +49,7 @@
                     glfw-wayland
                 ];
                 shellHook = ''
-                    export PS1="\[\033[1;34m\]\w (cpp) \[\033[0m\]  "
+                    export PS1="\[\033[1;34m\]\w (cpp) \[\033[0m\] "
                 '';
             };
             "c" = pkgs.mkShell {
@@ -60,7 +60,7 @@
                     glibc
                 ];
                 shellHook = ''
-                    export PS1="\[\033[1;34m\]\w (c) \[\033[0m\]  "
+                    export PS1="\[\033[1;34m\]\w (c) \[\033[0m\] "
                 '';
             };
         };

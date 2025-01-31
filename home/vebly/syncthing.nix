@@ -8,9 +8,6 @@
     config = lib.mkIf cfg.enable {
 
         sops = {
-            defaultSopsFile = ../../secrets/secrets.yaml;
-            defaultSopsFormat= "yaml";
-            age.keyFile = "/home/vebly/.config/sops/age/keys.txt";
             secrets = {
                 "syncthing/devices/desktop/id" = {
                     owner = "vebly";

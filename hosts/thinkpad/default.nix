@@ -1,8 +1,7 @@
-{ config, pkgs, pkgs-unstable, inputs, ... }: {
+{ config, pkgs, pkgs-unstable, inputs, sops,  ... }: {
     imports = [ 
         ./hardware-configuration.nix
         inputs.nixos-hardware.nixosModules.lenovo-thinkpad-t480
-        inputs.sops-nix.nixosModules.sops
 
         ../../home/vebly
 
@@ -17,14 +16,7 @@
         ../../modules/system/network
         ];
 
-    sops = {
-        defaultSopsFile = ../../secrets/secrets.yaml;
-        defaultSopsFormat= "yaml";
-        age.keyFile = "/home/vebly/.config/sops/age/keys.txt";
-        secrets."vpn/script" = {
-            owner = "vebly";
-        };
-    };
+        sops.secrets."vpn/script" = { owner = "vebly";};
 
 # Configure network proxy if necessary
 # networking.proxy.default = "http://user:password@proxy:port/";

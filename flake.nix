@@ -46,7 +46,7 @@
             path.wallpapers= "~/Pictures/Wallpapers/";
         };
 
-	lib = nixpkgs.lib;
+        lib = nixpkgs.lib;
         system = var.system;
         pkgs = mkPkgs nixpkgs system;
         pkgs-unstable = mkPkgs nixpkgs-unstable system;
@@ -64,7 +64,7 @@
                  sops = {
                      defaultSopsFile = ./secrets/secrets.yaml;
                      defaultSopsFormat= "yaml";
-                     age.keyFile = "/home/user/.config/sops/age/keys.txt";
+                     age.keyFile = "/home/vebly/.config/sops/age/keys.txt";
                  };
              }
         ];
