@@ -9,7 +9,7 @@
         nixos-hardware.url = "github:NixOS/nixos-hardware/master";
         sops-nix.url = "github:Mic92/sops-nix";
         nvim-custom = { 
-            url = "github:vebli/nvim-flake"; 
+            url = "github:vebli/nvim-nvf"; 
             inputs.nixpkgs.follows = "nixpkgs";
         };
         awesome-config = {
@@ -24,10 +24,6 @@
             url = "github:vebli/wallpapers";
             flake = false;
         };
-        nix-matlab = {
-            inputs.nixpkgs.follows = "nixpkgs";
-            url = "gitlab:doronbehar/nix-matlab";
-        };
 	};
 
 	outputs = inputs @ {self, nixpkgs, nixpkgs-unstable, nixos-hardware, minimal-tmux, nvim-custom, ...}: 
@@ -38,7 +34,7 @@
                     allowUnfree = true; 
                     permittedInsecurePackages = [ ];
                 };
-                overlays = [nvim-custom.overlays.default inputs.nix-matlab.overlay];
+                overlays = [nvim-custom.overlays.default ];
         };
         var = {
             system = "x86_64-linux";

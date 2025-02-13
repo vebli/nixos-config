@@ -52,7 +52,7 @@ in
 
                 };
             };
-            prezto.tmux.autoStartLocal = true;
+
             shellAliases = {
                 "cpwd" = "pwd | tr -d \"\n\" | xargs echo -n | xclip -selection clipboard";
                 "hrs" = "home-manager switch --flake ${var.path.root}";
@@ -60,6 +60,8 @@ in
                 "gdb" = "gdb -q";
                 "ndwl" = "nmcli device wifi list";
                 "ncs" = "nmcli connection show";
+                "e" = "emacsclient -n";
+                "nvim-init" = "nvim --cmd 'set runtimepath+=.' -u";
             };
             initExtra = ''
                 # eval "$(tmuxifier init -)"

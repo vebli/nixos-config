@@ -21,6 +21,8 @@
         jetbrains-mono
         iosevka
         icomoon-feather
+        cantarell-fonts
+        inter
     ];
 
     environment.systemPackages =  [

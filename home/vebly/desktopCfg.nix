@@ -13,7 +13,6 @@ in
             users.vebly = {
                 imports = [
                     ../../modules/user/wm/awesome.nix 
-                    ../../modules/user/apps/matlab.nix
                     ../../modules/user/apps/latex.nix
                     ../../modules/user/apps/librewolf.nix
                     ../../modules/user/apps/kitty.nix
@@ -22,6 +21,8 @@ in
 
 
                 ] ++ (with pkgs-unstable;[
+                    xournalpp
+                    signal-desktop
                     discord
                     arandr
                     dbeaver-bin

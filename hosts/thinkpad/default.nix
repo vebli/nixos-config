@@ -23,6 +23,8 @@
 # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 # networking.interfaces.enp0s3.useDHCP = true;
 
+    services.emacs.enable = true;
+
     services.displayManager = {
             sddm = {
                 enable = true;
@@ -79,8 +81,6 @@
         '')
         pkgs.openconnect # for vpn
         pkgs.awesome
-        pkgs.xournalpp
-        pkgs.signal-desktop
         (pkgs.catppuccin-sddm.override{
             flavor = "mocha";
         })

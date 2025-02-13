@@ -2,47 +2,7 @@
 {
     home.packages = with pkgs; [
         emacs
-        # C/C++
-        libgcc  
-        gnumake
-        cmake 
-        gcc
-        libtool
-        clang-tools_17
-        nasm
-
-        gdb
-        gef
-        pwndbg
-        
-        #Embedded
-        arduino-cli
-        platformio
-        ngspice
-
-        #zig
-        zig
-        #odin 
-        odin
-        # Javascript
-        nodejs_22
-        biome
-        postman
-
-        #Databases
-        sqlite
-
-        #Rust
-        rustup
-
-        #python
-        python3
-        virtualenv
-
-        #Lua
-        lua
-
-        #LSPS
+        texlivePackages.dvisvgm 
         emacsPackages.elsa
         asm-lsp
         cmake-language-server
