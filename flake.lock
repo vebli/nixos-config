@@ -306,11 +306,11 @@
         "nvf": "nvf"
       },
       "locked": {
-        "lastModified": 1739456410,
-        "narHash": "sha256-Rt90AtQBZff4qzP5J53a2oUL/Mo3wDMlkvrmzyGSVYc=",
+        "lastModified": 1739619001,
+        "narHash": "sha256-jJ8MD0lSrsr8NyOIFgqJbS55/C0CiJ0pi8sq6lVD60w=",
         "owner": "vebli",
         "repo": "nvim-nvf",
-        "rev": "e159fc4c3e7239c41f6bdb760c2c68d6b361ea86",
+        "rev": "1a0b96cd7c6b09a598dc1178e51efc67e8992a95",
         "type": "github"
       },
       "original": {

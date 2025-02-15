@@ -16,7 +16,7 @@
         ../../modules/system/network
         ];
 
-        sops.secrets."vpn/script" = { owner = "vebly";};
+        sops.secrets."vpn/script".owner = "vebly";
 
 # Configure network proxy if necessary
 # networking.proxy.default = "http://user:password@proxy:port/";
