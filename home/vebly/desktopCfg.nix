@@ -21,6 +21,8 @@ in
 
 
         ] ++ (with pkgs-unstable;[
+            postman
+            ngspice
             xournalpp
             signal-desktop
             discord
