@@ -19,11 +19,13 @@
     variant = "";
   };
 
-  sops.secrets."server/ssh/keys/vebly".owner = "vebly";
 
   services.openssh = {
     enable = true;
     openFirewall = true;
+    settings = {
+        PasswordAuthentication = false;
+    };
   };
 
     services.kmscon = {
@@ -56,7 +58,6 @@
     };
     vebly = {
       extraGroups = ["smbgroup"];
-      openssh.authorizedKeys.keyFiles = config.sops.secrets."server/ssh/keys".path ;
     };
     smbuser = {
       isNormalUser = true;
