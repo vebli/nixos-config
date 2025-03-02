@@ -1,27 +1,33 @@
 {config, pkgs, pkgs-unstable, ...}:
 {
-    home.packages = with pkgs; [
-        git
-        wget
-        sops
-        killall
-        gnupg
-        unzip
-        tree
-        ripgrep
-        trashy
-        usbutils
+  home.packages = with pkgs; [
+    git
+    wget
+    sops
+    killall
+    gnupg
+    unzip
+    tree
+    ripgrep
+    trashy
+    usbutils
 
-        tcpdump
-        aircrack-ng
-        wirelesstools
+    gcc.man
+    clang-manpages
+    man-pages
+    man-pages-posix
+    linux-manual
 
-        nix-search-cli
-    ];
-    programs = {
-        eza.enable = true;
-        fzf.enable = true;
-        zoxide.enable = true;
-    };
+    tcpdump
+    aircrack-ng
+    wirelesstools
+
+    nix-search-cli
+  ];
+  programs = {
+    eza.enable = true;
+    fzf.enable = true;
+    zoxide.enable = true;
+  };
 
 }
