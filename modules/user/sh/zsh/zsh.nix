@@ -8,12 +8,28 @@ let
     dracula_purple = "#BD93F9";
     dracula_red = "#FF5555";
 
-    command_color = "fg=${dracula_green}";
-    error_color = "fg=${dracula_red}";
-    string_color = "fg=${dracula_yellow}"; 
-    globbing_color = "fg=${dracula_blue}"; 
-    precommand_color = "fg=${dracula_orange}";
-    substitution_color = "fg=${dracula_pink}"; 
+    # command_color = "fg=${dracula_green}";
+    # error_color = "fg=${dracula_red}";
+    # string_color = "fg=${dracula_yellow}"; 
+    # globbing_color = "fg=${dracula_blue}"; 
+    # precommand_color = "fg=${dracula_orange}";
+    # substitution_color = "fg=${dracula_pink}"; 
+
+# https://rosepinetheme.com/ca/palette/
+    rose_pine_purple = "#c4a7e7";
+    rose_pine_blue = "#31748f";
+    rose_pine_orange = "#ea9a97";
+    rose_pine_pink = "#eb6f92";
+    rose_pine_yellow = "#f6c177";
+    rose_pine_red = "#ea9a97";
+    rose_pine_gray = "#6e6a86";
+    ps1_color = rose_pine_purple;
+    command_color = "fg=${rose_pine_blue}";
+    error_color = "fg=${rose_pine_red}";
+    string_color = "fg=${rose_pine_yellow}"; 
+    globbing_color = "fg=${rose_pine_blue}"; 
+    precommand_color = "fg=${rose_pine_orange}";
+    substitution_color = "fg=${rose_pine_pink}"; 
 in
 {
     home.packages = with pkgs; [
@@ -55,18 +71,16 @@ in
 
             shellAliases = {
                 "cpwd" = "pwd | tr -d \"\n\" | xargs echo -n | xclip -selection clipboard";
-                "hrs" = "home-manager switch --flake ${var.path.root}";
                 "ls" = "exa --icons";
                 "gdb" = "gdb -q";
-                "ndwl" = "nmcli device wifi list";
-                "ncs" = "nmcli connection show";
                 "e" = "emacsclient -n";
                 "nvim-init" = "nvim --cmd 'set runtimepath+=.' -u";
             };
             initExtra = ''
                 # eval "$(tmuxifier init -)"
                 eval "$(zoxide init --cmd cd zsh)" #ZOXIDE alias
-                PS1="%F{${dracula_purple}}%n@%m %~ %F{${dracula_purple}}%f "
+                eval "$(direnv hook zsh)"
+                PS1="%F{${ps1_color}}%n@%m %~ %F{${ps1_color}}%f "
 
                 up() {
                     if [[ $# -ne 1 ]] || ! [[ $1 =~ ^[0-9]+$ ]]; then
