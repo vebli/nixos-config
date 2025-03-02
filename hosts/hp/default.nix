@@ -38,7 +38,7 @@
 	vim
 	wl-clipboard
 	
-    ] ++ (with pkgs-unstable; [nvim-custom]);
+    ] ++ (with pkgs-unstable; []);
 
     system.stateVersion = "24.05"; 
 

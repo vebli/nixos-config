@@ -140,7 +140,7 @@
   };
 
   environment.systemPackages =  with pkgs; [
-  ] ++ (with pkgs-unstable; [nvim-custom]);
+  ] ++ (with pkgs-unstable; []);
 
 
 

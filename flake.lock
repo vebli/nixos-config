@@ -16,6 +16,22 @@
         "type": "github"
       }
     },
+    "flake-compat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1733328505,
+        "narHash": "sha256-NeCCThCEP3eCl2l/+27kNNK7QrwZB1IJCrXfrbv5oqU=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "ff81ac966bb2cae68946d5ed5fc4994f96d0ffec",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
     "flake-parts": {
       "inputs": {
         "nixpkgs-lib": "nixpkgs-lib"
@@ -73,26 +89,6 @@
         "type": "github"
       }
     },
-    "minimal-tmux": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1721133318,
-        "narHash": "sha256-lDPT3XRH14Z5WTdtWhgiYa8FjQHeYFCY7Dpy9xU8vyM=",
-        "owner": "niksingh710",
-        "repo": "minimal-tmux-status",
-        "rev": "86de1697b6b0522ebd36b5fe83c5fd9b7e30f15f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "niksingh710",
-        "repo": "minimal-tmux-status",
-        "type": "github"
-      }
-    },
     "mnw": {
       "locked": {
         "lastModified": 1735150973,
@@ -134,6 +130,27 @@
         "owner": "oxalica",
         "repo": "nil",
         "type": "github"
+      }
+    },
+    "nix-matlab": {
+      "inputs": {
+        "flake-compat": "flake-compat",
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1739718118,
+        "narHash": "sha256-ZRO+3o8g3gjgA0gIfp08ygy++IhQsmfU7afxnJwEV6o=",
+        "owner": "doronbehar",
+        "repo": "nix-matlab",
+        "rev": "b0a43e3c5cac996d646596a338e38632936d96bc",
+        "type": "gitlab"
+      },
+      "original": {
+        "owner": "doronbehar",
+        "repo": "nix-matlab",
+        "type": "gitlab"
       }
     },
     "nixos-hardware": {
@@ -225,6 +242,21 @@
         "type": "indirect"
       }
     },
+    "nixpkgs-unstable_3": {
+      "locked": {
+        "lastModified": 1740126099,
+        "narHash": "sha256-ozoOtE2hGsqh4XkTJFsrTkNxkRgShxpQxDynaPZUGxk=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "32fb99ba93fea2798be0e997ea331dd78167f814",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixos-unstable",
+        "type": "indirect"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1737370608,
@@ -306,11 +338,11 @@
         "nvf": "nvf"
       },
       "locked": {
-        "lastModified": 1739619001,
-        "narHash": "sha256-jJ8MD0lSrsr8NyOIFgqJbS55/C0CiJ0pi8sq6lVD60w=",
+        "lastModified": 1740319878,
+        "narHash": "sha256-H/PYUVbvc6VcXIndLsQoadDvBWbbDg11mZlcgzbztac=",
         "owner": "vebli",
         "repo": "nvim-nvf",
-        "rev": "1a0b96cd7c6b09a598dc1178e51efc67e8992a95",
+        "rev": "8acc51f4027e5595a8954b0f692570648ba37a9c",
         "type": "github"
       },
       "original": {
@@ -323,12 +355,13 @@
       "inputs": {
         "awesome-config": "awesome-config",
         "home-manager": "home-manager",
-        "minimal-tmux": "minimal-tmux",
+        "nix-matlab": "nix-matlab",
         "nixos-hardware": "nixos-hardware",
         "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nvim-custom": "nvim-custom",
         "sops-nix": "sops-nix",
+        "tmux-custom": "tmux-custom",
         "wallpapers": "wallpapers"
       }
     },
@@ -401,6 +434,27 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "tmux-custom": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ],
+        "nixpkgs-unstable": "nixpkgs-unstable_3"
+      },
+      "locked": {
+        "lastModified": 1740914041,
+        "narHash": "sha256-vbLEkk2uHdJXZsrT9fMGEXSprhAvyw+LqxHYAdqaBV4=",
+        "owner": "vebli",
+        "repo": "tmux-nix",
+        "rev": "b81c7cf37a1eba776218007665da68181160d574",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vebli",
+        "repo": "tmux-nix",
         "type": "github"
       }
     },

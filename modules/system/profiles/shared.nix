@@ -37,6 +37,7 @@
         kitty
         pkg-config
         gtk3
+        appimage-run
         
         # Default Apps/Tools 
         shutter
@@ -50,7 +51,6 @@
         libreoffice
     ]);
 
-
     users.defaultUserShell = pkgs.zsh;
     programs = {
         zsh = {
@@ -60,4 +60,11 @@
             syntaxHighlighting.enable = true;
         };
     };
+  documentation = {
+    man.enable = true;
+    dev.enable = true;
+    doc.enable = true;
+    man.generateCaches = true;
+  };
+
 }

@@ -34,6 +34,7 @@
         rustup
 
         #python
+        direnv
         python3
         virtualenv
 

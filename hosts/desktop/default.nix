@@ -58,7 +58,6 @@
             flavor = "mocha";
         })
     ] ++ (with pkgs-unstable; [
-	nvim-custom
     ]);
 
 

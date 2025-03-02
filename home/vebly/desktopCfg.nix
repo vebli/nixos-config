@@ -48,6 +48,7 @@ in
             recursive = true;
           };
         };
+        home.file.".config/matlab/nix.sh".text = "INSTALL_DIR=$HOME/Imperative/Matlab/installation";
           xdg.mimeApps = {
             enable = true;
             defaultApplications = {
