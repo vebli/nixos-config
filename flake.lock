@@ -445,11 +445,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_3"
       },
       "locked": {
-        "lastModified": 1740914041,
-        "narHash": "sha256-vbLEkk2uHdJXZsrT9fMGEXSprhAvyw+LqxHYAdqaBV4=",
+        "lastModified": 1741552794,
+        "narHash": "sha256-3ZWcmtOsXAxD4cYm0dBgESQy0ZH1+EMNKZMrbK0y8Y0=",
         "owner": "vebli",
         "repo": "tmux-nix",
-        "rev": "b81c7cf37a1eba776218007665da68181160d574",
+        "rev": "d4aefb8288c28f5045d54961f7960036a5a5be98",
         "type": "github"
       },
       "original": {
