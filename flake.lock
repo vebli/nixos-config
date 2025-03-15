@@ -3,11 +3,11 @@
     "awesome-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1734096161,
-        "narHash": "sha256-/z2Dx2JLLpuB44hWIdJwpuoVpJ7pRYY1/fshgQHYU9A=",
+        "lastModified": 1742071216,
+        "narHash": "sha256-eDV075gX1bhU0z2L1MF7zPOAuA58muGpkWCeNUNgDEQ=",
         "owner": "vebli",
         "repo": "awesome-config",
-        "rev": "66a0103cb75db6c3dbd9263fab48e6e43d74a539",
+        "rev": "b499acc0a149b3963650d1f99615467270a020e5",
         "type": "github"
       },
       "original": {

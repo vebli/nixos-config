@@ -1,7 +1,7 @@
 {config, pkgs, pkgs-unstable, inputs, ...}:
 {
     imports = [
-        ./rofi/rofi.nix
+        ./rofi
     ];  
     xsession.windowManager.awesome = {
         enable = true;
