@@ -10,22 +10,22 @@ are_you_sure() {
 case "$choice" in
   Shutdown)  
     if are_you_sure; then 
-      shutdown now 
+      shutdown now&
     fi
     ;;
   Restart) 
     if are_you_sure; then 
-      reboot
+      reboot&
     fi
     ;;
   Logout) 
     if are_you_sure; then 
-      awesome-client "awesome.quit()"
+      awesome-client "awesome.quit()"&
     fi
     ;;
   Sleep)
     if are_you_sure; then 
-      systemctl suspend
+      systemctl suspend&
     fi
     ;;
 esac
