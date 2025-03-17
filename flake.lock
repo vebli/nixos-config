@@ -3,11 +3,11 @@
     "awesome-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1742071216,
-        "narHash": "sha256-eDV075gX1bhU0z2L1MF7zPOAuA58muGpkWCeNUNgDEQ=",
+        "lastModified": 1742200527,
+        "narHash": "sha256-LRcec1ALoI58LVcWEuN1vc0vmlOoBWxFQf+8rQp/gn4=",
         "owner": "vebli",
         "repo": "awesome-config",
-        "rev": "b499acc0a149b3963650d1f99615467270a020e5",
+        "rev": "dcd14eb0914ac2b497a6d3154bd4fdc6d9f0e5d1",
         "type": "github"
       },
       "original": {
@@ -445,11 +445,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_3"
       },
       "locked": {
-        "lastModified": 1741552794,
-        "narHash": "sha256-3ZWcmtOsXAxD4cYm0dBgESQy0ZH1+EMNKZMrbK0y8Y0=",
+        "lastModified": 1742201503,
+        "narHash": "sha256-ZzdjhMFZuhxCTqRR33JL7CeRYNzwx6DMW896C9RKlOU=",
         "owner": "vebli",
         "repo": "tmux-nix",
-        "rev": "d4aefb8288c28f5045d54961f7960036a5a5be98",
+        "rev": "d2172db565e318867ef9cbc6f9aad3795ba08279",
         "type": "github"
       },
       "original": {

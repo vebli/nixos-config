@@ -1,0 +1,46 @@
+configuration {
+  modi: "nav";
+}
+* {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+
+  bg: #18181B;
+  bg-alt: #20212C;
+  fg: #A0A0AB;
+  fg-alt: #5D5E72;
+
+  background-color: @bg;
+  text-color: @fg-alt;
+}
+
+window {
+  border: 2px;
+  border-color: @fg-alt;
+  padding: 6px;
+  transparency: "real";
+}
+
+mainbox {
+  children: [listview];
+}
+
+listview {
+  lines: 10;
+}
+
+
+element {
+  children: [element-text];
+}
+
+element-text {
+  padding: 10px;
+}
+
+element-text selected {
+  background-color: @bg-alt;
+  text-color: @fg;
+}

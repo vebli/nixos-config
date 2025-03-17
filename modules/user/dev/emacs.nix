@@ -21,11 +21,4 @@
         alejandra
         vscode-extensions.vue.volar
     ];
-
-    home.file."gdb-conf" = {
-        target = ".gdbinit";
-        text = ''
-            set disassembly-flavor intel
-        '';
-    };
 }
