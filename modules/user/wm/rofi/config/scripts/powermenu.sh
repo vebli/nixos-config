@@ -20,7 +20,7 @@ case "$choice" in
     ;;
   Logout) 
     if are_you_sure; then 
-      exec awesome-client "awesome.quit()"
+      awesome-client "awesome.quit()"
     fi
     ;;
   Sleep)
