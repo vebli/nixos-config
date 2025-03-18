@@ -9,8 +9,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     sops-nix.url = "github:Mic92/sops-nix";
     nvim-custom = { 
-      url = "github:vebli/nvim-nvf"; 
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:vebli/nvim-lazy"; 
     };
     tmux-custom = {
       url = "github:vebli/tmux-nix";
