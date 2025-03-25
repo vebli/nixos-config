@@ -1,11 +1,11 @@
 #!/run/current-system/sw/bin/bash
-menu="rofi -dmenu -i -l 4 -theme ~/.config/rofi/nav.rasi" 
+menu="rofi -dmenu -i -theme ~/.config/rofi/nav.rasi" 
 options=("Logout" "Sleep" "Restart" "Shutdown")
 options_str=$(printf "%s\n" "${options[@]}")
-choice=$(echo -e "$options_str" | $menu)
+choice=$(echo -e "$options_str" | $menu -l 4)
 
 are_you_sure() {
-  printf "no\nyes" | $menu | grep -q "^yes$"
+  printf "no\nyes" | $menu -l 2| grep -q "^yes$"
 }
 case "$choice" in
   Shutdown)  

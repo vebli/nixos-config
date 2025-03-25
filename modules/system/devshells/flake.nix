@@ -52,7 +52,10 @@
             #Graphics
             sfml
             libGLU
+            glew
+
             glfw
+            glfw3
             glfw-wayland
           ];
           shellHook = ''
@@ -65,6 +68,12 @@
             cmake
             gnumake
             glibc
+
+            libGLU
+            glew
+            glfw
+            glfw3
+            glfw-wayland
           ];
           shellHook = ''
                     export PS1="\[\033[1;34m\]\w (c) \[\033[0m\] "
