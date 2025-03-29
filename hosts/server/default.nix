@@ -152,6 +152,7 @@
     enableSSHSupport = true;
   };
 
+  opt.vebly.syncthing.enable = true;
   services.syncthing.guiAddress = "0.0.0.0:8384";
 
   system.stateVersion = "24.05"; 
