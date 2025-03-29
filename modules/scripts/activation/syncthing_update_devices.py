@@ -17,12 +17,12 @@ root = tree.getroot()
 apikey_node = root.find('gui/apikey')
 gui_address_node = root.find('gui/address')
 apikey = apikey_node.text
-gui_address = "http://" + gui_address_node.text + "/rest/config/"
+gui_address = "http://" + gui_address_node.text + "/rest/"
 
 # GET device data
 header = {"X-API-Key": apikey}
 
-get_response = requests.get(gui_address + "devices", headers=header)
+get_response = requests.get(gui_address + "config/devices", headers=header)
 response_data = None;
 if get_response.status_code == 200:
     response_data = get_response.json()
@@ -59,12 +59,19 @@ if response_data != None:
 
 # PUT request
 if request_data != None:
-    put_response = requests.put(gui_address+ "devices", headers=header, json=request_data)
+    response = requests.put(gui_address+ "config/devices", headers=header, json=request_data)
 
-    if put_response.status_code == 200:
-        print(f"Successfuly updated syncthing ids of devices: {updated_devices}")
+    if response.status_code == 200:
+        print(f"Successfuly updated devices: {updated_devices}")
     else:
         print("Failed to update syncthing ids")
-        print(f"Request failed with status code: {put_response.status_code}")
+        print(f"Request failed with status code: {response.status_code}")
 
+    response = requests.post(gui_address + "system/restart", headers=header)
+    if response.status_code == 200:
+        print(f"Applied changes")
+    else:
+        print("Failed to apply changes")
+        print(f"Request failed with status code: {response.status_code}")
+    
 

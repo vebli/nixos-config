@@ -1,26 +1,28 @@
-{config, pkgs, pkgs-unstable, lib, fn, var,...}: 
-let
+{
+  config,
+  pkgs,
+  pkgs-unstable,
+  lib,
+  fn,
+  var,
+  ...
+}: let
   cfg = config.opt.vebly.syncthing;
-in
-  {
-
-
-  options.opt.vebly.syncthing.enable = lib.mkEnableOption "Enable Syncthing"; 
-
+in {
+  options.opt.vebly.syncthing.enable = lib.mkEnableOption "Enable Syncthing";
 
   config = lib.mkIf cfg.enable {
-
     sops = {
       secrets = {
-        "syncthing/devices/desktop/id" = { owner = "vebly"; };
-        "syncthing/devices/desktop/addresses" = { owner = "vebly"; };
-        "syncthing/devices/thinkpad/id" = { owner = "vebly"; };
-        "syncthing/devices/thinkpad/addresses" = { owner = "vebly"; };
-        "syncthing/devices/tablet/id" = { owner = "vebly"; };
-        "syncthing/devices/tablet/addresses" = { owner = "vebly"; };
-        "syncthing/devices/server/id" = { owner = "vebly"; };
-        "syncthing/devices/server/addresses" = { owner = "vebly"; };
-        "syncthing/devices/phone/id" = { owner = "vebly"; };
+        "syncthing/devices/desktop/id" = {owner = "vebly";};
+        "syncthing/devices/desktop/addresses" = {owner = "vebly";};
+        "syncthing/devices/thinkpad/id" = {owner = "vebly";};
+        "syncthing/devices/thinkpad/addresses" = {owner = "vebly";};
+        "syncthing/devices/tablet/id" = {owner = "vebly";};
+        "syncthing/devices/tablet/addresses" = {owner = "vebly";};
+        "syncthing/devices/server/id" = {owner = "vebly";};
+        "syncthing/devices/server/addresses" = {owner = "vebly";};
+        "syncthing/devices/phone/id" = {owner = "vebly";};
       };
     };
 
@@ -31,50 +33,35 @@ in
       configDir = "/home/vebly/.config/syncthing";
       systemService = true;
       openDefaultPorts = true; #TCP/UDP 22000 for transfer
-      overrideDevices = true;
+      overrideDevices = false;
       overrideFolders = true;
       package = pkgs-unstable.syncthing.overrideAttrs {
         version = "1.27.9";
       };
       settings = {
         devices = {
-          "desktop" = {
-            name = "desktop";
-            addresses = [
-              "tcp://192.168.1.171:22000"
-            ];
-          };
-          "thinkpad" = {
-            name = "thinkpad";
-            addresses = [
-              "tcp://192.168.1.49:22000"
-            ];
-          };
-          "tablet" = {
-            name = "tablet";
-            addresses = [
-              "tcp://192.168.1.196:22000"
-            ];
-          };
-          "server" = {
-            name = "server";
-            addresses = [
-              "tcp://192.168.1.122:22000"
-              "tcp://vrpi-server.ddns.net:22000"
-            ];
-          };
-          "rpi-server" = {
-            name = "rpi-server";
-            addresses = [
-              "vrpi-server.ddns.net:22000"
-            ];
-          };
-          "phone" = {
-            name = "phone";
-          };
-        } // fn.syncthingGenId ["desktop" "thinkpad" "tablet" "server" "rpi-server" "phone"];
+            "desktop" = {
+              name = "desktop";
+            };
+            "thinkpad" = {
+              name = "thinkpad";
+            };
+            "tablet" = {
+              name = "tablet";
+            };
+            "server" = {
+              name = "server";
+            };
+            "rpi-server" = {
+              name = "rpi-server";
+            };
+            "phone" = {
+              name = "phone";
+            };
+          }
+          // fn.syncthingGenId ["desktop" "thinkpad" "tablet" "server" "rpi-server" "phone"];
         folders = {
-          "SecondBrain" = { 
+          "SecondBrain" = {
             enable = true;
             label = "SecondBrain";
             path = "~/SecondBrain";
@@ -86,8 +73,8 @@ in
               "server"
               "rpi-server"
             ];
-          }; 
-          "FreeTube" = { 
+          };
+          "FreeTube" = {
             enable = true;
             label = "FreeTube";
             path = "~/.config/FreeTube";
@@ -98,7 +85,7 @@ in
               "server"
               "rpi-server"
             ];
-          }; 
+          };
           "Music" = {
             enable = true;
             label = "Music";

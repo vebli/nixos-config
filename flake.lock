@@ -219,11 +219,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_2"
       },
       "locked": {
-        "lastModified": 1742827228,
-        "narHash": "sha256-GRZl1heV9hVxQfDqZy/npeoOAvQ2tU2X/Arhc0HTogs=",
+        "lastModified": 1743246614,
+        "narHash": "sha256-/m4OpPsCCWRKrAmi27dF0meIH2FhxmDmX1B+LqaUYPM=",
         "owner": "vebli",
         "repo": "nvim-lazy",
-        "rev": "6db9a14ec645dd60734af0854b7ef1d0eb5e4e60",
+        "rev": "d52388bc96ba760d8e149902ef30133109c31d80",
         "type": "github"
       },
       "original": {
@@ -273,11 +273,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_3"
       },
       "locked": {
-        "lastModified": 1742329834,
-        "narHash": "sha256-VLYv9IJceVclEZjUYXQLS6FtKJR9GwQ011/u/LgsfNw=",
+        "lastModified": 1743062980,
+        "narHash": "sha256-umra1GtNyWh8uDuZNvUKxhbzgbQ5Muh6wmGwXpYkLn0=",
         "owner": "vebli",
         "repo": "tmux-nix",
-        "rev": "949e357c13a9b27a4a97a46411ba728e14318dcd",
+        "rev": "974844b47aa3799b82075cff1b98e2f95e367bf8",
         "type": "github"
       },
       "original": {
@@ -289,11 +289,11 @@
     "wallpapers": {
       "flake": false,
       "locked": {
-        "lastModified": 1738243028,
-        "narHash": "sha256-dm0cA5g4oya83U7ef6JNLdiKWHRSYS47s0UELgDz6Ik=",
+        "lastModified": 1743161086,
+        "narHash": "sha256-Ju071K7ju4vTuBOd3ehlv1Ke416HiBSShlooHO876jE=",
         "owner": "vebli",
         "repo": "wallpapers",
-        "rev": "47584bcf6425cd8bedf4be48f7c982f890cf3744",
+        "rev": "d862e3e813daaf2f288805f2d1ed1388a4efb46b",
         "type": "github"
       },
       "original": {
