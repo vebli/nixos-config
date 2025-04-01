@@ -20,6 +20,9 @@
     opt.vebly.syncthing.enable = true;
     services.udev.packages = with pkgs; [platformio-core.udev];
 
+    boot.kernel.sysctl = {
+        "fs.inotify.max_user_watches"= 6000000;
+    };
     services.displayManager = {
             sddm = {
                 enable = true;
