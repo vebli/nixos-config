@@ -3,8 +3,38 @@
   imports = [
     ./desktopCfg.nix
     ./syncthing.nix
+    inputs.sops-nix.nixosModules.sops
     ../../modules/scripts/activation/syncthing_update_devices.nix
   ];
+
+  sops = {
+      defaultSopsFile = ../../secrets/vebly.yaml;
+      defaultSopsFormat= "yaml";
+      age.keyFile = "/home/vebly/.config/sops/age/keys.txt";
+      secrets = {
+        "syncthing/devices/desktop/id" = {owner = "vebly";};
+        "syncthing/devices/desktop/addresses" = {owner = "vebly";};
+        "syncthing/devices/thinkpad/id" = {owner = "vebly";};
+        "syncthing/devices/thinkpad/addresses" = {owner = "vebly";};
+        "syncthing/devices/tablet/id" = {owner = "vebly";};
+        "syncthing/devices/tablet/addresses" = {owner = "vebly";};
+        "syncthing/devices/server/id" = {owner = "vebly";};
+        "syncthing/devices/server/addresses" = {owner = "vebly";};
+        "syncthing/devices/phone/id" = {owner = "vebly";};
+        "syncthing/devices/test" = {owner = "vebly";};
+        "syncthing/folders/SecondBrain/devices" = {owner = "vebly";};
+        "syncthing/folders/SecondBrain/path" = {owner = "vebly";};
+        "syncthing/folders/FreeTube/devices" = {owner = "vebly";};
+        "syncthing/folders/FreeTube/path" = {owner = "vebly";};
+        "syncthing/folders/Studies/devices" = {owner = "vebly";};
+        "syncthing/folders/Studies/path" = {owner = "vebly";};
+        "syncthing/folders/Music/devices" = {owner = "vebly";};
+        "syncthing/folders/Music/path" = {owner = "vebly";};
+        "syncthing/folders/Books/devices" = {owner = "vebly";};
+        "syncthing/folders/Books/path" = {owner = "vebly";};
+      };
+  };
+
   users.users.vebly = {
     isNormalUser = true;
     description = "vebly";

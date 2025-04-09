@@ -2,76 +2,113 @@
 from lxml import etree
 import requests 
 import os
+import copy
+
+secrets_path = "/run/secrets/syncthing/"
+
+def sops_ls(relative_folder_path):
+    result = []
+    try: 
+        children = os.listdir(secrets_path + relative_folder_path)
+        for child in children:
+            result.append(child)
+    except: 
+        print(f"Unable to list contents of {secrets_path + relative_folder_path}")
+    return result
+
+    
+def get_sops_data(relative_path):
+    data = []
+    try:
+        with open(secrets_path + relative_path, "r") as file:
+            for line in file:
+                data.append(line.strip())  # Read and strip each line
+    finally:
+        return data
+        
+
 # Get SOPS data
-secrets_path = "/run/secrets/syncthing/devices/"
-devices = [] 
-for dir in os.listdir(secrets_path):
-    devices.append(dir)
+device_names = sops_ls("devices")
+folder_names = sops_ls("folders")
 
 
-
-# Find API key in config.xml
+# Find API key and URL in config.xml
 tree = etree.parse('/home/vebly/.config/syncthing/config.xml') 
 root = tree.getroot()
-
 apikey_node = root.find('gui/apikey')
 gui_address_node = root.find('gui/address')
 apikey = apikey_node.text
 gui_address = "http://" + gui_address_node.text + "/rest/"
-
-# GET device data
 header = {"X-API-Key": apikey}
-
-get_response = requests.get(gui_address + "config/devices", headers=header)
-response_data = None;
-if get_response.status_code == 200:
-    response_data = get_response.json()
-else:
-    print(f"Request failed with status code: {get_response.status_code}")
 
 
 # Prepare PUT request data
-request_data = None
+device_request_data = []
+folder_request_data = []
 updated_devices = [] 
-if response_data != None:
-    response_data_copy = response_data
-    request_data = []
-    for device_data in response_data_copy:
-        updated = False;
-        device_name = device_data["name"]
-        id = None
-        addresses = None
-        if device_name in devices:
-            id_path = secrets_path + device_name + "/id"
-            if os.path.exists(id_path):
-                file = open(id_path, "r")
-                id = file.read()
-                file.close()
-                current_id = device_data["deviceID"]
-                if current_id != id and id != None:
-                    current_id = id
-                    device_data["deviceID"]= id
-                    updated = True
-            if updated == True:
-                request_data.append(device_data)
-                updated_devices.append(device_name)
+updated_folders = [] 
+
+DEFAULT_DEVICE_DATA = requests.get(gui_address + "config/defaults/device", headers=header).json()
+DEFAULT_FOLDER_DATA = requests.get(gui_address + "config/defaults/folder", headers=header).json()
+for device_name in device_names:
+        device_data = copy.deepcopy(DEFAULT_DEVICE_DATA)
+        deviceID = get_sops_data(f"devices/{device_name}/id") 
+        if deviceID:  # Required attributes
+            device_data["deviceID"] = deviceID[0]
+            device_data['name'] = device_name
+            addresses = get_sops_data(f"devices/{device_name}/addresses")
+            if addresses:
+                device_data["addresses"] += addresses
+            device_request_data.append(device_data)
+            updated_devices.append(device_name)
 
 
-# PUT request
-if request_data != None:
-    response = requests.put(gui_address+ "config/devices", headers=header, json=request_data)
+for folder_name in folder_names:
+    folder_data = copy.deepcopy(DEFAULT_FOLDER_DATA)
+    folder_data["id"] = folder_name
+    folder_data["label"] = folder_name
+    folder_path = get_sops_data(f"folders/{folder_name}/path")
+    if folder_path:
+        folder_data["path"] = folder_path[0]
+    folder_devices_names = get_sops_data(f"folders/{folder_name}/devices")
+    folder_data["devices"] = [] #Remove default folder
+    for device_name in folder_devices_names:
+        device_data = copy.deepcopy(DEFAULT_FOLDER_DATA["devices"][0])
+        device_data["deviceID"] = get_sops_data(f"devices/{device_name}/id")[0]
+        folder_data["devices"].append(device_data)
+    folder_request_data.append(folder_data)
+    updated_folders.append(folder_name)
 
+# Requests
+response = None
+# Devices
+device_update_response = None
+if device_request_data is None:
+    print("No devices were updated")
+else:
+    response = requests.put(gui_address + "config/devices", headers=header, json=device_request_data)
     if response.status_code == 200:
-        print(f"Successfuly updated devices: {updated_devices}")
+        print(f"Updated devices: {updated_devices}")
     else:
-        print("Failed to update syncthing ids")
-        print(f"Request failed with status code: {response.status_code}")
+        print(f"Failed to update devices, {response.status_code}")
 
-    response = requests.post(gui_address + "system/restart", headers=header)
+# Folders
+folders_update_response = None
+if folder_request_data is None:
+    print("No folders were updated")
+else:
+    response = requests.put(gui_address + "config/folders", headers=header, json=folder_request_data)
     if response.status_code == 200:
-        print(f"Applied changes")
+        print(f"Updated folders: {updated_folders}")
     else:
-        print("Failed to apply changes")
-        print(f"Request failed with status code: {response.status_code}")
-    
+        print(f"Failed to update folders, status code: {response.status_code}")
+        print(response.text)
+
+
+# Restart syncthing
+response = requests.post(gui_address + "system/restart", headers=header)
+if response.status_code == 200:
+    print("Successfully restarted syncthing")
+else:
+    print(f"Failed to restart syncthing, status_code: {response.status_code}")
 
