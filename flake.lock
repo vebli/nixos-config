@@ -219,11 +219,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_2"
       },
       "locked": {
-        "lastModified": 1743246614,
-        "narHash": "sha256-/m4OpPsCCWRKrAmi27dF0meIH2FhxmDmX1B+LqaUYPM=",
+        "lastModified": 1744536843,
+        "narHash": "sha256-M/66dGcvKNw6m35rRu2GoLsbY351lCG6WL3VJxf+0EA=",
         "owner": "vebli",
         "repo": "nvim-lazy",
-        "rev": "d52388bc96ba760d8e149902ef30133109c31d80",
+        "rev": "412e9b14a59a1368ac2671610204861f3eda187b",
         "type": "github"
       },
       "original": {

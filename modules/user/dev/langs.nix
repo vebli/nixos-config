@@ -1,8 +1,7 @@
 {config, pkgs, inputs, ...}:
 {
     home.packages = with pkgs; [
-        emacs
-        # C/C++
+        # C/C++/ASM
         libgcc  
         gnumake
         cmake 
@@ -18,28 +17,25 @@
         #Embedded
         arduino-cli
         platformio
+        esptool
 
-        #zig
-        zig
-        #odin 
-        odin
+
         # Javascript
         nodejs_22
         biome
 
-        #Databases
+        #DB
         sqlite
 
-        #Rust
-        rustup
-
-        #python
-        direnv
         python3
         virtualenv
 
-        #Lua
+        # Other Languages
         lua
+        rustup
+        zig
+        odin
+        ghc # Haskell compiler
     ];
 
     home.file."gdb-conf" = {

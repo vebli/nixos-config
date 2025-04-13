@@ -9,8 +9,8 @@
     unzip
     tree
     ripgrep
-    trashy
     usbutils
+    direnv
 
     gcc.man
     clang-manpages
