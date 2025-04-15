@@ -98,13 +98,10 @@
         '';
       };
       "esp-idf" = pkgs.mkShell {
-        packages = with pkgs; [esp-idf-full];
+        packages = with pkgs; [esp-idf-full esptool];
         shellHook= ''
             ${mkPrompt "(esp-idf-full)  " colors.light-blue}
         '';
-        # shellHook = ''
-        #   export PS1="\[\033[1;34m\]\w (esp-idf-full)  \[\033[0m\] "
-        # '';
       };
     };
   };
