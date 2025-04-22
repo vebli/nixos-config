@@ -33,7 +33,7 @@ in
             digital
             obsidian
             ani-cli
-            manga-cli
+            mangal
             freetube
             ytmdl
             ytdownloader
