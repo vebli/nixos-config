@@ -35,7 +35,9 @@
         rustup
         zig
         odin
-        ghc # Haskell compiler
+
+        # Haskell
+        ghc 
     ];
 
     home.file."gdb-conf" = {

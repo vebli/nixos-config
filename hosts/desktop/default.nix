@@ -51,6 +51,7 @@
     enable = true;
   };
 
+#If it doesn't work: 'sudo rmmod wacom hid_uclogic'            
   hardware.opentabletdriver = {
     enable = true;
     package = pkgs-unstable.opentabletdriver;
@@ -67,8 +68,8 @@
 
   environment.systemPackages = with pkgs;
     [
+      freecad
       xterm
-      awesome
       cudaPackages.cudatoolkit
       (catppuccin-sddm.override {
         flavor = "mocha";
