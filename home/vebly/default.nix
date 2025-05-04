@@ -86,6 +86,7 @@
         tmuxinator
         taskwarrior-tui  
         timewarrior
+        ffmpeg
         vit
       ];
 

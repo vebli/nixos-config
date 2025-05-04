@@ -27,6 +27,7 @@
 
     environment.systemPackages =  [
         (import ../../scripts/hellow.nix {inherit pkgs;})
+        (import ../../scripts/toggle_kb_lang.nix {inherit pkgs;})
         (import ../../scripts/wallpaper/random-wallpaper.nix {pkgs=pkgs; wallpaperPath=var.path.wallpapers;})
         (import ../../scripts/wallpaper/current-wallpaper.nix {pkgs=pkgs; wallpaperPath=var.path.wallpapers;})
     ] ++ (with pkgs; [
