@@ -78,14 +78,15 @@ in
             };
             initExtra = ''
                 # eval "$(tmuxifier init -)"
+                export MANPAGER='nvim +Man!'
                 eval "$(zoxide init --cmd cd zsh)" #ZOXIDE alias
                 eval "$(direnv hook zsh)"
                 PS1="%F{${ps1_color}}%n@%m %~ %F{${ps1_color}}%f "
 
-                if command -v tmux &> /dev/null; then
+                #if command -v tmux &> /dev/null; then
                   # Start tmux server if not already running, without attaching
-                  tmux start-server 2>/dev/null
-                fi
+                  #tmux start-server 2>/dev/null
+                #fi
 
                 up() {
                     if [[ $# -ne 1 ]] || ! [[ $1 =~ ^[0-9]+$ ]]; then

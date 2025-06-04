@@ -17,6 +17,7 @@
     man-pages
     man-pages-posix
     linux-manual
+    tmux.man
 
     tcpdump
     aircrack-ng
