@@ -18,6 +18,7 @@
         ];
 	
     opt.vebly.syncthing.enable= false;
+    opt.vebly.desktopCfg.enable= false;
 
     boot.loader.efi.efiSysMountPoint = "/boot/efi";
 

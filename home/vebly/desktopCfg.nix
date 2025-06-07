@@ -1,14 +1,11 @@
 {config, pkgs, pkgs-unstable, lib, var, inputs, ...}:
 let
-  cfg = config.opt.vebly;
+  cfg = config.opt.vebly.desktopCfg;
 in
   {
-  options.opt.vebly = {
-    desktopCfg = lib.mkOption {
-      default = true;
-    };
-  };
-  config = lib.mkIf cfg.desktopCfg {
+  options.opt.vebly.desktopCfg.enable = lib.mkEnableOption "Enable desktop applications";
+
+  config = lib.mkIf cfg.enable {
     home-manager = {
       users.vebly = {
         imports = [
