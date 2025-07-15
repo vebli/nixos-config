@@ -21,6 +21,7 @@
     opt.vebly.desktopCfg.enable= false;
 
     boot.loader.efi.efiSysMountPoint = "/boot/efi";
+    boot.kernelPackages = pkgs.linuxPackages_6_1;
 
     i18n.defaultLocale = "en_US.UTF-8";
 
