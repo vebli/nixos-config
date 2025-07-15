@@ -14,6 +14,7 @@
 
     ../../modules/system/profiles/shared.nix
     ../../modules/system/profiles/gaming.nix
+    ../../modules/system/profiles/virtualization.nix
 
     ../../modules/system/hardware/grub.nix
     ../../modules/system/hardware/pipewire.nix
@@ -22,6 +23,7 @@
   ];
 
   opt.vebly.syncthing.enable = true;
+  opt.vebly.desktopCfg.enable = true;
   services.udev.packages = with pkgs; [platformio-core.udev];
 
   boot.kernel.sysctl = {
@@ -51,7 +53,7 @@
     enable = true;
   };
 
-#If it doesn't work: 'sudo rmmod wacom hid_uclogic'            
+  #If it doesn't work: 'sudo rmmod wacom hid_uclogic'
   hardware.opentabletdriver = {
     enable = true;
     package = pkgs-unstable.opentabletdriver;
@@ -69,7 +71,6 @@
   environment.systemPackages = with pkgs;
     [
       freecad
-      xterm
       cudaPackages.cudatoolkit
       (catppuccin-sddm.override {
         flavor = "mocha";

@@ -38,7 +38,7 @@
   users.users.vebly = {
     isNormalUser = true;
     description = "vebly";
-    extraGroups = [ "networkmanager" "wheel" "dialout" "syncthing"];
+    extraGroups = [ "networkmanager" "wheel" "dialout" "syncthing" "libvirt" "libvirtd"];
     initialPassword = "123";
   };
 
