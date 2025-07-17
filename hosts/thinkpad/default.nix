@@ -16,7 +16,15 @@
     ../../modules/system/network
   ];
 
-  opt.vebly.syncthing.enable = true;
+  opt.vebly = {
+      syncthing.enable = true;
+      desktopCfg = {
+          enable = true;
+          sway.enable = false;
+          awesome.enable = true;
+      };
+  };
+
   sops.secrets."vpn/script".owner = "vebly";
 
   # Configure network proxy if necessary

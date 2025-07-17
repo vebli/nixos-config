@@ -20,12 +20,14 @@
         recursive = true;
     };
     home.packages = with pkgs; [
+        nemo-with-extensions
         dconf # Required when enabling gtk
+        networkmanagerapplet
+        pavucontrol
         nitrogen
         feh
         picom
         xclip
-        acpi
         brightnessctl
     ];
 

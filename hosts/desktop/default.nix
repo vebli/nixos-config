@@ -10,7 +10,8 @@
 
     ../../home/vebly
 
-    ../../modules/system/desktop_env/awesome.nix
+    ../../modules/system/desktop_env/plasma.nix
+    ../../modules/system/desktop_env/sway.nix
 
     ../../modules/system/profiles/shared.nix
     ../../modules/system/profiles/gaming.nix
@@ -22,21 +23,29 @@
     ../../modules/system/network
   ];
 
-  opt.vebly.syncthing.enable = true;
-  opt.vebly.desktopCfg.enable = true;
+  opt.vebly = {
+      syncthing.enable = true;
+      desktopCfg = {
+          enable = true;
+          sway.enable = true;
+          awesome.enable = false;
+      };
+  };
   services.udev.packages = with pkgs; [platformio-core.udev];
 
   boot.kernel.sysctl = {
     "fs.inotify.max_user_watches" = 6000000;
   };
+  services.desktopManager.plasma6.enable = true;
   services.displayManager = {
     sddm = {
       enable = true;
-      theme = "catppuccin-mocha";
-      package = pkgs.kdePackages.sddm;
+      wayland.enable = true;
+      # theme = "catppuccin-mocha";
     };
-    defaultSession = "none+awesome";
+    defaultSession = "sway";
   };
+
   services.xserver.xkb = {
     layout = "us";
     variant = "";
@@ -61,6 +70,7 @@
   };
   # GPU
   services.xserver.videoDrivers = ["nvidia"];
+  # services.xserver.videoDrivers = ["nouveau"];
   hardware.graphics.enable = true; #Enable Opengl
   hardware.nvidia = {
     open = true;

@@ -20,7 +20,13 @@ case "$choice" in
     ;;
   Logout) 
     if are_you_sure; then 
-      awesome-client "awesome.quit()"&
+        if [[ "$1" == "awesome" ]]; then 
+          awesome-client "awesome.quit()"&
+        fi
+
+        if [[ $1 == "sway" ]]; then
+           swaymsg exit 
+        fi
     fi
     ;;
   Sleep)

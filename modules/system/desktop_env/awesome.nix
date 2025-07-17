@@ -1,6 +1,6 @@
 {config, pkgs, pkgs-unstable, ...}:
 {
-    imports = [./display_server/xorg.nix];
+    imports = [./display_server/x11.nix];
     xdg.portal = {
         config = {
             "none+awesome" = {
@@ -14,7 +14,7 @@
         enable = true;
         luaModules = with pkgs.luaPackages; [
             luarocks # is the package manager for Lua modules
-                luadbi-mysql # Database abstraction layer
+            luadbi-mysql # Database abstraction layer
         ];
     };
 }

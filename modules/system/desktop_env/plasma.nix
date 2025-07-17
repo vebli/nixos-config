@@ -1,10 +1,7 @@
 {pkgs, ...}:
 {
+    imports = [ ./display_server/wayland.nix];
     services = {
         desktopManager.plasma6.enable = true;
-        displayManager = {
-            sddm.enable = true;
-            sddm.wayland.enable = true;
-        };
     };
 }

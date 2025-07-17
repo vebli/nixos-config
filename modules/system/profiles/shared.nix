@@ -41,11 +41,6 @@
         appimage-run
         
         # Default Apps/Tools 
-        shutter
-        pavucontrol
-        nemo-with-extensions
-        acpi
-        networkmanagerapplet
         mpv
         okular
         zathura
