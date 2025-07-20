@@ -1,7 +1,5 @@
 {config, pkgs, ...}:{
-    imports = [
-    ./display_server/wayland.nix
-    ];
+    imports = [ ./display_server/wayland.nix ];
     programs.xwayland.enable = true;
 
     xdg.portal = {

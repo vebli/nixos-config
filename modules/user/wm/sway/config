@@ -18,7 +18,7 @@ bindsym $mod+q exec librewolf
 # UI
 default_border pixel 2
 bar {
-    status_command i3status
+    status_command SCRIPT_DIR=~/.config/i3blocks/scripts i3blocks
     position top
     height 15
     mode dock
