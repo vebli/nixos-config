@@ -20,7 +20,7 @@
     colors = {
         red = ''\[\033[1;31m\]'';
         light-blue = ''\[\033[1;34m\]'';
-        light-gren = ''\[\033[1;32m\]'';
+        light-green = ''\[\033[1;32m\]'';
     };
     mkPrompt = str: color: ''
     export PS1="${color}\w ${str} \[\033[0m\] "
@@ -102,6 +102,11 @@
         shellHook= ''
             ${mkPrompt "(esp-idf-full)  " colors.light-blue}
         '';
+      };
+      "32bit" = pkgs.pkgsi686Linux.mkShell {
+          shellHook = ''
+            ${mkPrompt "(32bit)" colors.light-blue}
+          '';
       };
     };
   };

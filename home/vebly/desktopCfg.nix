@@ -31,6 +31,7 @@ in
             discord
             arandr
             dbeaver-bin
+            ghidra
             octaveFull
             sage
             digital

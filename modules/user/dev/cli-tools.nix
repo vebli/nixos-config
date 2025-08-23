@@ -22,6 +22,13 @@
     tcpdump
     aircrack-ng
     wirelesstools
+    strace
+    pwntools
+    file
+    ltrace
+    strace
+    nmap
+    wireshark
 
     nix-search-cli
   ];

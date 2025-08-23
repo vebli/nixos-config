@@ -84,9 +84,6 @@
   services.udev.packages = with pkgs; [platformio-core.udev];
 
   environment.systemPackages = [
-    (pkgs.writeShellScriptBin "vpn" /*bash*/ ''
-      ${pkgs.openconnect.outPath + "/bin/openconnect"} $(cat ${config.sops.secrets."vpn/script".path})
-      '')
     pkgs.openconnect # for vpn
     pkgs.awesome
     (pkgs.catppuccin-sddm.override{

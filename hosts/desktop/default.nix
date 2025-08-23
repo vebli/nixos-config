@@ -10,8 +10,9 @@
 
     ../../home/vebly
 
-    ../../modules/system/desktop_env/plasma.nix
-    ../../modules/system/desktop_env/sway.nix
+    # ../../modules/system/desktop_env/plasma.nix
+    # ../../modules/system/desktop_env/sway.nix
+    ../../modules/system/desktop_env/awesome.nix
 
     ../../modules/system/profiles/shared.nix
     ../../modules/system/profiles/gaming.nix
@@ -27,8 +28,8 @@
       syncthing.enable = true;
       desktopCfg = {
           enable = true;
-          sway.enable = true;
-          awesome.enable = false;
+          sway.enable = false;
+          awesome.enable = true;
       };
   };
   services.udev.packages = with pkgs; [platformio-core.udev];
@@ -43,7 +44,8 @@
       wayland.enable = true;
       # theme = "catppuccin-mocha";
     };
-    defaultSession = "sway";
+    # defaultSession = "sway";
+    defaultSession = "none+awesome";
   };
 
   services.xserver.xkb = {

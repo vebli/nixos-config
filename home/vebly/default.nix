@@ -12,6 +12,7 @@
       defaultSopsFormat= "yaml";
       age.keyFile = "/home/vebly/.config/sops/age/keys.txt";
       secrets = {
+        "vpn/script".owner = "vebly";
         "syncthing/devices/desktop/id" = {owner = "vebly";};
         "syncthing/devices/desktop/addresses" = {owner = "vebly";};
         "syncthing/devices/thinkpad/id" = {owner = "vebly";};
@@ -81,6 +82,9 @@
       };
       
       home.packages = with pkgs;[ 
+      (pkgs.writeShellScriptBin "vpn" /*bash*/ ''
+       ${pkgs.openconnect.outPath + "/bin/openconnect"} $(cat ${config.sops.secrets."vpn/script".path})
+       '')
         nvim-custom 
         tmux-custom
         tmuxinator

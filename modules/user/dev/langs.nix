@@ -2,10 +2,12 @@
 {
     home.packages = with pkgs; [
         # C/C++/ASM
+        gcc
+        glibc
         libgcc  
+
         gnumake
         cmake 
-        gcc
         libtool
         clang-tools_17
         nasm
@@ -30,14 +32,17 @@
         python3
         virtualenv
 
+        # Haskell
+        ghc 
+
         # Other Languages
         lua
         rustup
         zig
         odin
+        dart
+        firebase-tools
 
-        # Haskell
-        ghc 
     ];
 
     home.file."gdb-conf" = {
