@@ -4,7 +4,6 @@
     ./desktopCfg.nix
     ./syncthing.nix
     inputs.sops-nix.nixosModules.sops
-    ../../modules/scripts/activation/syncthing_update_devices.nix
   ];
 
   sops = {
