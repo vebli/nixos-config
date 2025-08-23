@@ -37,9 +37,9 @@
     };
 
     environment.systemPackages = with pkgs;[
-	vim
-	wl-clipboard
-	
+        atlauncher
+        vim
+        wl-clipboard
     ] ++ (with pkgs-unstable; []);
 
     system.stateVersion = "24.05"; 
