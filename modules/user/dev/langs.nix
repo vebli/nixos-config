@@ -40,9 +40,8 @@
         rustup
         zig
         odin
-        dart
+        flutter
         firebase-tools
-
     ];
 
     home.file."gdb-conf" = {

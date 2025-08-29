@@ -37,6 +37,7 @@ in
             digital
             obsidian
             ani-cli
+            tor-browser-bundle-bin
             mangal
             freetube
             ytmdl
