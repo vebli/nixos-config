@@ -73,13 +73,13 @@ in
                 "cpwd" = "pwd | tr -d \"\n\" | xargs echo -n | xclip -selection clipboard";
                 "ls" = "exa --icons";
                 "gdb" = "gdb -q";
-                "e" = "emacsclient -n";
+                # "e" = "emacsclient -n";
                 "nvim-init" = "nvim --cmd 'set runtimepath+=.' -u";
             };
             initExtra = ''
                 # eval "$(tmuxifier init -)"
                 export MANPAGER='nvim +Man!'
-                eval "$(zoxide init --cmd cd zsh)" #ZOXIDE alias
+                # eval "$(zoxide init --cmd cd zsh)" #ZOXIDE alias
                 eval "$(direnv hook zsh)"
                 PS1="%F{${ps1_color}}%n@%m %~ %F{${ps1_color}}%f "
 

@@ -19,6 +19,7 @@
     linux-manual
     tmux.man
 
+    jq
     tcpdump
     aircrack-ng
     wirelesstools
@@ -29,6 +30,8 @@
     strace
     nmap
     wireshark
+
+    android-studio-tools
 
     nix-search-cli
   ];
