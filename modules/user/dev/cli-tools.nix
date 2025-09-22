@@ -12,7 +12,6 @@
     usbutils
     direnv
 
-    gcc.man
     clang-manpages
     man-pages
     man-pages-posix

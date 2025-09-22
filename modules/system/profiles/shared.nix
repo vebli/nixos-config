@@ -39,6 +39,7 @@
         pkg-config
         gtk3
         appimage-run
+        htop
         
         # Default Apps/Tools 
         mpv

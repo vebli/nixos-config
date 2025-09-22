@@ -1,10 +1,11 @@
-{config, pkgs, inputs, ...}:
+{config, pkgs, pkgs-unstable, inputs, ...}:
 {
     home.packages = with pkgs; [
         # C/C++/ASM
-        gcc
         glibc
+        gcc
         libgcc  
+        gdb 
 
         gnumake
         cmake 
@@ -12,7 +13,6 @@
         clang-tools_17
         nasm
 
-        gdb
         gef
         pwndbg
         
@@ -20,7 +20,9 @@
         arduino-cli
         platformio
         esptool
-
+        stlink-tool
+        openocd
+        stlink
 
         # Javascript
         nodejs_22
@@ -42,7 +44,9 @@
         odin
         flutter
         firebase-tools
-    ];
+    ] ++ (with pkgs-unstable; [
+        # gcc-arm-embedded
+    ]);
 
     home.file."gdb-conf" = {
         target = ".gdbinit";

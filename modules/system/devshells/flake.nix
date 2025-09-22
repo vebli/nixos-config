@@ -16,6 +16,9 @@
     pkgs = import nixpkgs {
       inherit system;
       overlays = [(import "${inputs.esp-dev}/overlay.nix")];
+      config = {
+          allowUnfree = true; 
+      };
     };
     colors = {
         red = ''\[\033[1;31m\]'';
@@ -101,6 +104,22 @@
         packages = with pkgs; [esp-idf-full esptool];
         shellHook= ''
             ${mkPrompt "(esp-idf-full)  " colors.light-blue}
+        '';
+      };
+      "stm32" = pkgs.mkShell {
+        packages = with pkgs; [
+            gcc-arm-embedded
+            newlib 
+            cmake
+            gnumake
+            stlink
+            openocd
+            usbutils
+            minicom
+            stm32cubemx
+        ];
+        shellHook= ''
+            ${mkPrompt "(stm32)  " colors.light-blue}
         '';
       };
       "32bit" = pkgs.pkgsi686Linux.mkShell {
