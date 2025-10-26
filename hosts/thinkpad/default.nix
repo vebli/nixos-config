@@ -32,7 +32,6 @@
     };
   };
 
-  sops.secrets."vpn/script".owner = "vebly";
 
   # programs.nix-ld = {
   #   enable = true;
@@ -95,7 +94,6 @@
 
   environment.systemPackages =
     [
-      pkgs.openconnect # for vpn
       pkgs.awesome
       (pkgs.catppuccin-sddm.override {
         flavor = "mocha";

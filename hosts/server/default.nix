@@ -3,6 +3,7 @@
   imports =
     [ 
       ./hardware-configuration.nix
+      ./backup.nix
       ./samba.nix
 
       ../../home/vebly
@@ -49,28 +50,6 @@
     "/mnt/sdb".device = "/dev/sdb1";
   };
 
-  # networking.wlanInterfaces."wlan-monitor" = {
-  #   device = "wlp0s20u3u2";
-  #   type = "monitor";
-  # };
-
-  # services.printing = {
-    # enable = true;
-    # defaultShared = true;
-    # browsing = true;
-    # drivers = with pkgs;[canon-cups-ufr2 canon-capt];
-    # listenAddresses = [ "0.0.0.0:631"];
-    # allowFrom = ["all"];
-  # };
-
-  # environment.systemPackages =  with pkgs; [
-  # ] ++ (with pkgs-unstable; []);
-
-
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
   programs.gnupg.agent = {
     enable = true;
     enableSSHSupport = true;
@@ -78,6 +57,7 @@
 
   opt.vebly.syncthing.enable = true;
   services.syncthing.guiAddress = "0.0.0.0:8384";
+
 
   system.stateVersion = "24.05"; 
   nix.settings.experimental-features = ["nix-command" "flakes"]; 

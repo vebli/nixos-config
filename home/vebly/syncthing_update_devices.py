@@ -23,6 +23,7 @@ def get_sops_data(relative_path):
         with open(secrets_path + relative_path, "r") as file:
             for line in file:
                 data.append(line.strip())  # Read and strip each line
+    except: print(f"No secret: {relative_path}")
     finally:
         return data
         
@@ -74,7 +75,9 @@ for folder_name in folder_names:
     folder_data["devices"] = [] #Remove default folder
     for device_name in folder_devices_names:
         device_data = copy.deepcopy(DEFAULT_FOLDER_DATA["devices"][0])
-        device_data["deviceID"] = get_sops_data(f"devices/{device_name}/id")[0]
+        device_id = get_sops_data(f"devices/{device_name}/id")
+        if device_id:
+            device_data["deviceID"] = device_id[0]
         folder_data["devices"].append(device_data)
     folder_request_data.append(folder_data)
     updated_folders.append(folder_name)

@@ -25,6 +25,26 @@ in {
 
   config = lib.mkIf cfg.enable {
 
+      sops.secrets = let 
+        devices = ["desktop" "thinkpad" "server" "tablet"];
+        folders = [ "SecondBrain" "FreeTube" "Studies" "Music" "Books"];
+        param = {owner = "vebly"; sopsFile = ../../secrets/vebly/syncthing.yaml;};
+        decl_folder_secrets = builtins.listToAttrs (
+                builtins.concatLists (builtins.map (folder: [
+                { name = "syncthing/folders/${folder}/devices"; value = param; }
+                { name = "syncthing/folders/${folder}/path"; value = param; }
+            ]) folders)
+            );
+        decl_device_secrets = builtins.listToAttrs (
+                builtins.concatLists (builtins.map (device: [
+                {name = "syncthing/devices/${device}/id"; value = param;}
+                {name = "syncthing/devices/${device}/addresses"; value = param;}
+            ]) devices)
+            );
+      in decl_device_secrets // decl_folder_secrets;
+
+
+
     system.activationScripts.updateSyncthingDevices.text = ''
     echo "Updating Syncthing device IDs..."
     .${script}/bin/${script_name}
