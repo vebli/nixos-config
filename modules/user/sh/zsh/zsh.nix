@@ -75,6 +75,7 @@ in
                 "gdb" = "gdb -q";
                 # "e" = "emacsclient -n";
                 "nvim-init" = "nvim --cmd 'set runtimepath+=.' -u";
+                "t" = "tmux attach -t default || tmux new -s default";
             };
             initExtra = ''
                 # eval "$(tmuxifier init -)"

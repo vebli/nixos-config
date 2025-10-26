@@ -3,6 +3,7 @@
     programs.librewolf ={
         enable = true;
         package = pkgs.librewolf;
+        languagePacks = ["de" "en-GB"];
         settings = {
             "privacy.clearOnShutdown.history" = false;
             "privacy.clearOnShutdown.cache" = false;

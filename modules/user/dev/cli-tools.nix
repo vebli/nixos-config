@@ -17,6 +17,7 @@
     man-pages-posix
     linux-manual
     tmux.man
+    binutils.man
 
     jq
     tcpdump

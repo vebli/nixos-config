@@ -24,6 +24,8 @@
     ../../modules/system/network
   ];
 
+  users.groups.users.gid = 100; # used for mounting file system
+
   opt.vebly = {
       syncthing.enable = true;
       desktopCfg = {
@@ -32,7 +34,7 @@
           awesome.enable = true;
       };
   };
-  services.udev.packages = with pkgs; [platformio-core.udev];
+  services.udev.packages = with pkgs; [platformio-core.udev stlink];
 
   boot.kernel.sysctl = {
     "fs.inotify.max_user_watches" = 6000000;
