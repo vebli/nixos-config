@@ -5,6 +5,8 @@
       ./hardware-configuration.nix
       ./backup.nix
       ./samba.nix
+      ./paperless.nix
+      ./immich.nix
 
       ../../home/vebly
 
@@ -36,6 +38,8 @@
     };
 
   i18n.defaultLocale = "en_US.UTF-8";
+
+  security.auditd = {enable = true;};
 
   networking.hostName = "server";
   networking.firewall = {

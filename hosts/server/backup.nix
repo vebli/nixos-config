@@ -29,7 +29,7 @@
                 "--keep-yearly 10"
             ];
             timerConfig = {
-                OnCalendar = "daily";
+                OnCalendar = "18:00";
                 Persistent = true;
             };
             passwordFile = config.sops.secrets."cloud/encryption_password".path;

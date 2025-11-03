@@ -59,9 +59,10 @@ in {
       openDefaultPorts = true; #TCP/UDP 22000 for transfer
       overrideDevices = false;
       overrideFolders = true;
-      package = pkgs-unstable.syncthing.overrideAttrs {
-        version = "1.27.9";
-      };
+      package = pkgs.syncthing;
+      # package = pkgs-unstable.syncthing.overrideAttrs {
+      #   version = "1.27.9";
+      # };
     };
   };
 }
