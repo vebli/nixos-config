@@ -219,11 +219,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_2"
       },
       "locked": {
-        "lastModified": 1759511254,
-        "narHash": "sha256-VG5tKyHMk3vv6toAfMHdNeAcFvezHlyv5hZ6vp/Cseo=",
+        "lastModified": 1762203814,
+        "narHash": "sha256-E6P2x7+ycGMrgOu0vyN6cwYtQyZ5slx1Lcfkiy7a6n4=",
         "owner": "vebli",
         "repo": "nvim-lazy",
-        "rev": "9a9dc15feb89c81b2acfd263140dacb2f9f88620",
+        "rev": "eae6d967ca3d2e52361dea468eff4eaaa3946c8f",
         "type": "github"
       },
       "original": {
@@ -273,11 +273,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_3"
       },
       "locked": {
-        "lastModified": 1759088522,
-        "narHash": "sha256-lO1KlQuDS+BwEX1+joPf4ir46zBMzIog68HmBsc86Z0=",
+        "lastModified": 1762719763,
+        "narHash": "sha256-LGytyqZKz8LCCOqfv7fen2wlOvsPPdQ8H3FFrBh+uIA=",
         "owner": "vebli",
         "repo": "tmux-nix",
-        "rev": "dc4d567e3eb847fd88478b5cc0e768e51beb35e4",
+        "rev": "1d35b0cd67d22fdbee0531c6ea43e199f5035866",
         "type": "github"
       },
       "original": {

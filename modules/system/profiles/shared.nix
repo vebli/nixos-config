@@ -39,7 +39,7 @@
         pkg-config
         gtk3
         appimage-run
-        htop
+        htop-vim
         
         # Default Apps/Tools 
         mpv

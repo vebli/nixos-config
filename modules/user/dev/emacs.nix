@@ -1,9 +1,9 @@
-{config, pkgs, inputs, ...}:
+{config, pkgs-unstable, inputs, ...}:
 {
-    home.packages = with pkgs; [
+    home.packages = with pkgs-unstable; [
         emacs
         texlivePackages.dvisvgm 
-        emacsPackages.elsa
+        emacs.pkgs.elsa
         asm-lsp
         cmake-language-server
         arduino-language-server
