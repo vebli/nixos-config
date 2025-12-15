@@ -72,15 +72,16 @@ in
             shellAliases = {
                 "cpwd" = "pwd | tr -d \"\n\" | xargs echo -n | xclip -selection clipboard";
                 "ls" = "exa --icons";
+                "mux" = "tmuxinator";
                 "gdb" = "gdb -q";
                 # "e" = "emacsclient -n";
                 "nvim-init" = "nvim --cmd 'set runtimepath+=.' -u";
                 "t" = "tmux attach -t default || tmux new -s default";
             };
-            initExtra = ''
+            initExtra = '' 
                 # eval "$(tmuxifier init -)"
-                export MANPAGER='nvim +Man!'
                 # eval "$(zoxide init --cmd cd zsh)" #ZOXIDE alias
+                export MANPAGER='nvim +Man!'
                 eval "$(direnv hook zsh)"
                 PS1="%F{${ps1_color}}%n@%m %~ %F{${ps1_color}}%f "
 
@@ -88,6 +89,10 @@ in
                   # Start tmux server if not already running, without attaching
                   #tmux start-server 2>/dev/null
                 #fi
+
+                # if [ -n "$PS1" ] && [ -z "$TMUX" ]; then
+                #     tmux new-session -A -s default
+                # fi
 
                 up() {
                     if [[ $# -ne 1 ]] || ! [[ $1 =~ ^[0-9]+$ ]]; then

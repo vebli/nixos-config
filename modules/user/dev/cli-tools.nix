@@ -11,6 +11,7 @@
     ripgrep
     usbutils
     direnv
+    nix-direnv
 
     clang-manpages
     man-pages
