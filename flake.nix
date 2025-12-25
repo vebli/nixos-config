@@ -19,6 +19,10 @@
       url = "github:vebli/awesome-config";
       flake = false;
     };
+    dmenu-custom = {
+      url = "github:vebli/dmenu-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     wallpapers = {
       url = "github:vebli/wallpapers";
       flake = false;
@@ -40,6 +44,7 @@
         overlays = with inputs; [
           nvim-custom.overlays.default 
           tmux-custom.overlays.default
+          dmenu-custom.overlays.default
           nix-matlab.overlay
         ];
       };

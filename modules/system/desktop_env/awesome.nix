@@ -17,4 +17,9 @@
             luadbi-mysql # Database abstraction layer
         ];
     };
+
+  environment.systemPackages = with pkgs; [
+      xorg.xhost
+      xorg.xorgserver
+  ];
 }

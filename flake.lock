@@ -16,6 +16,26 @@
         "type": "github"
       }
     },
+    "dmenu-custom": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1766240509,
+        "narHash": "sha256-ia7/bMjMnuzurY/vOV4GowHfO657QgV3eKc7p/dMdl4=",
+        "owner": "vebli",
+        "repo": "dmenu-nix",
+        "rev": "b3fdfff01743d4d375ba6d3fa0a7bc3b948005e9",
+        "type": "github"
+      },
+      "original": {
+        "owner": "vebli",
+        "repo": "dmenu-nix",
+        "type": "github"
+      }
+    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -235,6 +255,7 @@
     "root": {
       "inputs": {
         "awesome-config": "awesome-config",
+        "dmenu-custom": "dmenu-custom",
         "home-manager": "home-manager",
         "nix-matlab": "nix-matlab",
         "nixos-hardware": "nixos-hardware",

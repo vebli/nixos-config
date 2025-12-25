@@ -55,6 +55,12 @@
     variant = "";
   };
 
+  services.pcscd.enable = true;
+  programs.gnupg.agent = {
+      enable = true;
+      pinentryPackage = pkgs.pinentry-curses;
+  };
+
   i18n.defaultLocale = "en_US.UTF-8";
 
   # AI

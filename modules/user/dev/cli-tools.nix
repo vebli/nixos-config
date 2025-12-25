@@ -5,13 +5,22 @@
     wget
     sops
     killall
-    gnupg
     unzip
     tree
     ripgrep
     usbutils
     direnv
     nix-direnv
+
+    (dmenu-custom.override {
+        patches = {
+            CENTER_PATCH.enable = true;
+            FUZZYMATCH_PATCH.enable = true;
+            PASSWORD_PATCH.enable = true;
+            LINE_HEIGHT_PATCH.enable = true;
+            MULTI_SELECTION_PATCH.enable = true;
+        };
+    })
 
     clang-manpages
     man-pages
