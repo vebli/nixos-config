@@ -36,6 +36,9 @@
   };
   services.udev.packages = with pkgs; [platformio-core.udev stlink];
 
+  hardware.i2c.enable = true;
+  users.users.vebly.extraGroups = ["i2c"];
+  
   boot.kernel.sysctl = {
     "fs.inotify.max_user_watches" = 6000000;
   };
@@ -92,6 +95,7 @@
     [
       freecad
       cudaPackages.cudatoolkit
+      ddcutil
       (catppuccin-sddm.override {
         flavor = "mocha";
       })

@@ -10,11 +10,14 @@
         gnumake
         cmake 
         libtool
-        clang-tools_17
         nasm
 
         gef
         pwndbg
+
+        # Javascript
+        nodejs_22
+        biome
         
         #Embedded
         arduino-cli
@@ -24,9 +27,6 @@
         openocd
         stlink
 
-        # Javascript
-        nodejs_22
-        biome
 
         #DB
         sqlite
@@ -34,10 +34,10 @@
         python3
         virtualenv
 
-        # Haskell
-        ghc 
 
         # Other Languages
+        clojure
+        ghc 
         lua
         rustup
         zig
