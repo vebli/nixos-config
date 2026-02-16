@@ -37,6 +37,7 @@
 
         # Other Languages
         clojure
+        babashka
         ghc 
         lua
         rustup

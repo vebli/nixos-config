@@ -21,28 +21,25 @@ in
         ++ lib.optional cfg.sway.enable ../../modules/user/wm/sway;
 
         home.packages = with pkgs; [
-
-
-        ] ++ (with pkgs-unstable;[
-            postman
+            kicad
             ngspice
             xournalpp
-            signal-desktop
-            discord
-            arandr
             dbeaver-bin
             ghidra
+            discord
+            digital
+            postman
+            arandr
             octaveFull
             sage
-            digital
+
+        ] ++ (with pkgs-unstable;[
             obsidian
-            ani-cli
             tor-browser
             mangal
             freetube
             ytmdl
             ytdownloader
-            kicad
             qucs-s
           ]);
 

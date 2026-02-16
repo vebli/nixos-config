@@ -10,8 +10,11 @@
         '';
         settings.experimental-features = ["nix-command" "flakes" "pipe-operators"]; 
     };
-        
 
+    programs.nix-ld = {
+        enable = true;
+        # libraries = with pkgs
+    };
     
     time.timeZone = "Europe/Zurich";
     fonts.packages = with pkgs;[

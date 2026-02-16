@@ -1,8 +1,8 @@
-{pkgs, ...}:
+{pkgs, pkgs-unstable,...}:
 {
     programs.librewolf ={
         enable = true;
-        package = pkgs.librewolf;
+        package = pkgs-unstable.librewolf;
         languagePacks = ["de" "en-GB"];
         settings = {
             "privacy.clearOnShutdown.history" = false;

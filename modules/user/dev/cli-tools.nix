@@ -8,6 +8,7 @@
     unzip
     tree
     ripgrep
+    patchelf
     usbutils
     direnv
     nix-direnv
