@@ -27,7 +27,7 @@ in {
 
       sops.secrets = let 
         devices = ["desktop" "thinkpad" "server" "tablet"];
-        folders = [ "SecondBrain" "FreeTube" "Studies" "Music" "Books"];
+        folders = [ "SecondBrain" "Org" "FreeTube" "Studies" "Music" "Books"];
         param = {owner = "vebly"; sopsFile = ../../secrets/vebly/syncthing.yaml;};
         decl_folder_secrets = builtins.listToAttrs (
                 builtins.concatLists (builtins.map (folder: [

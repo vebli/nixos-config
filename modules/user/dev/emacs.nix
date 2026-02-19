@@ -22,6 +22,7 @@
         vscode-extensions.vue.volar
         ols
 
+
         # Formatter
         alejandra
         cljfmt
