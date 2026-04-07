@@ -32,6 +32,7 @@ in
             arandr
             octaveFull
             sage
+            masterpdfeditor
 
         ] ++ (with pkgs-unstable;[
             obsidian

@@ -55,7 +55,7 @@
             flask
             beautifulsoup4
           ]);
-        shellHook = '' ${mkPrompt "(python) 󱔎 " colors.light-gren } '';
+        shellHook = '' ${mkPrompt "(python) 󱔎 " colors.light-green } '';
       };
       "cpp" = pkgs.mkShell {
         packages = with pkgs; [

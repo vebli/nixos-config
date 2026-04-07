@@ -96,6 +96,8 @@
       freecad
       cudaPackages.cudatoolkit
       ddcutil
+      brave
+      gimp
       (catppuccin-sddm.override {
         flavor = "mocha";
       })
