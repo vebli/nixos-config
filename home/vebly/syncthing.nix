@@ -26,7 +26,7 @@ in {
   config = lib.mkIf cfg.enable {
 
       sops.secrets = let 
-        devices = ["desktop" "thinkpad" "server" "tablet"];
+        devices = ["desktop" "thinkpad" "server" "tablet" "ereader"];
         folders = [ "SecondBrain" "Org" "FreeTube" "Studies" "Music" "Books"];
         param = {owner = "vebly"; sopsFile = ../../secrets/vebly/syncthing.yaml;};
         decl_folder_secrets = builtins.listToAttrs (

@@ -21,6 +21,7 @@
     ../../modules/system/hardware/pipewire.nix
 
     ../../modules/system/network
+    ../../modules/system/profiles/virtualization.nix
   ];
 
   opt.vebly = {
@@ -31,7 +32,6 @@
       awesome.enable = true;
     };
   };
-
 
   # programs.nix-ld = {
   #   enable = true;
@@ -94,6 +94,7 @@
 
   environment.systemPackages =
     [
+      pkgs.vscode
       pkgs.awesome
       (pkgs.catppuccin-sddm.override {
         flavor = "mocha";

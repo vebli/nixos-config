@@ -3,11 +3,11 @@
     "awesome-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1767300740,
-        "narHash": "sha256-zqMscrJJ4qbXuIeSCd0G95yWrrSbNPoMdmguVQyEVYo=",
+        "lastModified": 1770375999,
+        "narHash": "sha256-VNdoQickbsPo50MildoufjSyV+7RJCtKdT4HjIjzb4Y=",
         "owner": "vebli",
         "repo": "awesome-config",
-        "rev": "29579f86bce08dd964148ec4e0bc1a56a323255f",
+        "rev": "3499cdf07259d1dc444caea3c5e90415d87de97e",
         "type": "github"
       },
       "original": {
@@ -310,11 +310,11 @@
     "wallpapers": {
       "flake": false,
       "locked": {
-        "lastModified": 1743161086,
-        "narHash": "sha256-Ju071K7ju4vTuBOd3ehlv1Ke416HiBSShlooHO876jE=",
+        "lastModified": 1771223967,
+        "narHash": "sha256-Gn0xEq3EcJ8BJfsT9aE3Qi9slAdpGq3xx6bliRfIN+0=",
         "owner": "vebli",
         "repo": "wallpapers",
-        "rev": "d862e3e813daaf2f288805f2d1ed1388a4efb46b",
+        "rev": "8b179113650974c9071b34247b65847179cbfd8c",
         "type": "github"
       },
       "original": {
