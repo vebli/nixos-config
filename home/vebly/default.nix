@@ -1,5 +1,12 @@
-{config, pkgs, pkgs-unstable, lib, var, inputs, ... }:
 {
+  config,
+  pkgs,
+  pkgs-unstable,
+  lib,
+  var,
+  inputs,
+  ...
+}: {
   imports = [
     ./desktopCfg.nix
     ./syncthing.nix
@@ -7,21 +14,24 @@
   ];
 
   sops = {
-      age.keyFile = "/home/vebly/.config/sops/age/keys.txt";
-      defaultSopsFormat= "yaml";
-      secrets = 
-      {
-        "vpn/param" = {
-            owner = "vebly";
-            sopsFile = ../../secrets/vebly/vpn.yaml;
-        };
-      };   
+    age.keyFile = "/home/vebly/.config/sops/age/keys.txt";
+    defaultSopsFormat = "yaml";
+    secrets = {
+      "vpn/param" = {
+        owner = "vebly";
+        sopsFile = ../../secrets/vebly/vpn.yaml;
+      };
+      "ssh/config" = {
+        owner = "vebly";
+        sopsFile = ../../secrets/vebly/ssh.yaml;
+      };
+    };
   };
 
   users.users.vebly = {
     isNormalUser = true;
     description = "vebly";
-    extraGroups = [ "networkmanager" "wheel" "dialout" "syncthing" "libvirt" "libvirtd"];
+    extraGroups = ["networkmanager" "wheel" "dialout" "syncthing" "libvirt" "libvirtd"];
     initialPassword = "123";
   };
 
@@ -35,7 +45,7 @@
       home.username = "vebly";
       home.homeDirectory = "/home/vebly";
 
-      home.stateVersion = "24.05"; 
+      home.stateVersion = "24.05";
 
       programs.git = {
         enable = true;
@@ -46,31 +56,28 @@
       programs.ssh = {
         enable = true;
         extraConfig = ''
-          Host github.com
-              IdentityFile ~/.ssh/id_github
-
-          Host expert.ethz.ch
-              IdentityFile ~/.ssh/id_eth_code_expert
-
-          Host gitlab.com 
-            IdentityFile ~/.ssh/id_gitlab
+            Include ${config.sops.secrets."ssh/config".path}
         '';
-          #
+        #
       };
       programs.taskwarrior = {
         enable = true;
         extraConfig = '''';
         package = pkgs.taskwarrior3;
       };
-      
-      home.packages = with pkgs;[ 
-      (pkgs.writeShellScriptBin "vpn" /*bash*/ ''
-       ${pkgs.openconnect.outPath + "/bin/openconnect"} $(cat ${config.sops.secrets."vpn/param".path})
-       '')
-        nvim-custom 
+
+      home.packages = with pkgs; [
+        (pkgs.writeShellScriptBin "vpn"
+          /*
+          bash
+          */
+          ''
+            ${pkgs.openconnect.outPath + "/bin/openconnect"} $(cat ${config.sops.secrets."vpn/param".path})
+          '')
+        nvim-custom
         tmux-custom
         tmuxinator
-        taskwarrior-tui  
+        taskwarrior-tui
         timewarrior
         ffmpeg
         vit
@@ -80,7 +87,6 @@
         EDITOR = "nvim";
       };
 
-      
       # Let Home Manager install and manage itself.
       programs.home-manager.enable = true;
     };

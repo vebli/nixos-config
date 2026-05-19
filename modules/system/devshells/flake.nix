@@ -34,13 +34,14 @@
       "python" = pkgs.mkShell {
         packages = with pkgs;
           [
-            python3Full
+            python313Full
           ]
-          ++ (with pkgs.python312Packages; [
+          ++ (with pkgs.python313Packages; [
             alembic
             # Math
             numpy
             scipy
+            sympy
             matplotlib
 
             # Data

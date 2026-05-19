@@ -45,6 +45,8 @@
     android-studio-tools
 
     nix-search-cli
+
+    gemini-cli
   ];
   programs = {
     eza.enable = true;
