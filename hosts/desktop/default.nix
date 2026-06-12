@@ -67,13 +67,13 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # AI
-  services.ollama = {
-    enable = true;
-    acceleration = "cuda";
-  };
-  services.open-webui = {
-    enable = true;
-  };
+  # services.ollama = {
+  #   enable = true;
+  #   acceleration = "cuda";
+  # };
+  # services.open-webui = {
+  #   enable = true;
+  # };
 
   #If it doesn't work: 'sudo rmmod wacom hid_uclogic'
   hardware.opentabletdriver = {

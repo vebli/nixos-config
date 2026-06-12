@@ -12,7 +12,7 @@
         cmake-language-server
         vscode-extensions.vue.volar
         tailwindcss-language-server
-        nodePackages_latest.typescript-language-server
+        typescript-language-server
         sqls
         python314Packages.sqlparse
         nixd
