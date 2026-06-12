@@ -93,6 +93,7 @@
 
   environment.systemPackages = with pkgs;
     [
+    drawio
       freecad
       cudaPackages.cudatoolkit
       ddcutil

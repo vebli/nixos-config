@@ -46,7 +46,7 @@
 
     nix-search-cli
 
-    gemini-cli
+    # gemini-cli
   ];
   programs = {
     eza.enable = true;
