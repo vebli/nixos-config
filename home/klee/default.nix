@@ -23,7 +23,7 @@
                 obsidian
 		ytdownloader
 		mpv
-		okular
+		kdePackages.okular
             ];
 
             home.sessionVariables = {

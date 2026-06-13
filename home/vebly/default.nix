@@ -49,8 +49,10 @@
 
       programs.git = {
         enable = true;
-        userName = "vebly";
-        userEmail = "";
+        settings = {
+            user.name = "vebly";
+            user.email = "";
+        };
       };
 
       programs.ssh = {
@@ -58,29 +60,17 @@
         extraConfig = ''
             Include ${config.sops.secrets."ssh/config".path}
         '';
-        #
-      };
-      programs.taskwarrior = {
-        enable = true;
-        extraConfig = '''';
-        package = pkgs.taskwarrior3;
       };
 
       home.packages = with pkgs; [
         (pkgs.writeShellScriptBin "vpn"
-          /*
-          bash
-          */
+          /* bash */
           ''
             ${pkgs.openconnect.outPath + "/bin/openconnect"} $(cat ${config.sops.secrets."vpn/param".path})
           '')
         nvim-custom
         tmux-custom
         tmuxinator
-        taskwarrior-tui
-        timewarrior
-        ffmpeg
-        vit
       ];
 
       home.sessionVariables = {

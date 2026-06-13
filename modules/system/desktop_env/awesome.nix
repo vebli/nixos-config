@@ -19,7 +19,7 @@
     };
 
   environment.systemPackages = with pkgs; [
-      xorg.xhost
-      xorg.xorgserver
+      xhost
+      xorg-server
   ];
 }

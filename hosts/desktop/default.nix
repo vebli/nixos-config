@@ -12,6 +12,7 @@
 
     # ../../modules/system/desktop_env/plasma.nix
     # ../../modules/system/desktop_env/sway.nix
+
     ../../modules/system/desktop_env/awesome.nix
 
     ../../modules/system/profiles/shared.nix
@@ -30,6 +31,7 @@
       syncthing.enable = true;
       desktopCfg = {
           enable = true;
+          # enable = false;
           sway.enable = false;
           awesome.enable = true;
       };
@@ -67,15 +69,14 @@
   i18n.defaultLocale = "en_US.UTF-8";
 
   # AI
-  # services.ollama = {
-  #   enable = true;
-  #   acceleration = "cuda";
-  # };
-  # services.open-webui = {
-  #   enable = true;
-  # };
+  services.ollama = {
+    enable = true;
+  };
+  services.open-webui = {
+    enable = true;
+  };
 
-  #If it doesn't work: 'sudo rmmod wacom hid_uclogic'
+  # If it doesn't work: 'sudo rmmod wacom hid_uclogic'
   hardware.opentabletdriver = {
     enable = true;
     package = pkgs-unstable.opentabletdriver;
@@ -93,10 +94,7 @@
 
   environment.systemPackages = with pkgs;
     [
-    drawio
       freecad
-      cudaPackages.cudatoolkit
-      ddcutil
       brave
       gimp
       (catppuccin-sddm.override {

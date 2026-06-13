@@ -78,7 +78,7 @@ in
                 "nvim-init" = "nvim --cmd 'set runtimepath+=.' -u";
                 "t" = "tmux attach -t default || tmux new -s default";
             };
-            initExtra = '' 
+            initContent = '' 
                 # eval "$(tmuxifier init -)"
                 # eval "$(zoxide init --cmd cd zsh)" #ZOXIDE alias
                 export MANPAGER='nvim +Man!'

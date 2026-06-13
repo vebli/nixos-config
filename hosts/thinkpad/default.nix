@@ -50,17 +50,6 @@
       CPU_MAX_PERF_ON_BAT = 100;
     };
   };
-  # programs.nix-ld = {
-  #   enable = true;
-  #   libraries= with pkgs; [
-  #     glib
-  #     gtk3
-  #     zlib
-  #     xorg.libX11
-  #     xorg.libXrender
-  #     libusb1
-  #   ];
-  # };
 
   services.displayManager = {
     sddm = {

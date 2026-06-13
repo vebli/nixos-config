@@ -22,7 +22,7 @@
 
     environment.systemPackages = with pkgs; [
         lutris # Game launcher
-        protonup #For better performance
+        protonup-ng #For better performance
         mangohud #To monitor FPS, TEMP, etc. add 'mangohud %command%' to launch options
     ];
     programs.gamemode.enable = true; # Add 'gamemoderun %command%' to launch options for better performance

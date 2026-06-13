@@ -17,15 +17,19 @@
     };
     
     time.timeZone = "Europe/Zurich";
+
     fonts.packages = with pkgs;[
         font-awesome
         siji
-        nerdfonts
         jetbrains-mono
         iosevka
         icomoon-feather
         cantarell-fonts
         inter
+
+        nerd-fonts.fira-code
+        nerd-fonts.iosevka
+
     ];
 
     environment.systemPackages =  [
@@ -46,7 +50,7 @@
         
         # Default Apps/Tools 
         mpv
-        okular
+        kdePackages.okular
         zathura
         libreoffice
     ]);
@@ -64,7 +68,7 @@
     man.enable = true;
     dev.enable = true;
     doc.enable = true;
-    man.generateCaches = true;
+    man.cache.enable = true;
   };
 
 }

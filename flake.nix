@@ -2,41 +2,29 @@
   description = "Nix Configuration";
 
   inputs = {
-    nixpkgs.url = "nixpkgs/nixos-24.11";
+    nixpkgs.url = "nixpkgs/nixos-26.05";
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable";
-    home-manager.url = "github:nix-community/home-manager/release-24.11";
+    home-manager.url = "github:nix-community/home-manager/release-26.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     sops-nix.url = "github:Mic92/sops-nix";
-    nvim-custom = { 
-      url = "github:vebli/nvim-lazy"; 
-    };
-    tmux-custom = {
-      url = "github:vebli/tmux-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    awesome-config = {
-      url = "github:vebli/awesome-config";
-      flake = false;
-    };
-    dmenu-custom = {
-      url = "github:vebli/dmenu-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nvim-custom.url = "github:vebli/nvim-lazy"; 
+    dmenu-custom.url = "github:vebli/dmenu-nix";
+    tmux-custom.url = "github:vebli/tmux-nix";
     wallpapers = {
       url = "github:vebli/wallpapers";
       flake = false;
     };
-    nix-matlab = {
-      inputs.nixpkgs.follows = "nixpkgs";
-      url = "gitlab:doronbehar/nix-matlab";
+    nix-matlab.url = "gitlab:doronbehar/nix-matlab";
+    awesome-config = {
+      url = "github:vebli/awesome-config";
+      flake = false;
     };
   };
 
   outputs = inputs @ {self, nixpkgs, nixpkgs-unstable, nixos-hardware,  ...}: 
     let
-      mkPkgs = pkgs: system: import pkgs{
-        inherit system;
+      nixpkgsConfig = {
         config = {
           allowUnfree = true; 
           permittedInsecurePackages = [ ];
@@ -49,22 +37,26 @@
         ];
       };
       var = {
-        system = "x86_64-linux";
         path.root = "/etc/nixos/";
         path.wallpapers= "~/Pictures/Wallpapers/";
       };
 
       lib = nixpkgs.lib;
-      system = var.system;
-      pkgs = mkPkgs nixpkgs system;
-      pkgs-unstable = mkPkgs nixpkgs-unstable system;
-      fn = import ./modules/flake/utils {inherit pkgs lib;};
-      specialArgs = {inherit pkgs pkgs-unstable var fn inputs;};
+      system = "x86_64-linux";
+      pkgs-unstable = import nixpkgs-unstable (nixpkgsConfig // {inherit system;});
+      specialArgs = {inherit pkgs-unstable var inputs;};
       sharedModules = [
-        inputs.home-manager.nixosModules.home-manager
-        {
+          ({...}: {
+           nixpkgs.config = nixpkgsConfig.config;
+           nixpkgs.overlays = nixpkgsConfig.overlays;
+           })
+
+        ./modules/flake/utils
+
+        inputs.home-manager.nixosModules.home-manager {
           home-manager = {
             useUserPackages = true;
+            useGlobalPkgs = true;
             extraSpecialArgs = specialArgs;
           };
         }
@@ -72,27 +64,27 @@
     in {
       nixosConfigurations = {
         thinkpad = lib.nixosSystem {
-          inherit system;
+          system = "x86_64-linux";
           modules = sharedModules ++ [./hosts/thinkpad];
           inherit specialArgs;
         };
         hp = lib.nixosSystem {
-          inherit system;
+          system = "x86_64-linux";
           modules = sharedModules ++ [./hosts/hp];
           inherit specialArgs;
         };
         desktop = lib.nixosSystem { 
-          inherit system;
+          system = "x86_64-linux";
           modules = sharedModules ++ [./hosts/desktop];
           inherit specialArgs;
         };
         wsl = lib.nixosSystem {
-          inherit system;
+          system = "x86_64-linux";
           modules = sharedModules ++ [./hosts/wsl];
           inherit specialArgs;
         };
         server = lib.nixosSystem { 
-          inherit system;
+          system = "x86_64-linux";
           modules = sharedModules ++ [./hosts/server];
           inherit specialArgs;
         };

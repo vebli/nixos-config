@@ -13,7 +13,7 @@
         nasm
 
         gef
-        pwndbg
+        # pwndbg
 
         # Javascript
         nodejs_22
