@@ -10,7 +10,6 @@
         enable = true;
         theme.name = "Adwaita-dark"; 
         theme.package = pkgs.gnome-themes-extra;
-
     };
     home.file."awesome" = {
         source = inputs.awesome-config.outPath;
@@ -18,8 +17,19 @@
         recursive = true;
     };
     home.packages = with pkgs; [
-        nemo-with-extensions
+        (thunar.override{thunarPlugins = [
+            thunar-archive-plugin
+            thunar-media-tags-plugin
+            thunar-volman
+            thunar-shares-plugin
+        ];})
+        xarchiver # Winrar type program
+        gdk-pixbuf # Something related to thumbnail generation
+        ffmpegthumbnailer # video thumbnail generation
+        poppler # pdf preview
+
         dconf # Required when enabling gtk
+        shutter
         networkmanagerapplet
         pavucontrol
         nitrogen

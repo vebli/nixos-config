@@ -37,7 +37,6 @@ in
         ] ++ (with pkgs-unstable;[
             obsidian
             tor-browser
-            mangal
             freetube
             ytmdl
             ytdownloader
@@ -55,7 +54,7 @@ in
           xdg.mimeApps = {
             enable = true;
             defaultApplications = {
-              "application/pdf" = "okularApplication_pdf.desktop";
+              "application/pdf" = "org.pwmt.zathura.desktop";
             };
           };
       };

@@ -3,11 +3,11 @@
     "awesome-config": {
       "flake": false,
       "locked": {
-        "lastModified": 1770375999,
-        "narHash": "sha256-VNdoQickbsPo50MildoufjSyV+7RJCtKdT4HjIjzb4Y=",
+        "lastModified": 1781694217,
+        "narHash": "sha256-NJbnYH5tzYxDOLWhCLn7fMYQraMv9B1jfjCjgvT2JYM=",
         "owner": "vebli",
         "repo": "awesome-config",
-        "rev": "3499cdf07259d1dc444caea3c5e90415d87de97e",
+        "rev": "2e3b9b1bdb91bfb16439b0a91c39489b5762607d",
         "type": "github"
       },
       "original": {
@@ -279,11 +279,11 @@
         "nixpkgs-unstable": "nixpkgs-unstable_2"
       },
       "locked": {
-        "lastModified": 1781344183,
-        "narHash": "sha256-7Xcbg593qJzaLlS9y65XSwiFqUjERXdwp0a0VqfGmAU=",
+        "lastModified": 1781348520,
+        "narHash": "sha256-SLvZCd79J/FpkcpwxcSR2n2BWzjLx8m66OxnUf2vtVA=",
         "owner": "vebli",
         "repo": "nvim-lazy",
-        "rev": "1707b6dc4d50a2a5c14abfd98fbc7dd5cc85e1eb",
+        "rev": "b497ce51f5c235dee406aad5885d088cf0bb098d",
         "type": "github"
       },
       "original": {

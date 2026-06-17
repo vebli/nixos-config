@@ -26,6 +26,7 @@
         icomoon-feather
         cantarell-fonts
         inter
+        terminus_font
 
         nerd-fonts.fira-code
         nerd-fonts.iosevka

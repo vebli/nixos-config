@@ -5,8 +5,4 @@
         extraPortals = [pkgs.xdg-desktop-portal-gtk];
         enable = true;
     };
-    environment.systemPackages  = with pkgs; [
-        shutter
-        nemo-with-extensions
-    ];
 }

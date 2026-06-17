@@ -51,14 +51,16 @@
     };
   };
 
-  services.displayManager = {
-    sddm = {
-      enable = true;
-      theme = "catppuccin-mocha";
-      package = pkgs.kdePackages.sddm;
-    };
-    defaultSession = "none+awesome";
-  };
+  # services.displayManager = {
+  #   sddm = {
+  #     enable = true;
+  #     theme = "catppuccin-mocha";
+  #     package = pkgs.kdePackages.sddm;
+  #   };
+  #   defaultSession = "none+awesome";
+  # };
+
+  services.xserver.displayManager.lightdm.enable = true;
 
   services.xserver.xkb = {
     layout = "us";
