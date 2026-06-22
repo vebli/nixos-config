@@ -1,4 +1,4 @@
-{config, pkgs, pkgs-unstable, inputs, ...}:
+{config, pkgs, pkgs-unstable, lib, var, inputs, ...}:
 {
     imports = [ ./rofi ];  
     xsession.windowManager.awesome = {
@@ -6,16 +6,34 @@
         package = pkgs.awesome;
         luaModules = with pkgs.lua54Packages; [vicious lgi];
     };
+
     gtk = {
         enable = true;
         theme.name = "Adwaita-dark"; 
         theme.package = pkgs.gnome-themes-extra;
     };
+
     home.file."awesome" = {
         source = inputs.awesome-config.outPath;
         target = ".config/awesome";
         recursive = true;
     };
+
+    home.file={
+        "wallpapers" = {
+            source = inputs.wallpapers.outPath;
+            target = lib.strings.removePrefix "~/" var.path.wallpapers; 
+            recursive = true;
+        };
+    };
+
+    xdg.mimeApps = {
+        enable = true;
+        defaultApplications = {
+            "application/pdf" = "org.pwmt.zathura.desktop";
+        };
+    };
+
     home.packages = with pkgs; [
         (thunar.override{thunarPlugins = [
             thunar-archive-plugin
@@ -37,6 +55,7 @@
         picom
         xclip
         brightnessctl
+        arandr
     ];
 
 }

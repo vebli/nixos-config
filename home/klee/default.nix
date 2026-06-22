@@ -9,8 +9,7 @@
     {
         users.klee = {
             imports = [
-                ../../modules/user/sh/zsh/zsh.nix
-                ../../modules/user/apps/librewolf.nix
+                ../vebly/zsh.nix
             ];
             home.username = "klee";
             home.homeDirectory = "/home/klee";
@@ -19,17 +18,20 @@
             home.stateVersion = "24.05"; 
 
             home.packages = with pkgs; [
-                freetube
                 obsidian
-		ytdownloader
-		mpv
-		kdePackages.okular
+                ytdownloader
+                mpv
+                kdePackages.okular
             ];
+
+            programs.librewolf = {
+                enable = true;
+                languagePacks = ["en-GB" "de"];
+            };
 
             home.sessionVariables = {
                 EDITOR = "nvim";
             };
-# Let Home Manager install and manage itself.
             programs.home-manager.enable = true;
         };
     };

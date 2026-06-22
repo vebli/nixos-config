@@ -31,7 +31,6 @@
       syncthing.enable = true;
       desktopCfg = {
           enable = true;
-          # enable = false;
           sway.enable = false;
           awesome.enable = true;
       };
@@ -44,16 +43,22 @@
   boot.kernel.sysctl = {
     "fs.inotify.max_user_watches" = 6000000;
   };
+
   services.desktopManager.plasma6.enable = true;
-  services.displayManager = {
-    sddm = {
+
+  services.xserver.displayManager.lightdm = {
       enable = true;
-      wayland.enable = true;
-      # theme = "catppuccin-mocha";
-    };
-    # defaultSession = "sway";
-    defaultSession = "none+awesome";
+      greeters.gtk.enable = true;
   };
+  services.displayManager.defaultSession = "none+awesome";
+  # services.displayManager = {
+    # sddm = {
+    #   enable = true;
+    #   wayland.enable = true;
+    # };
+    # # defaultSession = "sway";
+    # defaultSession = "none+awesome";
+  # };
 
   services.xserver.xkb = {
     layout = "us";
@@ -94,14 +99,13 @@
 
   environment.systemPackages = with pkgs;
     [
-      freecad
       brave
       gimp
-      (catppuccin-sddm.override {
-        flavor = "mocha";
-      })
+      freecad
+      davinci-resolve
     ]
     ++ (with pkgs-unstable; [
+            losslesscut
       ]);
 
   system.stateVersion = "24.05";

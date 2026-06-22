@@ -8,7 +8,7 @@
   ...
 }: {
   imports = [
-    ./desktopCfg.nix
+    ./desktopCfg
     ./syncthing.nix
     inputs.sops-nix.nixosModules.sops
   ];
@@ -38,8 +38,8 @@
   home-manager = {
     users.vebly = {
       imports = [
-        ../../modules/user/sh/zsh/zsh.nix
-        ../../modules/user/dev
+          ./zsh.nix
+          ./dev_tools.nix
       ];
 
       home.username = "vebly";
@@ -63,14 +63,32 @@
       };
 
       home.packages = with pkgs; [
+        git
+        sops
+        wget
+        ripgrep
+        killall
+        unzip
+        nix-search-cli
+        nvim-custom
+        tmux-custom
+        tmuxinator
+
+        (dmenu-custom.override {
+            patches = {
+                CENTER_PATCH.enable = true;
+                FUZZYMATCH_PATCH.enable = true;
+                PASSWORD_PATCH.enable = true;
+                LINE_HEIGHT_PATCH.enable = true;
+                MULTI_SELECTION_PATCH.enable = true;
+            };
+        })
+
         (pkgs.writeShellScriptBin "vpn"
           /* bash */
           ''
             ${pkgs.openconnect.outPath + "/bin/openconnect"} $(cat ${config.sops.secrets."vpn/param".path})
           '')
-        nvim-custom
-        tmux-custom
-        tmuxinator
       ];
 
       home.sessionVariables = {
