@@ -28,8 +28,8 @@
     syncthing.enable = true;
     desktopCfg = {
       enable = true;
-      sway.enable = false;
-      awesome.enable = true;
+      wm.awesome.enable = true;
+      emacs.enable = true;
     };
   };
 

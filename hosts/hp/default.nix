@@ -47,6 +47,10 @@
         atlauncher
         vim
         wl-clipboard
+        mpv
+        kdePackages.okular
+        zathura
+        libreoffice
     ] ++ (with pkgs-unstable; []);
 
     system.stateVersion = "24.05"; 

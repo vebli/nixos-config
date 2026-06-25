@@ -32,7 +32,7 @@
       desktopCfg = {
           enable = true;
           sway.enable = false;
-          awesome.enable = true;
+          wm.awesome.enable = true;
       };
   };
   services.udev.packages = with pkgs; [platformio-core.udev stlink];
