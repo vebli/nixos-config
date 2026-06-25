@@ -34,7 +34,7 @@
 
     services.kmscon = {
       enable = true;
-      fonts = [{name = "FiraCode Nerd Font"; package = pkgs.nerdfonts;}];
+      fonts = [{name = "FiraCode Nerd Font"; package = pkgs.nerd-fonts.fira-code;}];
     };
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -48,10 +48,6 @@
       8384 #Syncthing gui
       631 # CUPS gui
     ]; 
-  };
-
-  fileSystems = {
-    "/mnt/sdb".device = "/dev/sdb1";
   };
 
   programs.gnupg.agent = {

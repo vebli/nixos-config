@@ -30,7 +30,6 @@
 
         nerd-fonts.fira-code
         nerd-fonts.iosevka
-
     ];
 
     environment.systemPackages =  [
@@ -45,11 +44,11 @@
         wget
         kitty
         pkg-config
-        gtk3
         appimage-run
         htop-vim
         
         # Default Apps/Tools 
+        gtk3
         mpv
         kdePackages.okular
         zathura

@@ -5,7 +5,7 @@ in
 {
     services.paperless = {
         enable = true;
-        mediaDir = "/mnt/sdb/private/vebly/documents";
+        dataDir = "/mnt/sdb/services/paperless";
         address = "0.0.0.0";
         port =  WEB_PORT; 
     };
