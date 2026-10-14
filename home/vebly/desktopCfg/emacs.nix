@@ -14,11 +14,11 @@
         tailwindcss-language-server
         typescript-language-server
         sqls
-        python314Packages.sqlparse
+        # python314Packages.sqlparse
         nixd
         vscode-extensions.rust-lang.rust-analyzer
         lua-language-server
-        python312Packages.python-lsp-server
+        # python312Packages.python-lsp-server
         vscode-extensions.vue.volar
         ols
 

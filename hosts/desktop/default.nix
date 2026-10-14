@@ -112,6 +112,7 @@
       gimp
       freecad
       davinci-resolve
+      gnuradio
     ]
     ++ (with pkgs-unstable; [
             losslesscut

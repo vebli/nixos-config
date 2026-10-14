@@ -79,7 +79,7 @@
     modesetting.enable = true; # Most wayland compositors need this
     prime = {
       offload = {
-        # Only uses GPU when it thinks is needed to safe battery. Use sync.enable to always use GPU
+        # Use sync.enable to always use GPU
         enable = true;
         enableOffloadCmd = true;
       };
@@ -102,6 +102,7 @@
 
   environment.systemPackages =
     [
+    pkgs.kdePackages.okular
       pkgs.vscode
       pkgs.awesome
       (pkgs.catppuccin-sddm.override {
@@ -115,6 +116,9 @@
 
   programs.fuse.userAllowOther = true;
   networking.firewall.allowedTCPPorts = [8000];
+  networking.hosts = {
+      "192.168.1.176" = ["server" "immich.local" "paperless.local"];
+  };
 
   system.stateVersion = "24.05";
 }

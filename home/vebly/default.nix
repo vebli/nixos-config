@@ -74,6 +74,9 @@
         tmux-custom
         tmuxinator
 
+        texlab
+        texliveFull
+
         (dmenu-custom.override {
             patches = {
                 CENTER_PATCH.enable = true;

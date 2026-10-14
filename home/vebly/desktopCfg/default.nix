@@ -28,8 +28,9 @@ in
             ngspice
             qucs-s
             digital
-            octaveFull
+            gnuradio
 
+            octaveFull
             sage
                 
             dbeaver-bin
@@ -42,6 +43,7 @@ in
             gimp
 
             masterpdfeditor
+            vlc
             libreoffice
             discord
 
@@ -70,22 +72,22 @@ in
         programs.librewolf = {
             enable = true;
             languagePacks = ["en-GB" "de"];
-            profiles.vebly = {
-                isDefault = true;
-                handlers = {
-                    force = true;
-                    mimeTypes = {
-                        "application/pdf" = {
-                            action = 3;
-                            ask = false;
-                        };
-                    };
-                };
-                search = {
-                    force = true;
-                    default = "ddg";
-                };
-            };
+            # profiles.vebly = {
+            #     isDefault = true;
+            #     handlers = {
+            #         force = true;
+            #         mimeTypes = {
+            #             "application/pdf" = {
+            #                 action = 3;
+            #                 ask = false;
+            #             };
+            #         };
+            #     };
+            #     search = {
+            #         force = true;
+            #         default = "ddg";
+            #     };
+            # };
         };
 
         home.file.".config/matlab/nix.sh".text = "INSTALL_DIR=$HOME/Imperative/Matlab/installation";
