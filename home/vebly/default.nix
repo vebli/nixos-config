@@ -67,6 +67,7 @@
         sops
         wget
         ripgrep
+        fastfetch
         killall
         unzip
         nix-search-cli

@@ -101,17 +101,18 @@
   services.udev.packages = with pkgs; [platformio-core.udev stlink];
 
   environment.systemPackages =
-    [
-    pkgs.kdePackages.okular
-      pkgs.vscode
-      pkgs.awesome
+    with pkgs ; [
+      kdePackages.okular
+      vscode
+      awesome
+      acpi
       (pkgs.catppuccin-sddm.override {
         flavor = "mocha";
       })
     ]
     ++ (with pkgs-unstable; [
-      copyq
-      matlab #https://gitlab.com/doronbehar/nix-matlab
+      # copyq
+      # matlab #https://gitlab.com/doronbehar/nix-matlab
     ]);
 
   programs.fuse.userAllowOther = true;

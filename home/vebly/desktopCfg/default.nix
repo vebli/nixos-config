@@ -15,6 +15,7 @@ in
       users.vebly = {
         imports = [
             ./kitty.nix
+            ./librewolf.nix
         ]
         ++ lib.optional cfg.wm.awesome.enable ./awesome.nix
         ++ lib.optional cfg.wm.sway.enable ./sway
@@ -69,26 +70,6 @@ in
             ytdownloader
           ]);
 
-        programs.librewolf = {
-            enable = true;
-            languagePacks = ["en-GB" "de"];
-            # profiles.vebly = {
-            #     isDefault = true;
-            #     handlers = {
-            #         force = true;
-            #         mimeTypes = {
-            #             "application/pdf" = {
-            #                 action = 3;
-            #                 ask = false;
-            #             };
-            #         };
-            #     };
-            #     search = {
-            #         force = true;
-            #         default = "ddg";
-            #     };
-            # };
-        };
 
         home.file.".config/matlab/nix.sh".text = "INSTALL_DIR=$HOME/Imperative/Matlab/installation";
 
